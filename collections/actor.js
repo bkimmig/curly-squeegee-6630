@@ -1,0 +1,1 @@
+Actors = new Meteor.Collection('actors'); 

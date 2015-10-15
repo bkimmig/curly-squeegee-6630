@@ -1,0 +1,26 @@
+<template name="searchApiFilms">
+    
+    <div class='container-fluid'>
+        <h4> 
+            Welcome to the Curly Squeege actor serach! 
+        </h4>
+
+        Type in the name of the actor you would like to VISUALLY learn more about.
+    </div>
+
+    <div class='container-fluid'>
+        <form accept-charset="UTF-8" class="form actor-form" method="post">
+            <input type="text" id="actor-name" placeholder="Actor name">
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div class='container-fluid'>
+        {{#if actorSearched }}
+            The actor you chose is {{ actor }}.
+
+            {{ actorData }}
+        {{/if }}
+    </div>
+
+</template>
