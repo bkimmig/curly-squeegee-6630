@@ -1,90 +1,129 @@
 \documentclass[12pt]{article}
 
 \usepackage{lmodern}
-\usepackage{hyperref}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor = blue]{hyperref}
+
 \begin{document}
 
 \section{Basic Info}
 \begin{description}
- \item [Project Title]  Curly Squeegee goes to Holywood 
- \item [Names]  Brian Kimmig, Jimmy Moore
- \item[e-mail] brian.kimmig@utah.edu, jimmy@cs.utah.edu
- \item [uID] u0560080, u1012009
- \item [Project Repository] \url{www.google.com}
+    \item [Project Title]  Curly Squeegee goes to Hollywood 
+    \item [Names]  Brian Kimmig, Jimmy Moore
+    \item[e-mail] brian.kimmig@utah.edu, jimmy@cs.utah.edu
+    \item [uID] u0560080, u1012009
+    \item [Project Github] \href{https://github.com/bkimmig/curly-squeegee-6630}{curly-squeegee-6630}
 \end{description}
 
 
 \section{Background \& Motivation}
 \textit{Discuss your motivations and reasons for choosing this project, especially any background or research interests that may have influenced your decision.}
 
+Both of us watch a fair amount of movies and find ourselves looking at sites like \href{www.imdb.com}{IMDB} and wanting to see the scope of an actors career through more than text, and with one parameter at a time.
+
+We are choosing to look at actors careers through visualization because movies and their casts are relate-able to large groups of people with minimal explanation. This semi-dynamic dataset has a large appeal because users have the freedom to learn about the actor of their choice and movies through visualization. 
+
+For our project, we want to visually represent the career arc of actors as measured by number of movies, ratings, earnings, spouses as gathered from \href{www.imdb.com}{IMDB} and other sites (mentioned below). 
+
+We want to see the textual data with high dimensionality in an easy to digest manner.  
+
+
 \section{Project Objectives}
 Provide the primary questions you are trying to answer with your visualization. 
 \begin{itemize}
-\item  What would you like to learn and accomplish?
-\item  List benefits of your project
+
+    \item  {\it What would you like to learn and accomplish?}
+    We want to look for trends in actors careers over time with respect to rating, number of movies a year, estimated,salary. Also who they have worked with and how that has affected their careers.
+
+    \item  {\it List benefits of your project}
+    A single place that aggregates data about actors careers from multiple sites and allows a user to visualize it in multiple ways. We don't know if anything will pop out but it invites people to look and ask questions about our favorite celebrities.  
 
 \end{itemize}
 
 \section{Data}
 \begin{enumerate}
-\item Where did you get the data?
-\item how did you get the data
-\item links to data-sources:
-\begin{itemize}
-\item \href{www.omdbapi.com}{OMdb}
-\item \href{http://developer.rottentomatoes.com/}{Rotten Tomatoes API}
-\item \href{https://www.themoviedb.org/documentation/api}{The Movie Database}
-\end{itemize}
+    \item Where did you get the data?
+        We will be pulling data from a few APIs on the Internet. 
+        \begin{itemize}
+            \item \href{http://www.myapifilms.com/}{My API Films}
+            \item \href{www.omdbapi.com}{OMdb}
+        \end{itemize}
+    
+    \item how did you get the data?
+        Our data will be dynamic, so based on the actor the person wants to learn about we will query an API to gather the info. 
+    
+    \item links to data-sources:
+    \begin{itemize}
+        \item \href{http://www.myapifilms.com/}{My API Films}
+        \item \href{www.omdbapi.com}{OMdb}
+    \end{itemize}
 \end{enumerate}
 
 \section{Data Processing}
 \begin{description}
-\item [Formatting] Do you expect to do substantial data cleanup? 
-\item [Dimensions] What quantities do you plan to derive from your data?
-\item [Method] How will data processing be implemented?
+    
+    \item [Formatting] Do you expect to do substantial data cleanup?
+        
+        Not too much cleanup as the data comes in json format form the API. We will need to cull and aggregate the data to make it easier to pass pass to our views. 
+
+    \item [Dimensions] What quantities do you plan to derive from your data?
+
+        We will want to derive means, medians, standard deviations of the quantitative data.
+
+    \item [Method] How will data processing be implemented?
+
+        Using built in math functions and basic statistical analysis and aggregate counts of parameters in JS. 
+
 \end{description}
   
   
-  \section{Visualization Design}
-  \begin{description}
-  \item [Presentation]  How will you display your data? Provide some general ideas that you have for the visualization design. Develop three alternative prototype designs for your visualization. Create one final design that incorporates the best of your three designs. Describe your designs and justify your choices of visual encodings. We recommend you use the Five Design Sheet Methodology.
-  \end{description}
+\section{Visualization Design}
+\begin{description}
+\item [Presentation]  How will you display your data? Provide some general ideas that you have for the visualization design. Develop three alternative prototype designs for your visualization. Create one final design that incorporates the best of your three designs. Describe your designs and justify your choices of visual encodings. We recommend you use the Five Design Sheet Methodology.
+\end{description}
   
 \section{Must-Have Features}
 
- List the features without which you would consider your project to be a failure.
+List the features without which you would consider your project to be a failure.
+
+\begin{enumerate}
  
- \begin{enumerate}
- \item one
- \item two
- \item three
- \end{enumerate}
+ \item Time line of actor represented by bar charts of earnings, ratings, number of movies per year. 
  
- \section{Optional Features}
- List the features which you consider to be nice to have, but not critical.
-  \begin{enumerate}
- \item one
- \item two
- \item three
- \end{enumerate}
+ \item Force graph of genre, where size of nodes depends on the number of movies the actor has been in with that genre. 
  
- \section{Project Schedule}
-plan your work so that you can avoid a big rush right before the final project deadline, and delegate different modules and responsibilities among your team members. Write this in terms of weekly deadlines.
+ \item Drill down of specific movie features; critical and public reception. 
+
+\end{enumerate}
+
+\section{Optional Features}
+List the features which you consider to be nice to have, but not critical.
+\begin{enumerate}
+ 
+ \item Parallel axes plot of ratings and supporting cast and earnings and director. 
+
+ \item Visualizations of the actors career past acting, with things like directing, producing and soundtrack. 
+
+\end{enumerate}
+ 
+\section{Project Schedule}
+Plan your work so that you can avoid a big rush right before the final project deadline, and delegate different modules and responsibilities among your team members. Write this in terms of weekly deadlines.
 \begin{center}
-\begin{tabular}{l l}
-\hline
-\textbf{Week} & \textbf{Goals and Milestones}\\
-\hline
-October 11 - 17				&	 Build our movie database\\
-October 18 - 24				&	\\
-October 25 - 31				&	\\
-November 1 - 7				&	\\
-November 8 - 14 			&	\\
-November 15 - 21			&	\\
-November 22 - 28			&	\\
-November 29 - December 5	&	\\
-December 6 - 11 			&   \\
-\end{tabular}
+    \begin{tabular}{l l}
+        \hline
+        \textbf{Week} & \textbf{Goals and Milestones}\\
+        \hline
+        October 11 - 17				& Brain storm page layout data views \\
+        October 18 - 24				& Set up web framework \\
+        October 25 - 31				& Set up API calls/ error catching/ loading screens/ user experience \\
+        November 1 - 7				& Wrangle data into workable model (start MVC) \\
+        November 8 - 14 			& Begin views \\
+        November 15 - 21			& Time-line view / testing \\
+        November 22 - 28			& Graph view / testing	\\
+        November 29 - December 5	& Drilldown views / testing \\
+        December 6 - 11 			& finalize views \\
+    \end{tabular}
 \end{center}
 
 \end{document}
