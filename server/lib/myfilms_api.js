@@ -27,4 +27,7 @@ getApiFilmsData = function (actor_name) {
     request = Meteor.http.get(url);
     // put it in the mongo db
     Actors.insert(request.data)
+    // call getApiMoviesData() to be function later
+    // return current actors movies to client side with return
+
 };
