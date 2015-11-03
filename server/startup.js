@@ -9,6 +9,15 @@ function startup() {
             getApiFilmsData(actor_name);
         }
     });
+
+
+    Meteor.methods({
+        apiMovieDataByTitle: function (film_name) {
+            console.log('Movie data by title!!!');
+            // foo(filme_name);
+            getApiMovieData(film_name);
+        }
+    });
 }
 
 

@@ -28,3 +28,13 @@ getApiFilmsData = function (actor_name) {
     // put it in the mongo db
     Actors.insert(request.data)
 };
+
+getApiMovieData = function (film_name) {
+        console.log('movie data')
+
+        //Change below to search based on film name vvvvv
+        url = apiFilmsBaseUrl + "?name=" + actor_name + apiFilmsBaseNameSetting;
+        request = Meteor.http.get(url);
+        // put it in the mongo db
+        Movies.insert(request.data)
+};
