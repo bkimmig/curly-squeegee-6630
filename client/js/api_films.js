@@ -26,6 +26,7 @@ Template.searchApiFilms.events({
     'submit .actor-form': function(event, template) {
         event.preventDefault();
         var actor = template.find("#actor-name").value;
+        actor = actor.split(" ").join("+");
         console.log(actor);
         Session.set('actorSearched', true);
         Session.set('actor', actor);
