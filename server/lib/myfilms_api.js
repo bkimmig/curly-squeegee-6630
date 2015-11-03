@@ -22,29 +22,7 @@ var apiFilmsBaseNameSetting = (
         "&starMeter=0"
 );
 
-var apiFilmsBaseImdbBaseSetting = (
-        "&format=json" +
-        "&language=en-us" +
-        "&aka=0" +
-   //     "&business=0" +
-   //     "&seasons=0" +
-        "&seasonYear=0" +
-        "&technical=0" +
-   //     "&trailer=0" +
-   //     "&movieTrivia=0" +
-        "&awards=0" +
-        "&moviePhotos=0" +
-  //      "&movieVideos=0" +
-        "&actors=0" +
-        "&biography=0" +
-        "&uniqueName=0" +
-  //      "&filmography=0" +
-  //      "&bornAndDead=0" +
-        "&starSign=0"+
-        "&actorActress=0" +
-  //      "&actorTrivia=0" +
-        "&similarMovies=0"
-);
+
 
 getApiFilmsData = function (actor_name) {
     console.log('actor data');
@@ -55,10 +33,3 @@ getApiFilmsData = function (actor_name) {
         console.log(request.data)
 };
 
-getApiMovieData = function (film_id) {
-        console.log('movie data');
-        url = apiFilmsBaseUrl + "/idIMDB?idIMDB=%22" + film_id +"%22&token=" + token  + apiFilmsBaseImdbBaseSetting;
-        request = Meteor.http.get(url);
-        // put it in the mongo db
-        Movies.insert(request.data)
-};
