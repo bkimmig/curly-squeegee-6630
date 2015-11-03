@@ -57,9 +57,7 @@ getApiFilmsData = function (actor_name) {
 
 getApiMovieData = function (film_id) {
         console.log('movie data');
-
-        //Change below to search based on film name vvvvv
-        url = apiFilmsBaseUrl + "/idIMDB?idIMDB=%" + film_id +"%22&token=" + token  + apiFilmsBaseImdbBaseSetting;
+        url = apiFilmsBaseUrl + "/idIMDB?idIMDB=%22" + film_id +"%22&token=" + token  + apiFilmsBaseImdbBaseSetting;
         request = Meteor.http.get(url);
         // put it in the mongo db
         Movies.insert(request.data)
