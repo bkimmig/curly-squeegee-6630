@@ -6,6 +6,7 @@
 Session.setDefault('actor', "");
 Session.setDefault('actorSearched', false);
 Session.setDefault('actorData', null);
+Session.setDefault('actorMovies', null);
 
 
 Template.searchApiFilms.helpers({
@@ -43,7 +44,9 @@ Template.searchApiFilms.events({
                 }
 
                 console.log(result)
-                return result;
+                Session.set("actorData", result[0] );
+                Session.set("actorMovies", result[1] );
+
         });
 
 
