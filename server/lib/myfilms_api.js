@@ -26,10 +26,38 @@ var apiFilmsBaseNameSetting = (
 
 getApiFilmsData = function (actor_name) {
     console.log('actor data');
-    url = apiFilmsBaseUrl + "?name=" + actor_name + "&token=" + token + apiFilmsBaseNameSetting;
-    request = Meteor.http.get(url);
-    // put it in the mongo db
-    Actors.insert(request.data);
-        console.log(request.data)
+    url =(apiFilmsBaseUrl
+        + "?name="
+        + actor_name
+        + "&token="
+        + token
+        + apiFilmsBaseNameSetting);
+    var actorNameLower = actor_name.split("+").join("").toLowerCase();
+    var checkActor = Actors.find({lowerActorName:actorNameLower}).fetch();
+    console.log(checkActor);
+    if(checkActor.length===0) {
+        var request = Meteor.http.get(url);
+
+        request.data.lowerActorName=actorNameLower;
+        Actors.insert(request.data);
+        var actor = request.data;
+    }
+
+    else {
+            var actor = checkActor[0];
+    }
+    //console.log(actor.filmographies);
+    var getMovies=actor[0].filmographies[0].filmography;
+    //console.log(getMovies);
+    var movies=[];
+
+    for (i=0; i<getMovies.length; i++){
+        var movie = getOmdbFilmData(getMovies[i].IMDBId)
+        movies.push(movie);
+        console.log('Getting Movies....');
+    }
+
+    return [actor,movies];
+   // return "test";
 };
 

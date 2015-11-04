@@ -35,8 +35,20 @@ Template.searchApiFilms.events({
         //     Session.set('actorData', request);
         //     data = request.data;
         // });
-        Meteor.call('apiFilmsByName', actor);
+        output = Meteor.call('apiFilmsByName', actor,
+            function(error,result) {
+                if(error) {
+                    console.log(error);
+                    return
+                }
 
+                console.log(result)
+                return result;
+        });
+
+
+
+        console.log(output);
         // Router.go('/');
     }
 });

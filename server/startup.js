@@ -6,20 +6,17 @@ function startup() {
         apiFilmsByName: function (actor_name) {
             console.log('api films by name!!!');
             // foo(actor_name);
-            getApiFilmsData(actor_name);
+            output = getApiFilmsData(actor_name);
+
+            return output;
+        },
+
+        omdbFilmsByName:function(film_ID) {
+            console.log('OMDB films by ID!');
+            getOmdbFilmData(film_ID);
         }
-    });
-
-
-    Meteor.methods({
-        apiMovieDataByTitle: function (film_name) {
-            console.log('Movie data by title!!!');
-            // foo(filme_name);
-            getApiMovieData(film_name);
-        }
-    });
-}
-
+   });
+} //end startup
 
 Meteor.startup(function () {
     startup();
