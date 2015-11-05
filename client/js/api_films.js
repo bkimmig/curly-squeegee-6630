@@ -6,6 +6,7 @@
 Session.setDefault('actor', "");
 Session.setDefault('actorSearched', false);
 Session.setDefault('actorData', null);
+Session.setDefault('actorMovies', null);
 
 
 Template.searchApiFilms.helpers({
@@ -26,6 +27,7 @@ Template.searchApiFilms.events({
     'submit .actor-form': function(event, template) {
         event.preventDefault();
         var actor = template.find("#actor-name").value;
+        actor = actor.split(" ").join("+");
         console.log(actor);
         Session.set('actorSearched', true);
         Session.set('actor', actor);
@@ -34,8 +36,22 @@ Template.searchApiFilms.events({
         //     Session.set('actorData', request);
         //     data = request.data;
         // });
-        Meteor.call('apiFilmsByName', actor);
+        output = Meteor.call('apiFilmsByName', actor,
+            function(error,result) {
+                if(error) {
+                    console.log(error);
+                    return
+                }
 
+                console.log(result)
+                Session.set("actorData", result[0] );
+                Session.set("actorMovies", result[1] );
+
+        });
+
+
+
+        console.log(output);
         // Router.go('/');
     }
 });

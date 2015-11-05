@@ -1,1 +1,1 @@
-Movies = new Meteor.Collection('movies'); 
+    Movies = new Meteor.Collection('movies');
