@@ -13,6 +13,9 @@
             <input type="text" id="actor-name" placeholder="Actor name">
             <input class="btn btn-primary" type="submit" value="Submit">
         </form>
+
+        <a href="{{pathFor route='results'}}">Go to results</a>
+
     </div>
 
     <div class='container-fluid'>
@@ -21,6 +24,7 @@
 
             {{ actorData }}
         {{/if }}
+
     </div>
 
 </template>

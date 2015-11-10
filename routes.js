@@ -15,7 +15,9 @@ Router.route('/search', {
 Router.route('/hello', {
     template: 'hello',
 });
-
+Router.route('/results', {
+    template: 'results',
+});
 /*Router.route('/search', function() {
     this.render('searchApiFilms');
 });*/
