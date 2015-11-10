@@ -6,6 +6,7 @@ var omdbFilmsBaseNameSetting = (
     "&plot=short" +
     "&tomatoes=true"
 );
+
 getOmdbFilmData = function (film_id) {
     console.log('movie data');
     var url = omdbFilmsBaseUrl + "?i=" + film_id + omdbFilmsBaseNameSetting;
@@ -17,9 +18,7 @@ getOmdbFilmData = function (film_id) {
         var request = Meteor.http.get(url);
         Movies.insert(request.data);
         var movie = request.data;
-    }
-
-    else {
+    } else {
         var movie = checkMovie[0];
     }
 

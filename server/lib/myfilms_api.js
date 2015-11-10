@@ -22,8 +22,6 @@ var apiFilmsBaseNameSetting = (
         "&starMeter=0"
 );
 
-
-
 getApiFilmsData = function (actor_name) {
     console.log('actor data');
     url =(apiFilmsBaseUrl
@@ -37,15 +35,15 @@ getApiFilmsData = function (actor_name) {
     console.log(checkActor);
     if(checkActor.length===0) {
         var request = Meteor.http.get(url);
-
+        
         request.data.lowerActorName=actorNameLower;
         Actors.insert(request.data);
+        
         var actor = request.data;
-    }
-
-    else {
+    } else {
             var actor = checkActor[0];
     }
+    
     //console.log(actor.filmographies);
     var getMovies=actor[0].filmographies[0].filmography;
     //console.log(getMovies);
@@ -58,6 +56,5 @@ getApiFilmsData = function (actor_name) {
     }
 
     return [actor,movies];
-   // return "test";
 };
 
