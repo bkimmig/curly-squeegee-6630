@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 3 Solution</title>
+    <style>      
+        #xAxis path,
+        #yAxis path {
+            fill: none;
+            stroke: black;
+        }
+        
+        /* Styles that clean up the layout;
+         * you can ignore these: */
+        
+        h2 {
+            margin: 10px;
+        }
+        
+        div {
+            display: inline-block;
+            border: 1px solid lightgray;
+            margin: 10px;
+        }
+        
+        div,
+        span {
+            padding: 10px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+</head>
+
+<body>
+    <body>
+        <h3>Curly Squeegee - The Early Years</h3>
+ 
+
+        <br/>
+        <hr/>
+        
+        <span id="info"></span>
+        <br/>
+        
+        <div>
+            <h2>Filmography</h2>a
+            <svg width="1000" height="500" id="timeline">
+                <g id="links"></g>
+                <g id="nodes"></g>
+            </svg>
+        </div>
+
+        <div>
+            <h2>Genre</h2>
+            <svg width="427" height="500" id="genre">
+                <g id="xAxis" transform="translate(0,500)" ></g>
+                <g id="yAxis" ></g>
+                <g id="bars" ></g>
+            </svg>
+        </div>
+
+        <div>
+            <h2>Parallel Connections</h2>
+            <svg width="900" height="500" id="parallel">
+                <path id="states"></path>
+                <g id="points"></g>
+            </svg>
+        </div>
+
+        <script type="application/javascript" src="script.js"></script>
+    </body>
+</html>
