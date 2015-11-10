@@ -22,7 +22,7 @@ var apiFilmsBaseNameSetting = (
         "&starMeter=0"
 );
 
-getApiFilmsData = function (actor_name) {
+getApiFilmsData = function (actor_name, callback) {
     console.log('actor data');
     url =(apiFilmsBaseUrl
         + "?name="
@@ -52,9 +52,13 @@ getApiFilmsData = function (actor_name) {
     for (i=0; i<getMovies.length; i++){
         var movie = getOmdbFilmData(getMovies[i].IMDBId)
         movies.push(movie);
-        console.log('Getting Movies....');
     }
-
-    return [actor,movies];
+    console.log('Done Getting Movies....');
+    
+    if (callback) {
+        callback([actor,movies])
+    } else {
+        return [actor,movies];
+    }
 };
 

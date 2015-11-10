@@ -6,3 +6,4 @@ Meteor.publish('actors', function() {
 Meteor.publish('movies', function() {
     return Movies.find();
 });
+

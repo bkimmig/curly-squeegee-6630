@@ -8,7 +8,6 @@ var omdbFilmsBaseNameSetting = (
 );
 
 getOmdbFilmData = function (film_id) {
-    console.log('movie data');
     var url = omdbFilmsBaseUrl + "?i=" + film_id + omdbFilmsBaseNameSetting;
 
     // put it in the mongo db
@@ -18,8 +17,10 @@ getOmdbFilmData = function (film_id) {
         var request = Meteor.http.get(url);
         Movies.insert(request.data);
         var movie = request.data;
+        console.log('movie data request');
     } else {
         var movie = checkMovie[0];
+        console.log('movie data db');
     }
 
     return movie;
