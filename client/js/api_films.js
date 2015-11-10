@@ -17,7 +17,7 @@ window.addEventListener('loading', function (e) {
 
     if (e.detail == 'end') {
         // $('body').fadeIn(1500);
-        Router.go('/');
+        Router.go('/results');
     }
 });
 
@@ -61,7 +61,7 @@ Template.searchApiFilms.events({
                 }
 
                 console.log(result)
-                Session.set("actorData", result[0] );
+                Session.set("actorData", result[0][0] );
                 Session.set("actorMovies", result[1] );
                 loadingEvent('end');
         });
