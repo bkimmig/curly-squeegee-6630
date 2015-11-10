@@ -3,6 +3,25 @@
 //     console.log(results.content); //results.data should be a JSON object
 // });
 
+
+loadingEvent = function(state) {
+    var evt = new CustomEvent('loading', { detail: state });
+    window.dispatchEvent(evt);
+}
+
+window.addEventListener('loading', function (e) {
+    if (e.detail == 'start') {
+        // $('body').hide();
+        Router.go('loading');
+    }
+
+    if (e.detail == 'end') {
+        // $('body').fadeIn(1500);
+        Router.go('/');
+    }
+});
+
+
 Session.setDefault('actor', "");
 Session.setDefault('actorSearched', false);
 Session.setDefault('actorData', null);
@@ -22,7 +41,7 @@ Template.searchApiFilms.helpers({
 
 });
 
-// data = null;
+
 Template.searchApiFilms.events({
     'submit .actor-form': function(event, template) {
         event.preventDefault();
@@ -31,12 +50,10 @@ Template.searchApiFilms.events({
         console.log(actor);
         Session.set('actorSearched', true);
         Session.set('actor', actor);
-        // Meteor.call('apiFilmsByName', actor, function(error, request) {
-        //     console.log(request);
-        //     Session.set('actorData', request);
-        //     data = request.data;
-        // });
-        output = Meteor.call('apiFilmsByName', actor,
+
+        loadingEvent('start');
+
+        Meteor.call('apiFilmsByName2', actor,
             function(error,result) {
                 if(error) {
                     console.log(error);
@@ -46,12 +63,8 @@ Template.searchApiFilms.events({
                 console.log(result)
                 Session.set("actorData", result[0] );
                 Session.set("actorMovies", result[1] );
-
+                loadingEvent('end');
         });
-
-
-
-        console.log(output);
         // Router.go('/');
     }
 });
