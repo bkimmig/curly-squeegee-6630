@@ -1,33 +1,40 @@
-div.bioBox{
+.bioBox{
 	width: 100%;
 	height: 500px;
 }
-div.photoBox {
+.photoBox {
    width:50%; 
    float: left;
 }
 
-div.factsBox{
+.factsBox{
 	width: 30%;
+	padding: 200px;
+	border: 1px solid red;
+	text-align: center;
 	float:right;
+
 }
 
-div.actorPicture{
-	width:100px;
-	height: 200px;
+.actorPicture{
+	width:100%;
+	height: 100%;
+	padding: 30px;
+	border: 2px solid black;
+	background-color: gray;
 }
 
-svg.timeline{
+.timeline{
 	width:1000px;
 	height:500px
 }
 
-svg.genre{
+.genre{
 	width: 427px;
 	height: 500px; 
 }
 
-svg.parallel{
+.parallel{
 	width: 1200px;
 	height: 500px;
 }

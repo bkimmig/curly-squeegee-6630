@@ -7,6 +7,13 @@ Template.results.helpers({
     },
     actorData: function () {
         return Session.get('actorData');
+    },
+    nMovies: function () {
+        return Session.get('actorMovies').length;
+    },
+
+    actorPhoto: function(){
+        return Session.get('actorData').urlPhoto;
     }
 
 });
