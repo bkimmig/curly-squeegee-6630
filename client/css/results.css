@@ -1,0 +1,37 @@
+div.bioBox{
+	width: 100%;
+	height: 500px;
+}
+div.photoBox {
+   width:50%; 
+   float: left;
+}
+
+div.factsBox{
+	width: 30%;
+	float:right;
+}
+
+div.actorPicture{
+	width:100px;
+	height: 200px;
+}
+
+svg.timeline{
+	width:1000px;
+	height:500px
+}
+
+svg.genre{
+	width: 427px;
+	height: 500px; 
+}
+
+svg.parallel{
+	width: 1200px;
+	height: 500px;
+}
+
+li{
+	font-weight: bold;
+}

@@ -1,21 +1,23 @@
 <template name="results">
 
     <div class='container-fluid'>
-        <div width="100%" height="500" id="biography">
-            <div style ="width:50%; float:left" class="block" >
-                    <img src="img/geom_loading.gif" alt="placeholder" width=200 height=200>
+        <div id="bioBox">
+
+            <div id ="photoBox" >
+                    <img id="actorPicture" src="img/geom_loading.gif">
             </div>
 
-            <div style ="width: 50%; float:right" class="block" >
+            <div id="factBox" >
                 <body>
                      <ul>
                           <li>Name: {{ actorData.birthName }} </li>
-                          <li>Birthday:</li>
-                          <li>Number of Films:</li>
+                          <li>Birthday: {{actorData.dateOfBirth }}</li>
+                          <li>Number of Films:{{actorMovies.length}}</li>
                           <li> etc: </li>
                      </ul>
                 </body>
             </div>
+
         </div>
 
         <br/>
@@ -24,7 +26,7 @@
 
     <div class='container-fluid'>
         <h2>Filmography</h2>
-        <svg width="1000" height="500" id="timeline">
+        <svg id="timeline">
             <g id="films"></g>
             
         </svg>
@@ -32,15 +34,12 @@
 
     <div class='container-fluid'>
             <h2>Genre</h2>
-            <svg width="427" height="500" id="genre"></svg>
+            <svg d="genre"></svg>
     </div>
         
     <div class='container-fluid'>
         <h2>Parallel Connections</h2>
-        <svg width="1200" height="500" id="parallel">
-            
-          
-        </svg>
+        <svg id="parallel"></svg>
     </div>
 
 </template>
