@@ -11,7 +11,6 @@ Template.results.helpers({
     nMovies: function () {
         return Session.get('actorMovies').length;
     },
-
     actorPhoto: function(){
         return Session.get('actorData').urlPhoto;
     }

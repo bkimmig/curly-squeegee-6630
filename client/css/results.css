@@ -19,7 +19,7 @@
 	border: 1px solid red;
 	/*float:right;*/
 	text-align: left;
-		font-weight: bold;
+	font-weight: bold;
 	font-size: 18pt;
 }
 
@@ -40,10 +40,10 @@
 	height:500px
 }
 
-.genre{
+/*.genre{
 	width: 427px;
 	height: 500px; 
-}
+}*/
 
 .parallel{
 	width: 1200px;
