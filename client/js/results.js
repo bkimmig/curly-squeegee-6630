@@ -14,5 +14,5 @@ Template.results.helpers({
 
 Template.results.rendered = function () {
     $('.navbar').show();
-    gv = new GenreVis(Session);
+    gv = new GenreVis(d3.selectAll('#genreVis'), Session);
 }

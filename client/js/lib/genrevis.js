@@ -8,28 +8,63 @@
 //     // self.initVis();
 // }
 
-GenreVis = function(_session) {
+GenreVis = function(_parentElement, _session) {
     var self = this;
 
-    // self.parentElement = _parentElement;
+    self.parentElement = _parentElement;
 
     self.data = _session.get('actorMovies');
     self.displayData = [];
-    // self.initVis();
     self.initNodeData();
+    self.initVis();
 };
 
 
 GenreVis.prototype.initVis = function () {
     var self = this; 
-    console.log('blah');
-    // self.svg = self.parentElement.select("svg");
+
+    self.svg = self.parentElement.select("svg");
+
+    var width = 960,
+        height = 500;
+
+    var color = d3.scale.category20();
+
+    var force = d3.layout.force()
+        .charge(-120)
+        .linkDistance(50)
+        .alpha(0.4)
+        .size([width, height]);
+
+    self.svg
+        .attr("width", width)
+        .attr("height", height)
+
+    force
+        .nodes(self.nodeData)
+        .start();
+
+    var node = self.svg.selectAll(".node")
+        .data(self.nodeData)
+        .enter().append("circle")
+        .attr("class", "node")
+        .attr("r", function(d) { return d.count*5 })
+        .style("fill", function(d) { return color(d.group); })
+        .call(force.drag);
+
+    node.append("title")
+        .text(function(d) { return d.genre; });
+
+    force.on("tick", function() {
+        node.attr("cx", function(d) { return d.x; })
+            .attr("cy", function(d) { return d.y; });
+    });
 
     // filter, aggregate, modify data
-    self.wrangleData(null);
+    // self.wrangleData(null);
 
     // call the update method
-    self.updateVis();
+    // self.updateVis();
 };
 
 
@@ -42,75 +77,47 @@ GenreVis.prototype.initNodeData = function() {
         var movie = self.data[i].Genre;
         var g = movie.split(',');
         for (j=0; j<g.length; j++) {
-            if (genres[g[j]]) {
-                genres[g[j]] += 1;
+            var cGenre = g[j];
+            
+            // remove white space up front
+            if (cGenre[0] === " ") {
+                cGenre = cGenre.slice(1);
+            }
+
+            // count the genres
+            if (genres[cGenre]) {
+                genres[cGenre] += 1;
             } else {
-                genres[g[j]] = 1;
+                genres[cGenre] = 1;
             }
         }
     }
 
     // put them in node form
-    var genre_keys = Object.keys(genres);
-    var node_genres = [];
-    for (i=0; i<genre_keys.length; i++){
-        node_genres.push({
-            genre: genre_keys[i],
-            count: genres[genre_keys[i]],
+    var genreKeys = Object.keys(genres);
+    var nodeGenres = [];
+    for (i=0; i<genreKeys.length; i++){
+        nodeGenres.push({
+            genre: genreKeys[i],
+            count: genres[genreKeys[i]],
             group: i
         });
     }
 
-    self.nodeData = node_genres;
+    self.nodeData = nodeGenres;
 }
-
 
 
 GenreVis.prototype.wrangleData = function (_filterFunction) {
     var self = this;
-    
+
     // displayData should hold the data which is visualized
     self.displayData = self.filterAndAggregate(_filterFunction);
 };
 
 
 GenreVis.prototype.updateVis = function () {
-
-
     var self = this;
-
-    // update the scales :
-    var minMaxY = [0, d3.max(self.displayData)];
-    self.yScale.domain(minMaxY);
-    self.yAxis.scale(self.yScale);
-
-    // draw the scales :
-    self.visG.select(".yAxis").call(self.yAxis);
-    
-    // draw the bars :
-    var bars = self.visG.selectAll(".bar").data(self.displayData);
-    bars.exit().remove();
-    bars.enter().append("rect")
-        .attr({
-            "class": "bar",
-            "width": self.xScale.rangeBand(),
-            "x": function (d, i) {
-                return self.xScale(i);
-            }
-        }).style({
-            "fill": function (d, i) {
-                return self.metaData.priorities[i]["item-color"];
-            }
-        });
-
-    bars.attr({
-        "height": function (d) {
-            return self.graphH - self.yScale(d) - 1;
-        },
-        "y": function (d) {
-            return self.yScale(d);
-        }
-    });
 };
 
 
