@@ -1,13 +1,3 @@
-// function GenreVis (_parentElement, _session) {
-//     var self = this;
-
-//     self.parentElement = _parentElement;
-
-//     self.data = _session.get('actorMovies');
-//     self.displayData = [];
-//     // self.initVis();
-// }
-
 GenreVis = function(_parentElement, _session) {
     var self = this;
 
@@ -31,9 +21,10 @@ GenreVis.prototype.initVis = function () {
     var color = d3.scale.category20();
 
     var force = d3.layout.force()
-        .charge(-120)
-        .linkDistance(50)
-        .alpha(0.4)
+        .charge(10)
+        // .charge(function(d, i) { return i ? 0 : -2000; })
+        .gravity(0.05)
+        // .linkDistance(50)
         .size([width, height]);
 
     self.svg
@@ -44,28 +35,73 @@ GenreVis.prototype.initVis = function () {
         .nodes(self.nodeData)
         .start();
 
-    var node = self.svg.selectAll(".node")
+    var nodes = self.svg.selectAll(".node")
         .data(self.nodeData)
         .enter().append("circle")
         .attr("class", "node")
-        .attr("r", function(d) { return d.count*5 })
+        .attr("r", function(d) { return d.count })
         .style("fill", function(d) { return color(d.group); })
         .call(force.drag);
 
-    node.append("title")
+    nodes.append("title")
         .text(function(d) { return d.genre; });
 
-    force.on("tick", function() {
-        node.attr("cx", function(d) { return d.x; })
+    // force.on("tick", function() {
+    //     node.attr("cx", function(d) { return d.x; })
+    //         .attr("cy", function(d) { return d.y; });
+    // });
+
+    force.on("tick", function(e) {
+        var q = d3.geom.quadtree(self.nodeData);
+        var i = 0;
+        var n = self.nodeData.length;
+
+        while (++i < n) { 
+            q.visit(collide(self.nodeData[i]))
+        };
+
+        self.svg.selectAll("circle")
+            .attr("cx", function(d) { return d.x; })
             .attr("cy", function(d) { return d.y; });
     });
+
+
+    function collide(node) {
+        var r = node.radius + 16,
+        nx1 = node.x - r,
+        nx2 = node.x + r,
+        ny1 = node.y - r,
+        ny2 = node.y + r;
+        return function(quad, x1, y1, x2, y2) {
+            if (quad.point && (quad.point !== node)) {
+                var x = node.x - quad.point.x,
+                    y = node.y - quad.point.y,
+                    l = Math.sqrt(x * x + y * y),
+                    r = node.radius + quad.point.radius;
+                
+                if (l < r) {
+                    l = (l - r) / l * .5;
+                    node.x -= x *= l;
+                    node.y -= y *= l;
+                    quad.point.x += x;
+                    quad.point.y += y;
+                }
+            }
+            return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+        };
+    }
+
 
     // filter, aggregate, modify data
     // self.wrangleData(null);
 
     // call the update method
     // self.updateVis();
+
+
 };
+
+
 
 
 GenreVis.prototype.initNodeData = function() {
@@ -100,7 +136,8 @@ GenreVis.prototype.initNodeData = function() {
         nodeGenres.push({
             genre: genreKeys[i],
             count: genres[genreKeys[i]],
-            group: i
+            group: i,
+            radius: genres[genreKeys[i]]
         });
     }
 

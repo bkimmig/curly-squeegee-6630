@@ -1,23 +1,13 @@
 <template name="results">
 
-<head>
-    <meta charset="UTF-8">
-     <script type="text/javascript" src="../lib/filmography.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-
-    <!--Stylesheets-->
-    <link rel="stylesheet" type="text/css" href="client/css/filmography.css">
-
-</head>
-
     <div class='container-fluid'>
         <div class="bioBox">
 
             <div class ="photoBox" >
-                    <img class="actorPicture" src={{actorPhoto}}>
+                    <img class="actorPicture" src="{{ actorPhoto }}">
             </div>
 
-            <div class="factBox" >
+            <div class="factBox">
               
                      <ul>
                           <li>Name: {{ actorData.birthName }} </li>
@@ -34,16 +24,15 @@
     </div>
             
 
-    <div class='container-fluid'>
-        <h2>Filmography</h2>
+    <div class='container-fluid' id='timelineVis'>
+        <h2> Filmography </h2>
         <svg class="timeline">
             <g class="films"></g>
-            
         </svg>
     </div>
 
     <div class='container-fluid' id='genreVis'>
-            <h2>Genre</h2>
+            <h2> Genre </h2>
             <svg class="genre"></svg>
     </div>
         
