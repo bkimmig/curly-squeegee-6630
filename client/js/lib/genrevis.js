@@ -1,3 +1,8 @@
+// maybe we could do a grid of moves and their genres? 
+// like a matrix
+// http://codepen.io/bishopsmove/pen/AlHmc
+
+
 GenreVis = function(_parentElement, _session) {
     var self = this;
 
@@ -11,6 +16,8 @@ GenreVis = function(_parentElement, _session) {
 
 
 GenreVis.prototype.initVis = function () {
+// Connect movies by genre
+// http://jsfiddle.net/zhanghuancs/a2QpA/
     var self = this; 
 
     self.svg = self.parentElement.select("svg");
