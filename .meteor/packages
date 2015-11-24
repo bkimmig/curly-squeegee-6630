@@ -22,3 +22,4 @@ iron:router
 http
 mizzao:bootstrap-3
 d3
+momentjs:moment
