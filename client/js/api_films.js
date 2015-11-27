@@ -62,7 +62,10 @@ Template.searchApiFilms.events({
 
                 console.log(result)
                 Session.set("actorData", result[0][0] );
-                Session.set("actorMovies", result[1] );
+                Session.set(
+                    "actorMovies", 
+                    removeUnreleasedMovies(result[1])
+                );
                 loadingEvent('end');
         });
         // Router.go('/');
