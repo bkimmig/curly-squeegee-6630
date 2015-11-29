@@ -1,3 +1,7 @@
+svg {
+  font: 10px sans-serif;
+}
+
 .background path {
     fill: none;
     stroke: #ddd;
@@ -25,4 +29,18 @@
 .axis text {
     text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
     cursor: move;
+}
+
+.axis .title {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.axis.string {
+  font-size: 6px;
+}
+
+.label {
+  -webkit-transition: fill 125ms linear;
 }

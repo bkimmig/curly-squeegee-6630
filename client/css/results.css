@@ -1,6 +1,6 @@
-.container-fluid{
+/*.container-fluid{
 	min-width: 800px;
-}
+}*/
 
 .bioBox{
 	/*width: 100%;*/
@@ -38,6 +38,6 @@
 
 .timeline{
 	width:1000px;
-	height:500px
+	height:500px;
 }
 

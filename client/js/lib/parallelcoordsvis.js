@@ -1,11 +1,11 @@
 ParallelCoordVis = function(_parentElement, _session) {
     var self = this;
     self.parallelCoordKeys = [
-        'BoxOffice',
+        // 'BoxOffice',
         // 'Director',
         // 'Rated',
         // 'Runtime', // minutes
-        // 'Title',
+        'Title',
         'Year',
         'imdbRating',
         'tomatoRating',
@@ -31,22 +31,28 @@ ParallelCoordVis.prototype.initVis = function () {
 
     self.svg = self.parentElement.select("svg");
 
-    var width = 960;
-    var height = 500;
+    // var width = 960;
+    // var height = 500;
 
     var margin = {top: 30, right: 10, bottom: 10, left: 10},
-        width = width - margin.left - margin.right,
-        height = height - margin.top - margin.bottom;
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+
+    self.dimensions = self.setDimensions(height);
 
 
-    var x = d3.scale.ordinal().rangePoints([0, width], 1);
-    var y = {};
+    // var x = d3.scale.ordinal().rangePoints([0, width], 1);
+    x = d3.scale.ordinal()
+    y = {};
+
+    
     var dragging = {};
 
-    var line = d3.svg.line(),
-        axis = d3.svg.axis().orient("left"),
-        background,
-        foreground;
+    var line = d3.svg.line()
+        // .defined(function(d) { return !isNaN(d[1]); });
+    var axis = d3.svg.axis().orient("left");
+    var background;
+    var foreground;
 
     self.svg
         .attr("width", width + margin.left + margin.right)
@@ -57,15 +63,47 @@ ParallelCoordVis.prototype.initVis = function () {
     // area is set up, now lets make the vis from data
     
     // Extract the list of dimensions and create a scale for each.
-    x.domain(dimensions = self.parallelCoordKeys.filter(function(d) {
-        return d != "BoxOffice" && (y[d] = d3.scale.linear()
-            .domain(d3.extent(self.data, function(p) {
-                return +p[d];
-                })
-            )
-            .range([height, 0])
-        )
-    }));
+    // x.domain(dimensions = self.parallelCoordKeys.filter(function(d) {
+    //     return d != "BoxOffice" && (y[d] = d3.scale.linear()
+    //         .domain(d3.extent(self.data, function(p) {
+    //             return +p[d];
+    //             })
+    //         )
+    //         .range([height, 0])
+    //     )
+    // }));
+
+    // x.domain(self.dimensions.map(function(d) { return d.name; }))
+    //     .rangePoints([0, width]);
+
+    x.domain(dimensions = self.dimensions.map(function(d) {
+        if (d.type !== 'string') {
+            y[d.name] = d.scale.domain(d.extent).range(d.range);
+        } else {
+            y[d.name] = d.scale;
+        }
+        return d.name;
+    }))
+    .rangePoints([0, width]);    
+
+
+    // self.dimensions.forEach(function(dimension) {
+    //     dimension.scale.domain(dimension.type === "number"
+    //     ? d3.extent(self.data, function(d) { 
+    //         return +d[dimension.name]; 
+    //     })
+    //     : self.data.map(function(d) { 
+    //         return d[dimension.name]; }).sort());
+    // });
+
+    self.dimensions.forEach(function(dimension) {
+        dimension.scale.domain(dimension.type === "number"
+        ? dimension.extent
+        : self.data.map(function(d) { 
+            return d[dimension.name]; 
+        }).sort());
+    });
+
 
     // Add grey background lines for context.
     background = self.svg.append("g")
@@ -100,9 +138,9 @@ ParallelCoordVis.prototype.initVis = function () {
             .on("drag", function(d) {
                 dragging[d] = Math.min(width, Math.max(0, d3.event.x));
                 foreground.attr("d", path);
-                dimensions.sort(function(a, b) { 
+                dimensions.sort(function(a, b) {
                     return position(a) - position(b); 
-                });
+                });                
                 x.domain(dimensions);
                 g.attr("transform", function(d) { 
                     return "translate(" + position(d) + ")"; 
@@ -127,8 +165,12 @@ ParallelCoordVis.prototype.initVis = function () {
     // Add an axis and title.
     g.append("g")
         .attr("class", "axis")
-        .each(function(d) { 
-            d3.select(this).call(axis.scale(y[d])); 
+        .each(function(d) {
+            // d3.select(this).call(axis.scale(y[d]));
+            var cdimen = checkDimension(d)
+            d3.select(this).call(axis.scale(
+                cdimen.scale
+            ));  
         })
         .append("text")
         .style("text-anchor", "middle")
@@ -139,9 +181,16 @@ ParallelCoordVis.prototype.initVis = function () {
     g.append("g")
         .attr("class", "brush")
         .each(function(d) {
+            var cdimen = checkDimension(d);
             d3.select(this).call(
-                y[d].brush = d3.svg.brush()
-                    .y(y[d]).on("brushstart", brushstart).on("brush", brush));
+                // y[d].brush = d3.svg.brush()
+                //     .y(y[d])
+                //     .on("brushstart", brushstart)
+                //     .on("brush", brush));
+                cdimen.brush = d3.svg.brush()
+                    .y(y[d])
+                    .on("brushstart", brushstart)
+                    .on("brush", brush));
         })
         .selectAll("rect")
         .attr("x", -8)
@@ -164,27 +213,87 @@ ParallelCoordVis.prototype.initVis = function () {
 
     // Returns the path for a given data point.
     function path(d) {
-        return line(dimensions.map(function(p) { 
-            return [position(p), y[p](d[p])]; }));
+      return line(dimensions.map(function(p) { return [position(p), y[p](d[p])]; }));
     }
 
     function brushstart() {
         d3.event.sourceEvent.stopPropagation();
     }
 
-    // Handles a brush event, toggling the display of foreground lines.
     function brush() {
-      var actives = dimensions.filter(function(p) { return !y[p].brush.empty(); }),
-          extents = actives.map(function(p) { return y[p].brush.extent(); });
-      foreground.style("display", function(d) {
-        return actives.every(function(p, i) {
-          return extents[i][0] <= d[p] && d[p] <= extents[i][1];
-        }) ? null : "none";
-      });
+        var actives = self.dimensions.filter(function(p) { 
+            return !p.brush.empty(); 
+        });
+        var extents = actives.map(function(p) { 
+            return p.brush.extent(); 
+        });
+        foreground.style("display", function(d) {
+            return actives.every(function(p, i) {
+                return (extents[i][0] <= d[p.name] 
+                        && d[p.name] <= extents[i][1]); 
+            }) ? null : "none";
+        });
+    }
+
+    function checkDimension(d) {
+        var cdimen; 
+        self.dimensions.forEach(function(dim) {
+            if (dim.name === d) {
+                cdimen = dim;
+            }
+        })
+        return cdimen
     }
 
 
 };
+
+
+ParallelCoordVis.prototype.setDimensions = function(height) {
+
+    var self = this;
+
+    var dimensions = [
+        {
+            name: "Title",
+            scale: d3.scale.ordinal().rangePoints([0, height]),
+            type: "string",
+
+        },
+        {
+            name: "Year",
+            scale: d3.scale.linear(),
+            extent: d3.extent(self.data, function(p) {
+                        return +p['Year'];
+                    }),
+            type: "number",
+            range : [height, 0]
+        },
+        {
+            name: "imdbRating",
+            scale: d3.scale.linear(),
+            extent: [0,10],
+            type: "number",
+            range : [height, 0],
+        },
+        {
+            name: "tomatoRating",
+            scale: d3.scale.linear().range([height, 0]),
+            extent: [0,10],
+            type: "number",
+            range : [height, 0],
+        },
+        {
+            name: "tomatoUserRating",
+            scale: d3.scale.linear(),
+            extent: [0, 5],
+            type: "number",
+            range : [height, 0],
+        },
+    ];
+
+    return dimensions;
+}
 
 ParallelCoordVis.prototype.wrangleData = function (_filterFunction) {
     var self = this;
