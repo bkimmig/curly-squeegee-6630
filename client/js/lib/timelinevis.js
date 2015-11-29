@@ -6,9 +6,21 @@
 TimeLineVis = function(_parentElement, _session) {
     var self = this;
 
+     self.timelineVisKeys = [
+        'Title',
+        'Year',
+        'imdbRating',
+        'tomatoRating',
+        'tomatoUserRating'
+    ]
+
     self.parentElement = _parentElement;
 
-    self.data = _session.get('actorMovies');
+    self.data = nanToZero(
+        _session.get('actorMovies'), 
+        self.timelineVisKeys
+    );
+
     self.displayData = [];
     self.initVis();
 };
@@ -17,6 +29,30 @@ TimeLineVis = function(_parentElement, _session) {
 TimeLineVis.prototype.initVis = function () {
 
     var self = this; 
+
+    var margin = {top: 30, right: 10, bottom: 10, left: 140},
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+
+    self.dimensions = self.setDimensions(height);
+
+    x = d3.scale.ordinal()
+    y = {};
+
+    var x = d3.time.scale()
+        .domain([new Date(2012, 0, 1), new Date(2012, 11, 31)])
+        .range([0, width]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    .ticks(d3.time.years)
+    .tickSize(16, 0)
+    .tickFormat(d3.time.format("%B"));
+
+   var axis = d3.svg.axis().orient("left");
+   var background;
+   var foreground;
 
     self.svg = self.parentElement.select("svg");
 
@@ -31,6 +67,12 @@ TimeLineVis.prototype.initVis = function () {
 
 
 };
+
+// Keys to use:   decade --> size bars based on number of films
+//                       --> Shade baded on average rating?
+//                 Individual years ->  Size on releases?
+
+// Probably  won't need these
 
 TimeLineVis.prototype.wrangleData = function (_filterFunction) {
     var self = this;

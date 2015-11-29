@@ -1,0 +1,7 @@
+1. Write up our project book, wiki pages on github
+2. Add datavisTA user to our project (share our repo)
+3. Include 'trending actors' on landing page
+4. Record student critiques in our process book?
+5. Make timeline view
+6. Record screencast with audio.
+
