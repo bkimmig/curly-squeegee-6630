@@ -46,8 +46,6 @@ filterData = function(movieData, keys) {
                 }
 
                 movie[key] = boxoffice;
-                console.log(movie[key]);
-
             }
 
         })
