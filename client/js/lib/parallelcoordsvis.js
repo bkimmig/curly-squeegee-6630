@@ -29,12 +29,17 @@ ParallelCoordVis.prototype.initVis = function () {
 
     var self = this; 
 
-    self.svg = self.parentElement.select("svg");
+    // self.svg = self.parentElement.select("svg");
+    // self.svg = self.parentElement.append("svg")
+    //     .attr("width", width + margin.left + margin.right)
+    //     .attr("height", height + margin.top + margin.bottom)
+    //   .append("g")
+    //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     // var width = 960;
     // var height = 500;
 
-    var margin = {top: 30, right: 10, bottom: 10, left: 10},
+    var margin = {top: 30, right: 10, bottom: 10, left: 140},
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
@@ -54,11 +59,17 @@ ParallelCoordVis.prototype.initVis = function () {
     var background;
     var foreground;
 
-    self.svg
+    self.svg = self.parentElement.append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
       .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    // self.svg
+    //     .attr("width", width + margin.left + margin.right)
+    //     .attr("height", height + margin.top + margin.bottom)
+    //   .append("g")
+    //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     // area is set up, now lets make the vis from data
     
@@ -80,7 +91,7 @@ ParallelCoordVis.prototype.initVis = function () {
         if (d.type !== 'string') {
             y[d.name] = d.scale.domain(d.extent).range(d.range);
         } else {
-            y[d.name] = d.scale;
+            y[d.name] = d.scale.rangePoints([0, height]);
         }
         return d.name;
     }))
@@ -168,9 +179,16 @@ ParallelCoordVis.prototype.initVis = function () {
         .each(function(d) {
             // d3.select(this).call(axis.scale(y[d]));
             var cdimen = checkDimension(d)
-            d3.select(this).call(axis.scale(
-                cdimen.scale
-            ));  
+            // format the ticks to not have commas
+            if (cdimen.type !== 'string') {
+                d3.select(this).call(axis.scale(
+                    cdimen.scale
+                ).tickFormat(d3.format('d')));
+            } else {
+                d3.select(this).call(axis.scale(
+                    cdimen.scale
+                ));  
+            }
         })
         .append("text")
         .style("text-anchor", "middle")
@@ -227,10 +245,17 @@ ParallelCoordVis.prototype.initVis = function () {
         var extents = actives.map(function(p) { 
             return p.brush.extent(); 
         });
+        console.log(extents, actives)
         foreground.style("display", function(d) {
             return actives.every(function(p, i) {
-                return (extents[i][0] <= d[p.name] 
-                        && d[p.name] <= extents[i][1]); 
+                if (p.type === 'string') {
+                    console.log(d, p, y[p.name](d[p.name]))
+                    return (extents[i][0] <= y[p.name](d[p.name]) && 
+                        y[p.name](d[p.name]) <= extents[i][1]); 
+                } else {
+                    return (extents[i][0] <= d[p.name] && 
+                        d[p.name] <= extents[i][1]);
+                }
             }) ? null : "none";
         });
     }
@@ -256,7 +281,7 @@ ParallelCoordVis.prototype.setDimensions = function(height) {
     var dimensions = [
         {
             name: "Title",
-            scale: d3.scale.ordinal().rangePoints([0, height]),
+            scale: d3.scale.ordinal(),
             type: "string",
 
         },
@@ -278,7 +303,7 @@ ParallelCoordVis.prototype.setDimensions = function(height) {
         },
         {
             name: "tomatoRating",
-            scale: d3.scale.linear().range([height, 0]),
+            scale: d3.scale.linear(),
             extent: [0,10],
             type: "number",
             range : [height, 0],
