@@ -1,10 +1,10 @@
 ParallelCoordVis = function(_parentElement, _session) {
     var self = this;
     self.parallelCoordKeys = [
-        // 'BoxOffice',
         // 'Director',
         // 'Rated',
         // 'Runtime', // minutes
+        'BoxOffice',
         'Title',
         'Year',
         'imdbRating',
@@ -15,7 +15,7 @@ ParallelCoordVis = function(_parentElement, _session) {
     self.parentElement = _parentElement;
 
 
-    self.data = nanToZero(
+    self.data = filterData(
         _session.get('actorMovies'), 
         self.parallelCoordKeys
     );
@@ -29,7 +29,16 @@ ParallelCoordVis.prototype.initVis = function () {
 
     var self = this; 
 
-    var margin = {top: 30, right: 10, bottom: 10, left: 140},
+    // find the longest text size in the first row to adjust left margin
+    // need to make this better ...
+    var textLength = 0;
+    self.data.forEach(function(d){
+        if (d.Title.length > textLength) {
+            textLength = d.Title.length;
+        }
+    });
+
+    var margin = {top: 30, right: 10, bottom: 10, left: 120 + textLength},
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
@@ -142,7 +151,7 @@ ParallelCoordVis.prototype.initVis = function () {
             if (cdimen.type !== 'string') {
                 d3.select(this).call(axis.scale(
                     cdimen.scale
-                ).tickFormat(d3.format('d')));
+                ).tickFormat(d3.format('d')) );
             } else {
                 d3.select(this).call(axis.scale(
                     cdimen.scale
@@ -269,6 +278,15 @@ ParallelCoordVis.prototype.setDimensions = function(height) {
             extent: [0, 5],
             type: "number",
             range : [height, 0],
+        },
+        {
+            name: "BoxOffice",
+            scale: d3.scale.log(),
+            extent: d3.extent(self.data, function(p) {
+                        return +p['BoxOffice'];
+                    }),
+            type: "number",
+            range : [height, 0]
         },
     ];
 

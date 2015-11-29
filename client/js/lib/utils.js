@@ -16,7 +16,7 @@ removeUnreleasedMovies = function(movieData) {
     return data;
 }
 
-nanToZero = function(movieData, keys) {
+filterData = function(movieData, keys) {
     var i = 0;
     var data = [];
 
@@ -24,7 +24,7 @@ nanToZero = function(movieData, keys) {
         var movie = movieData[i];
         keys.forEach(function(key) {
             if (movie[key] === 'NaN' || movie[key] === 'N/A' ) {
-                movie[key] = 0;
+                movie[key] = 0.01;
             }
 
             if (key === 'Year' && movie[key].length > 4) {
@@ -32,8 +32,29 @@ nanToZero = function(movieData, keys) {
                 movie[key] = movie[key].slice(0,4);
             }
 
+            if (key === 'BoxOffice' && movie[key] !== 0.01) {
+                var boxoffice = movie[key]
+                if (boxoffice.indexOf(';') !== -1) {
+                    boxoffice = boxoffice.split(";")[1];
+                    boxoffice = "$" + boxoffice;
+                }
+                boxoffice = boxoffice.split("$")[1];
+                boxoffice = boxoffice.split("M")[0];
+
+                if (boxoffice.indexOf('k') !== -1) {
+                    boxoffice = boxoffice.split("k")[0] / 1000.
+                }
+
+                movie[key] = boxoffice;
+                console.log(movie[key]);
+
+            }
+
         })
-        data.push(movie);
+        // only want data if it is a movie
+        if (movie.Type === 'movie') {
+            data.push(movie);
+        }
     }
     return data;
 }
