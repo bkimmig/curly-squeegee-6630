@@ -29,22 +29,11 @@ ParallelCoordVis.prototype.initVis = function () {
 
     var self = this; 
 
-    // self.svg = self.parentElement.select("svg");
-    // self.svg = self.parentElement.append("svg")
-    //     .attr("width", width + margin.left + margin.right)
-    //     .attr("height", height + margin.top + margin.bottom)
-    //   .append("g")
-    //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    // var width = 960;
-    // var height = 500;
-
     var margin = {top: 30, right: 10, bottom: 10, left: 140},
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
     self.dimensions = self.setDimensions(height);
-
 
     // var x = d3.scale.ordinal().rangePoints([0, width], 1);
     x = d3.scale.ordinal()
@@ -65,27 +54,7 @@ ParallelCoordVis.prototype.initVis = function () {
       .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    // self.svg
-    //     .attr("width", width + margin.left + margin.right)
-    //     .attr("height", height + margin.top + margin.bottom)
-    //   .append("g")
-    //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
     // area is set up, now lets make the vis from data
-    
-    // Extract the list of dimensions and create a scale for each.
-    // x.domain(dimensions = self.parallelCoordKeys.filter(function(d) {
-    //     return d != "BoxOffice" && (y[d] = d3.scale.linear()
-    //         .domain(d3.extent(self.data, function(p) {
-    //             return +p[d];
-    //             })
-    //         )
-    //         .range([height, 0])
-    //     )
-    // }));
-
-    // x.domain(self.dimensions.map(function(d) { return d.name; }))
-    //     .rangePoints([0, width]);
 
     x.domain(dimensions = self.dimensions.map(function(d) {
         if (d.type !== 'string') {
@@ -98,15 +67,6 @@ ParallelCoordVis.prototype.initVis = function () {
     .rangePoints([0, width]);    
 
 
-    // self.dimensions.forEach(function(dimension) {
-    //     dimension.scale.domain(dimension.type === "number"
-    //     ? d3.extent(self.data, function(d) { 
-    //         return +d[dimension.name]; 
-    //     })
-    //     : self.data.map(function(d) { 
-    //         return d[dimension.name]; }).sort());
-    // });
-
     self.dimensions.forEach(function(dimension) {
         dimension.scale.domain(dimension.type === "number"
         ? dimension.extent
@@ -114,7 +74,6 @@ ParallelCoordVis.prototype.initVis = function () {
             return d[dimension.name]; 
         }).sort());
     });
-
 
     // Add grey background lines for context.
     background = self.svg.append("g")
@@ -201,10 +160,6 @@ ParallelCoordVis.prototype.initVis = function () {
         .each(function(d) {
             var cdimen = checkDimension(d);
             d3.select(this).call(
-                // y[d].brush = d3.svg.brush()
-                //     .y(y[d])
-                //     .on("brushstart", brushstart)
-                //     .on("brush", brush));
                 cdimen.brush = d3.svg.brush()
                     .y(y[d])
                     .on("brushstart", brushstart)
