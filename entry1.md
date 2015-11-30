@@ -4,7 +4,7 @@ Here, you can read about the design choices and  development process which shape
 
 ## Overview##
 
-Curly-Squeegee (CS) is a tool for exploring and visualizing Actor filmographies in an interactive way.  By enabling users to search for their favorite actors and see their entire body of work displayed a variety of ways, we hope it invites them to explore the different views, select and filter different sub-sets of actor filmography data, and find intersting or surprising trends hidden within.
+Curly-Squeegee (CS) is a tool for exploring and visualizing Actor filmographies in an interactive way.  By enabling users to search for their favorite actors and see their entire body of work displayed a variety of ways, we hope it invites them to explore the different views, select and filter different sub-sets of actor filmography data, and find intersting or surprising hidden trends.
 
 ## Motivation ##
 
@@ -20,11 +20,23 @@ CS is meant to provide a new way of viewing actor data, and seeks to facilitiate
 
 ## Data  ##
 
-This product utilizes the XXX API.  Information is queried for an actor, and their entire filmography is returned in JSON format.  We store this information in  a local MongoDB table
+This application readily takes advantage of several pre-packaged movie APIs, specifically My API Films and OMdb.  We have set up a web framework using node.hs and Meteor which uses a RESTful architecture to gather API calls via GET requests.  We store all data in a MongoDB database.  This dataset is fairly dynamic, so we rely on user queries to pull the necessary information from the APIs.
 
+### Data Processing ###
+
+API requests are returned in JSON format, so there is little clean-up beyond. Returned data is fairly detailed, so we selectively cull certain uncessary fields and aggregate filmography data based on what we want to visualize.  We have two data structures in our databases:
+
+* Actor Table: THis stores all the actor information of a selected actor, including the movies they've acted in.
+* Movie Table: This contains all of the information for each movie we wish to plot or visualize.
+
+The data collection and filtering is probably the most sophisticated portion of this project.  With everything stored and readily accessible, we use built-in javascript math functions and agregate parameter counts of our actor data to illustrate actor filmographies.
+
+*To add?*
 * Talk about local vs. server processing?
 * Go into depth on MongoDB / Meteor?
-* Discuss the any pre-processing which occurs ahead of time?  
+* Discuss more on pre-processing which occurs ahead of time? 
+
+
 
 ## TO-DO List##
 Things we need to address:
