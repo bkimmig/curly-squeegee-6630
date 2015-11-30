@@ -1,0 +1,14 @@
+\contentsline {section}{\numberline {1}Background \& Motivation}{2}
+\contentsline {section}{\numberline {2}Data Collection}{3}
+\contentsline {subsection}{\numberline {2.1}Data Processing}{3}
+\contentsline {section}{\numberline {3}Project Evolution}{4}
+\contentsline {subsection}{\numberline {3.1}Landing Page}{4}
+\contentsline {subsection}{\numberline {3.2}Loading Page}{4}
+\contentsline {subsection}{\numberline {3.3}Display\textbackslash Results Page}{5}
+\contentsline {subsection}{\numberline {3.4}Actor Fact Box}{5}
+\contentsline {subsection}{\numberline {3.5}Visualizations}{5}
+\contentsline {subsubsection}{\numberline {3.5.1}Filmography Timeline}{6}
+\contentsline {subsubsection}{\numberline {3.5.2}Genre Visualization}{6}
+\contentsline {subsubsection}{\numberline {3.5.3}Parallel Axis Coordinate Visualization}{6}
+\contentsline {section}{\numberline {4}Project Feedback}{7}
+\contentsline {section}{\numberline {5}Team Evaluation}{8}
