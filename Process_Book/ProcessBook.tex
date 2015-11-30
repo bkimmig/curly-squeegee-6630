@@ -5,6 +5,11 @@
 \usepackage[font=small,labelfont=bf]{caption}  % Caption formatting
 \usepackage{subcaption}
 
+\usepackage{hyperref}
+
+
+%for editing purposes
+\usepackage{color}
 
 \title{Curly-Squeegee Process Book}
 \author{ Brian Kimmig \& Jimmy Moore}
@@ -15,7 +20,7 @@
 \maketitle
 
 \begin{abstract}
-	Curly-Squeegee (CS) is a tool for exploring and visualizing Actor filmographies in an interactive way. By enabling users to search for their favorite actors and see their entire body of work displayed a variety of ways, we hope it invites them to explore the different views, select and filter different sub-sets of actor filmography data, and find intersting or surprising hidden trends.
+	Curly-Squeegee (CS) is a web-bsaed tool for visualizing and exploring actor filmographies in an interactive way. By enabling users to search for their favorite actors and see their entire body of work displayed a variety of ways, we hope it invites them to explore the different views, select and filter different sub-sets of actor filmography data, and find intersting or surprising hidden trends.
 \end{abstract}
 
 \tableofcontents
@@ -23,8 +28,29 @@
 \newpage
 
 
+\section{Editing notes}
 
-\section{Background \& Motivation}
+{\color{red}
+
+Depending on how thourough we want to be (and how much time we have for thoroughness) we could incorporate any of the talking points from the ``example" documents
+\begin{itemize}
+	\item \href{http://dataviscourse.net/2015/assets/process_books/bansal_cao_hou.pdf}{Real time audio visualization project - Soundscapes}
+	\item \href{http://dataviscourse.net/2015/assets/process_books/walsh_trevino_bett.pdf}{Oh Shit, earthquakes!}
+\end{itemize}
+
+Options include:
+\begin{enumerate}
+	\item Explicit analysis on color choices, modes of comparison (length, hue, etc)
+	\item in-depth explanation of our  choice of design principles or encodings \textbackslash visual variables
+	\item Analysis of data
+\end{enumerate}
+}
+
+\newpage
+
+\section{Project Background}
+
+\subsection{Motivation}
 	The idea for this project came from the fact that both developers watch a good amount of movies and enjoyed sites like IMDB and RottenTomatoes, but wanted something that focused on specific actors rather than being movie-centric. CS is their solution to needing to sift through lists and text to appreciate a given actors filmography. In three views, one can see their entire body of work as a timeline, with length and color encodings for film-output and film-quality, respectively, as well as career visualizations showing the breakdown of movie genre over the course of their career and a multi-axis interactive plot to explore an actors output as a function of date ranges, ratings, box office earnings, and directors.
 	
 	CS is meant to provide a new way of viewing actor data, and seeks to facilitiate a fun and interactive web-based solution to questions like:
@@ -37,11 +63,22 @@
 		\item Do they consistently star in well-reviewed films?
 		\item Has their career had a golden period in which they were particularly busy, or appeared in well-reviewed films?
 	\end{itemize}
+	
+\subsection{Intended Audience}
+Curlee Squeege is geared towards the general public and accessible to the occasional movie-goer to film buffs, alike.  
 
+Users are presented with a list of trending actors as well as a search box, so they can start using the tool immediately with little explanation.
+
+We hope that the site design and visualization aesthetics make it a natural and easy tool to use.
 \newpage 
 
 \section{Data Collection}
-	This application readily takes advantage of several pre-packaged movie APIs, specifically My API Films and OMdb. We have set up a web framework using node.hs and Meteor which uses a RESTful architecture to gather API calls via GET requests. We store all data in a MongoDB database. This dataset is fairly dynamic, so we rely on user queries to pull the necessary information from the APIs.
+	This application readily takes advantage of several pre-packaged movie APIs, specifically My API Films and OMdb. We have set up a web framework using node.hs and Meteor which uses a RESTful architecture to gather API calls via GET requests. We store all data in a MongoDB database. This dataset is fairly dynamic since we rely on user queries to pull the necessary information from the APIs.
+	
+	\begin{center}
+	\color{blue}
+	\textbf{Do we want to have a breakdown or description of the API call, data retrieval, and database storage? }
+	\end{center}
 	
 \subsection{Data Processing}
 	API requests are returned in JSON format, so there is little clean-up beyond. Returned data is fairly detailed, so we selectively cull certain uncessary fields and aggregate filmography data based on what we want to visualize. We have two data structures in our databases:
