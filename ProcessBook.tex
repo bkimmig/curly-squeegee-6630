@@ -1,0 +1,136 @@
+\documentclass[12pt]{article}
+
+\usepackage{lmodern}
+
+
+\title{Curly-Squeegee Process Book}
+\author{ Brian Kimmig \& Jimmy Moore}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+	Curly-Squeegee (CS) is a tool for exploring and visualizing Actor filmographies in an interactive way. By enabling users to search for their favorite actors and see their entire body of work displayed a variety of ways, we hope it invites them to explore the different views, select and filter different sub-sets of actor filmography data, and find intersting or surprising hidden trends.
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+
+
+\section{Background \& Motivation}
+	The idea for this project came from the fact that both developers watch a good amount of movies and enjoyed sites like IMDB and RottenTomatoes, but wanted something that focused on specific actors rather than being movie-centric. CS is their solution to needing to sift through lists and text to appreciate a given actors filmography. In three views, one can see their entire body of work as a timeline, with length and color encodings for film-output and film-quality, respectively, as well as career visualizations showing the breakdown of movie genre over the course of their career and a multi-axis interactive plot to explore an actors output as a function of date ranges, ratings, box office earnings, and directors.
+	
+	CS is meant to provide a new way of viewing actor data, and seeks to facilitiate a fun and interactive web-based solution to questions like:
+
+
+	\begin{itemize}
+		\item How many movies has an actor acted in?
+		\item Has an actor been type-cast to a specific genre?
+		\item What is the best movie they have made? The worst?
+		\item Do they consistently star in well-reviewed films?
+		\item Has their career had a golden period in which they were particularly busy, or appeared in well-reviewed films?
+	\end{itemize}
+
+\newpage 
+
+\section{Data Collection}
+	This application readily takes advantage of several pre-packaged movie APIs, specifically My API Films and OMdb. We have set up a web framework using node.hs and Meteor which uses a RESTful architecture to gather API calls via GET requests. We store all data in a MongoDB database. This dataset is fairly dynamic, so we rely on user queries to pull the necessary information from the APIs.
+	
+\subsection{Data Processing}
+	API requests are returned in JSON format, so there is little clean-up beyond. Returned data is fairly detailed, so we selectively cull certain uncessary fields and aggregate filmography data based on what we want to visualize. We have two data structures in our databases:
+	
+	\begin{itemize}
+		\item Actor Table: This stores all the actor information of a selected actor, including the movies they've acted in.
+		\item Movie Table: This contains all of the information for each movie we wish to plot or visualize.
+	\end{itemize}
+	
+	The data collection and filtering is probably the most sophisticated portion of this project. With everything stored and readily accessible, we use built-in javascript math functions and agregate parameter counts of our actor data to illustrate actor filmographies.
+
+\newpage 
+
+\section{Project Evolution}
+
+\subsection{Main Page}
+
+	\begin{center}
+	Add screenshot of main page
+	%\includegraphics[scale=0.3]{mainPage.jpg}
+	\end{center}
+
+\subsection{Loading Page}
+
+		\begin{center}
+		Add screenshot of loading page
+		%\includegraphics[scale=0.3]{loadingPage.jpg}
+		\end{center}
+
+\subsection{Display\textbackslash Results Page}
+
+		\begin{center}
+		Add screenshot of results page
+		%\includegraphics[scale=0.3]{resultsPage.jpg}
+		\end{center}
+
+\newpage
+
+\subsection{Visualizations}
+
+	Talk a bit about the different views we chose, and why.  This can be a cut/paste job from certain parts of our proposal.
+
+\subsubsection{Filmography Timeline}
+
+		\begin{center}
+		Add screenshot of timeline Vis
+		%\includegraphics[scale=0.3]{timelineVis.jpg}
+		\end{center}
+
+\subsubsection{Genre Visualization}
+
+		\begin{center}
+		Add screenshot of Genre Vis
+		%\includegraphics[scale=0.3]{genreVis.jpg}
+		\end{center}
+
+\subsubsection{Parallel Axis Coordinate Visualization}
+
+		\begin{center}
+		Add screenshot of Parallel Axis Coordinate Viz		%\includegraphics[scale=0.3]{parallelAxisCoordVis.jpg}
+		\end{center}
+
+\newpage
+
+\section{Project Feedback}
+
+After we settled on our design and project implementation, we had the opportunity to present a ``sales pitch"  for Curly-Squeegee to another project team to get their feedback.  We met with Ian Sohl, Phil Cutler, and Ariel Herbert-Voss of the "Legion Profiling Visualization" team and they provided the following feedback:
+
+\begin{itemize}
+	\item \textbf{Ian Sohl} (u0445696@utah.edu)
+	
+	Add feedback
+	
+	\item \textbf{Phil Cutler} (u0764757@utah.edu)
+	
+	Provided good feedback and constructive criticism. Raised concerns about Parallel axis plot readability in the limit of a long, active acting career as well as a lack of information on new actors. Liked the idea of the filmography visualization, but recommended using bar charts as opposed to circles anchored to a timeline. He thought it was a neat idea, but did not see it's utility. He admitted he does not like watching movies.
+	
+	
+	\item \textbf{Ariel Herbert-Voss} (u0591949@utah.edu)
+	
+	Overall very positive and excited reaction. she loved the parallel axis plot idea and also agreed with Phil that a bar chart for the filmography timeline would be more effective. She suggested scaling bars either by film rating or number of films in a given period (for a drill-down style barchart), as well as shading a given bar to convey additional information. Ariel is a film buff and saw a great deal of utility in this visualization
+	
+	
+\end{itemize}
+
+\newpage
+
+\section{Team Evaluation}
+
+\textit{Brian Kimmig}: Brian was responsible for the API calls, data collection, and database wrangling. His experience as a web developer was very helpful for making this portion of the project go very smoothly. Brian also created the project framework, and parallel coordinate view.
+
+\textit{Jimmy Moore}: Jimmy was the lead scribe for the group and was responsible for project documentation including the proposal and process book. He also coded the Actor photo and display box features and filmography timeline visualization.
+
+
+\end{document}
