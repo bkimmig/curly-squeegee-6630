@@ -1,10 +1,20 @@
+// code compiled from 
+// http://bl.ocks.org/syntagmatic/4020926
+// http://bl.ocks.org/jasondavies/1341281
+// http://bl.ocks.org/mbostock/1341021
+// http://bl.ocks.org/mostaphaRoudsari/b4e090bb50146d88aec4
+// http://bl.ocks.org/mbostock/1087001
+
+
+
+
 ParallelCoordVis = function(_parentElement, _session) {
     var self = this;
     self.parallelCoordKeys = [
-        // 'Director',
         // 'Rated',
         // 'Runtime', // minutes
         'BoxOffice',
+        // 'Director',
         'Title',
         'Year',
         'imdbRating',
@@ -28,6 +38,10 @@ ParallelCoordVis = function(_parentElement, _session) {
 ParallelCoordVis.prototype.initVis = function () {
 
     var self = this; 
+
+    var div = self.parentElement.append("div")
+        .attr("class", "tooltip-pc")
+        .style("display", "none");
 
     // find the longest text size in the first row to adjust left margin
     // need to make this better ...
@@ -98,7 +112,10 @@ ParallelCoordVis.prototype.initVis = function () {
         .selectAll("path")
         .data(self.data)
         .enter().append("path")
-        .attr("d", path);
+        .attr("d", path)
+        .on("mouseover", mouseover)
+        .on("mouseout", mouseout)
+        .on("mousemove", mousemove);
 
     // Add a group element for each dimension.
     var g = self.svg.selectAll(".dimension")
@@ -148,14 +165,15 @@ ParallelCoordVis.prototype.initVis = function () {
             // d3.select(this).call(axis.scale(y[d]));
             var cdimen = checkDimension(d)
             // format the ticks to not have commas
-            if (cdimen.type !== 'string') {
+            if (cdimen.type === 'string') {
                 d3.select(this).call(axis.scale(
                     cdimen.scale
-                ).tickFormat(d3.format('d')) );
+                ));
             } else {
                 d3.select(this).call(axis.scale(
                     cdimen.scale
-                ));  
+                    ).tickFormat(d3.format('d'))
+                );  
             }
         })
         .append("text")
@@ -209,7 +227,6 @@ ParallelCoordVis.prototype.initVis = function () {
         var extents = actives.map(function(p) { 
             return p.brush.extent(); 
         });
-        console.log(extents, actives)
         foreground.style("display", function(d) {
             return actives.every(function(p, i) {
                 if (p.type === 'string') {
@@ -234,6 +251,20 @@ ParallelCoordVis.prototype.initVis = function () {
         return cdimen
     }
 
+    function mousemove(d) {
+        var movie = dimensions.map(function(p) { return [d[p]][0]; })
+        div.text(movie[0])
+            .style("left", (d3.event.pageX - 34) + "px")
+            .style("top", (d3.event.pageY - 12) + "px");
+    }
+
+    function mouseover() {
+      div.style("display", "inline");
+    }
+
+    function mouseout() {
+        div.style("display", "none");
+    }
 
 };
 
@@ -249,6 +280,12 @@ ParallelCoordVis.prototype.setDimensions = function(height) {
             type: "string",
 
         },
+        // {
+        //     name: "Director",
+        //     scale: d3.scale.ordinal(),
+        //     type: "string",
+
+        // },
         {
             name: "Year",
             scale: d3.scale.linear(),
@@ -282,9 +319,9 @@ ParallelCoordVis.prototype.setDimensions = function(height) {
         {
             name: "BoxOffice",
             scale: d3.scale.log(),
-            extent: d3.extent(self.data, function(p) {
-                        return +p['BoxOffice'];
-                    }),
+            extent: [0.01, d3.max(self.data, function(p) {
+                return +p['BoxOffice'];
+            })],
             type: "number",
             range : [height, 0]
         },
