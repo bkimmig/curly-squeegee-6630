@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.8.27)  30 NOV 2015 13:19
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.8.27)  30 NOV 2015 14:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -106,37 +106,94 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 )
 \c@ContinuedFloat=\count88
 )
-(./ProcessBook.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
+\c@subfigure=\count89
+\c@subtable=\count90
+)
+(./ProcessBook.aux
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:landingPage' multiply defined.
+
+)
 \openout1 = `ProcessBook.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 13.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 14.
  (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count89
+\scratchcounter=\count91
 \scratchdimen=\dimen112
 \scratchbox=\box26
-\nofMPsegments=\count90
-\nofMParguments=\count91
+\nofMPsegments=\count92
+\nofMParguments=\count93
 \everyMPshowfont=\toks15
-\MPscratchCnt=\count92
+\MPscratchCnt=\count94
 \MPscratchDim=\dimen113
-\MPnumerator=\count93
-\makeMPintoPDFobject=\count94
+\MPnumerator=\count95
+\makeMPintoPDFobject=\count96
 \everyMPtoPDFconversion=\toks16
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -188,29 +245,29 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 14.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 15.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 14.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 15.
 
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 14.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 15.
 
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 14.
+(Font)              <14.4> on input line 15.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 14.
+(Font)              <10> on input line 15.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 14.
+(Font)              <7> on input line 15.
  (./ProcessBook.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <12> on input line 3.
@@ -232,69 +289,123 @@ LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-<images/landingPage.png, id=18, 587.19376pt x 318.18875pt>
+<images/landingPage_crop.png, id=18, 1048.91875pt x 699.61375pt>
+File: images/landingPage_crop.png Graphic file (type png)
+
+<use images/landingPage_crop.png>
+Package pdftex.def Info: images/landingPage_crop.png used on input line 68.
+(pdftex.def)             Requested size: 195.0pt x 130.05635pt.
+
+<images/landingPage.png, id=19, 587.19376pt x 318.18875pt>
 File: images/landingPage.png Graphic file (type png)
 
 <use images/landingPage.png>
-Package pdftex.def Info: images/landingPage.png used on input line 65.
-(pdftex.def)             Requested size: 176.15948pt x 95.45735pt.
+Package pdftex.def Info: images/landingPage.png used on input line 74.
+(pdftex.def)             Requested size: 234.00089pt x 126.79742pt.
 
-<images/loadingPage.png, id=19, 753.81625pt x 654.445pt>
+Overfull \hbox (117.00119pt too wide) in paragraph at lines 66--78
+ [][][] 
+ []
+
+<images/loadingPage.png, id=20, 753.81625pt x 654.445pt>
 File: images/loadingPage.png Graphic file (type png)
 
 <use images/loadingPage.png>
-Package pdftex.def Info: images/loadingPage.png used on input line 74.
+Package pdftex.def Info: images/loadingPage.png used on input line 87.
 (pdftex.def)             Requested size: 226.14662pt x 196.335pt.
-LaTeX Font Info:    Font shape `OMS/lmr/bx/n' in size <14.4> not available
-(Font)              Font shape `OMS/lmsy/b/n' tried instead on input line 79.
- [4 <./images/landingPage.png> <./images/loadingPage.png>] <images/actorBox.png
-, id=23, 907.39pt x 510.90875pt>
-File: images/actorBox.png Graphic file (type png)
-
-<use images/actorBox.png>
-Package pdftex.def Info: images/actorBox.png used on input line 88.
-(pdftex.def)             Requested size: 272.2191pt x 153.2738pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/genreVis.png, id=24, 758.835pt x 546.04pt>
+LaTeX Font Info:    Font shape `OMS/lmr/bx/n' in size <14.4> not available
+(Font)              Font shape `OMS/lmsy/b/n' tried instead on input line 92.
+[4 <./images/landingPage_crop.png> <./images/landingPage.png>]
+<images/actorFactBox_crop.png, id=25, 1112.155pt x 654.445pt>
+File: images/actorFactBox_crop.png Graphic file (type png)
+
+<use images/actorFactBox_crop.png>
+Package pdftex.def Info: images/actorFactBox_crop.png used on input line 103.
+(pdftex.def)             Requested size: 195.0pt x 114.73929pt.
+
+<images/actorBox.png, id=26, 907.39pt x 510.90875pt>
+File: images/actorBox.png Graphic file (type png)
+ <use images/actorBox.png>
+Package pdftex.def Info: images/actorBox.png used on input line 109.
+(pdftex.def)             Requested size: 156.0006pt x 87.8356pt.
+
+[5 <./images/loadingPage.png> <./images/actorFactBox_crop.png> <./images/actorB
+ox.png>] <images/timeline_crop.png, id=30, 884.30376pt x 230.8625pt>
+File: images/timeline_crop.png Graphic file (type png)
+
+<use images/timeline_crop.png>
+Package pdftex.def Info: images/timeline_crop.png used on input line 127.
+(pdftex.def)             Requested size: 195.0pt x 50.90614pt.
+
+<images/genreVis_crop.png, id=31, 974.64125pt x 593.21625pt>
+File: images/genreVis_crop.png Graphic file (type png)
+
+<use images/genreVis_crop.png>
+Package pdftex.def Info: images/genreVis_crop.png used on input line 148.
+(pdftex.def)             Requested size: 195.0pt x 118.6864pt.
+
+<images/genreVis.png, id=32, 758.835pt x 546.04pt>
 File: images/genreVis.png Graphic file (type png)
  <use images/genreVis.png>
-Package pdftex.def Info: images/genreVis.png used on input line 109.
-(pdftex.def)             Requested size: 227.65225pt x 163.81326pt.
+Package pdftex.def Info: images/genreVis.png used on input line 154.
+(pdftex.def)             Requested size: 218.39987pt x 157.15608pt.
 
+Overfull \hbox (117.00119pt too wide) in paragraph at lines 146--158
+ [][][] 
+ []
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+<images/parallel_crop.jpg, id=33, 1607.00375pt x 904.37875pt>
+File: images/parallel_crop.jpg Graphic file (type jpg)
 
-<images/parallelAxisCoordVis.png, id=25, 1097.09875pt x 621.32124pt>
+<use images/parallel_crop.jpg>
+Package pdftex.def Info: images/parallel_crop.jpg used on input line 168.
+(pdftex.def)             Requested size: 195.0pt x 109.73514pt.
+
+<images/parallelAxisCoordVis.png, id=34, 1097.09875pt x 621.32124pt>
 File: images/parallelAxisCoordVis.png Graphic file (type png)
 
 <use images/parallelAxisCoordVis.png>
-Package pdftex.def Info: images/parallelAxisCoordVis.png used on input line 117
+Package pdftex.def Info: images/parallelAxisCoordVis.png used on input line 174
 .
-(pdftex.def)             Requested size: 329.13217pt x 186.39781pt.
- [5 <./images/actorBox.png>] [6 <./images/genreVis.png> <./images/parallelAxisC
-oordVis.png>] [7] [8] (./ProcessBook.aux) ) 
+(pdftex.def)             Requested size: 218.39987pt x 123.68373pt.
+
+Overfull \hbox (117.00119pt too wide) in paragraph at lines 166--178
+ [][][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6 <./images/timeline_crop.png> <./images/genreVis_crop.png> <./images/genreVis
+.png>] [7 <./images/parallel_crop.jpg> <./images/parallelAxisCoordVis.png>]
+[8] [9] (./ProcessBook.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2679 strings out of 493304
- 43124 string characters out of 6139871
- 100194 words of memory out of 5000000
- 6104 multiletter control sequences out of 15000+600000
+ 2768 strings out of 493304
+ 44836 string characters out of 6139871
+ 101224 words of memory out of 5000000
+ 6185 multiletter control sequences out of 15000+600000
  50949 words of font info for 43 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,6n,38p,741b,301s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm
-/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf
-/fonts/type1/public/lm/lmbsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx
-10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fon
-ts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb>
-</usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1
-/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on ProcessBook.pdf (8 pages, 1123826 bytes).
+ 38i,7n,38p,741b,440s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dv
+ips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm/lmbsy10.pfb></usr/
+share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/publ
+ic/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/
+texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/l
+mr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/f
+onts/type1/public/lm/lmsy10.pfb>
+Output written on ProcessBook.pdf (9 pages, 3860324 bytes).
 PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
+ 78 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

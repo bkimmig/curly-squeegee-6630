@@ -1,8 +1,9 @@
 \documentclass[12pt]{article}
 
-\usepackage{lmodern}		% for nice Fonts
-\usepackage{graphicx}						   % For adding pictures
+\usepackage{lmodern}	% for nice Fonts
+\usepackage{graphicx}	% For adding pictures
 \usepackage[font=small,labelfont=bf]{caption}  % Caption formatting
+\usepackage{subcaption}
 
 
 \title{Curly-Squeegee Process Book}
@@ -56,14 +57,26 @@
 
 \section{Project Evolution}
 
-\subsection{Landing Page}
+This project has had an accelerated development cycle and we quickly settled on a fixed set of views.  Details have not changed significantly from the proposal document, but we will compare and contrast any differences below.
 
-	
+\subsection{Landing Page}
 
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[scale=0.3]{images/landingPage.png}
-		\caption{The Curly-Squeegee landing page is relatively simple and self-explanatory}
+		\begin{subfigure}[t]{.5\textwidth}
+			  \centering
+			  \includegraphics[width=\linewidth]{images/landingPage_crop.png}
+			  \caption{Original design sketch}
+			  \label{fig:sub1}
+		\end{subfigure}%
+		\begin{subfigure}[t]{.8\textwidth}
+			  \centering
+			  \includegraphics[width=0.75\linewidth]{images/landingPage.png}
+			  \caption{Current implementation}
+			  \label{fig:sub2}
+		\end{subfigure}%
+		\caption{Landing page development}
+		\label{fig:landingPage}
 	\end{figure}
 
 
@@ -81,14 +94,25 @@ Once the filmography has been loaded, we load our results page, which  shows a n
 
 \subsection{Actor Fact Box}
 
-	This visualization is less about interactivity and more of an orientation tool to indicate to the user whether the correct actor was returned.  Using the OMDB API data, we are able to display a photograph of the actor, their full name, date of birth, and other derived data from the API call.  We currently display their total number of films.  other useful information would be when they started acting \textbackslash first credited role, years active, and highest or worst rated movie.
-
-			\begin{figure}[h!]
-						\centering
-						\includegraphics[scale=0.3]{images/actorBox.png}
-						\caption{The Actor fact box presents biographical data about the actor so the user can determine whether the correct data was returned (in cases when searching for actors with common names)}
-					\end{figure}
-
+	This data serves as an orientation tool,indicating to the user whether the correct actor was returned.  This is particularly important in cases when searching for actors with common names.  Using the OMDB API data, we are able to display a photograph of the actor, their full name, date of birth, and other derived data from the API call.  We currently display their total number of films.  other useful information would be when they started acting \textbackslash first credited role, years active, and highest or worst rated movie.
+	
+		\begin{figure}[h!]
+			\centering
+			\begin{subfigure}[t]{.5\textwidth}
+				  \centering
+				  \includegraphics[width=\linewidth]{images/actorFactBox_crop.png}
+				  \caption{Original design sketch}
+				  \label{fig:sub1}
+			\end{subfigure}%
+			\begin{subfigure}[t]{.5\textwidth}
+				  \centering
+				  \includegraphics[width=.8\linewidth]{images/actorBox.png}
+				  \caption{Current implementation}
+				  \label{fig:sub2}
+			\end{subfigure}%
+			\caption{Actor `Fact Box' development}
+			\label{fig:actorFactBox}
+		\end{figure}
 
 \subsection{Visualizations}
 
@@ -96,27 +120,64 @@ Once the filmography has been loaded, we load our results page, which  shows a n
 
 \subsubsection{Filmography Timeline}
 
-		\begin{figure}[h!]
+	\begin{figure}[h!]
 			\centering
-			%\includegraphics[scale=0.3]{images/timelineBid.png}
-			\caption{Add timelineVis pic}
+			\begin{subfigure}[t]{.5\textwidth}
+			  \centering
+			  \includegraphics[width=\linewidth]{images/timeline_crop.png}
+			  \caption{Original design sketch}
+			  \label{fig:sub1}
+			\end{subfigure}%
+			\begin{subfigure}[t]{.5\textwidth}
+			  \centering
+			 % \includegraphics[width=.7\linewidth]{images/timelineVis.png}
+			  \caption{Current implementation}
+			  \label{fig:sub2}
+			\end{subfigure}%
+			\caption{Timeline development}
+			\label{fig:timeline}
 		\end{figure}
+		
 
 \subsubsection{Genre Visualization}
 
-		\begin{figure}[h!]
-			\centering
-			\includegraphics[scale=0.3]{images/genreVis.png}
-			\caption{Add timelineVis pic}
-		\end{figure}
+	\begin{figure}[h!]
+		\centering
+		\begin{subfigure}[t]{.5\textwidth}
+		  \centering
+		  \includegraphics[width=\linewidth]{images/genreVis_crop.png}
+		  \caption{Original design sketch}
+		  \label{fig:sub1}
+		\end{subfigure}%
+		\begin{subfigure}[t]{.8\textwidth}
+		  \centering
+		  \includegraphics[width=.7\linewidth]{images/genreVis.png}
+		  \caption{Current implementation}
+		  \label{fig:sub2}
+		\end{subfigure}%
+		\caption{Genre visualization development}
+		\label{fig:genreVis}
+	\end{figure}
 
 \subsubsection{Parallel Axis Coordinate Visualization}
-
-			\begin{figure}[h!]
-				\centering
-				\includegraphics[scale=0.3]{images/parallelAxisCoordVis.png}
-				\caption{Add timelineVis pic}
-			\end{figure}
+	
+	\begin{figure}[h!]
+		\centering
+		\begin{subfigure}[t]{.5\textwidth}
+			  \centering
+			  \includegraphics[width=\linewidth]{images/parallel_crop.jpg}
+			  \caption{Original design sketch}
+			  \label{fig:sub1}
+		\end{subfigure}%
+		\begin{subfigure}[t]{.8\textwidth}
+			  \centering
+			  \includegraphics[width=.7\linewidth]{images/parallelAxisCoordVis.png}
+			  \caption{Current implementation}
+			  \label{fig:sub2}
+		\end{subfigure}%
+		\caption{Parallel Axis Coordinate visualization development}
+		\label{fig:parallelAxisCoordVis}
+	\end{figure}
 
 \newpage
 
