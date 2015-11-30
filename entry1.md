@@ -38,6 +38,25 @@ The data collection and filtering is probably the most sophisticated portion of 
 
 
 
+
+## Project Evolution ##
+
+A few Early drawings and design goals did not pan out as we had expected.  for example, the Genre View of an actors career was more underwhelming and unclear than we expected
+
+*include hand-drawing and screenshot side by side*
+
+Here, we see a visualization of XXXXXXX filmography.   We did not expect the larger number of one-off genre classifications (Family, documentary, Crime) nor did we account for the somewhat subjective genre labling of a given film.  We paused development on this feature shortly after it was operational and decided we would explore an alternative method of genre-classification of the actors filmography.
+
+##Implementation ##
+
+>Add something here about the functionality of our visualizations.  Lots of pictures of hover, scrubbing, linked highlighting (?), and bars.
+
+# Team Evaluation#
+*Brian Kimmig*:  Brian was responsible for the API calls, data collection, and database wrangling.  His experience as a web developer was very helpful for  making this portion of the project go very smoothly.  Brian also created the project framework, and parallel coordinate view.
+
+*Jimmy Moore*  Jimmy was the lead scribe for the group and was responsible for project documentation including the proposal and process book. He also coded the Actor photo and display box features and filmography timeline visualization.
+
+
 ## TO-DO List##
 Things we need to address:
 * Write up our project book, wiki pages on github
