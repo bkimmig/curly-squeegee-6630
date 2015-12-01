@@ -58,7 +58,7 @@ TimeLineVis.prototype.initVis = function () {
 
 
 
-    var x = d3.time.scale()
+    x = d3.time.scale()
         .domain([new Date(minDate), new Date(maxDate)])
         .range([0, width]);
     
@@ -70,14 +70,13 @@ TimeLineVis.prototype.initVis = function () {
         .scale(x)
         .orient("bottom")
         .ticks(d3.time.years)
-        .tickFormat(d3.time.format("%Y-%m")) //change this for tick lines
+        // .tickFormat(d3.time.format("%Y-%m")) //change this for tick lines
         //.tickValues(dates); // explicitly set the tick values
 
     var yAxis = d3.svg.axis()
         .scale(y)
         .orient("left")
         .ticks(10)
-        .tickFormat([0,1,2,3,4,5,6,7,8,9,10])
 
     var rectWidth = width/self.data.length;
 
@@ -86,9 +85,11 @@ TimeLineVis.prototype.initVis = function () {
         .enter()
         .append("rect");
     
-    rects.attr("x", function(d) {console.log(d.Release); return x(new Date(d.Release)) })
+    rects.attr("x", function(d) {
+            return x(new Date(d.Released).getFullYear()) 
+        })
         .attr("y", 0)
-        .attr("height", function(d) {return y(d.imdbRating) })
+        .attr("height", function(d) {return height - y(d.imdbRating) })
         .attr("width", rectWidth)
         .style("fill", "steelblue");
 
@@ -97,10 +98,10 @@ TimeLineVis.prototype.initVis = function () {
     //     .attr("width", 20);
     
 
-    rects.exit ()
-        .transition().duration(1000).ease("exp-in-out")
-        .attr("width", 0)
-        .remove ();
+    // rects.exit ()
+    //     .transition().duration(1000).ease("exp-in-out")
+    //     .attr("width", 0)
+    //     .remove ();
 
      // Add the X Axis
     self.svg.append("g")
@@ -125,10 +126,10 @@ TimeLineVis.prototype.initVis = function () {
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("N Emails");
+        .text("imdb Rating");
         //setTimeout (update, 2000)
 
-
+}
     //==================================================
     //      Pseudo code for bar chart creation
     //==================================================
@@ -214,9 +215,9 @@ TimeLineVis.prototype.filterAndAggregate = function (_filter) {
     return prio;
 };
 
-TimeLineVis.prototype.getDateRange = function(actorMovies) {
-    var self = this;
+// TimeLineVis.prototype.getDateRange = function(actorMovies) {
+//     var self = this;
 
-    self.minDate = d3.min(data, function(d) { return d.year;} );
-    self.maxDate = d3.max(data, function(d) { return d.year;} ); 
-};
+//     self.minDate = d3.min(data, function(d) { return d.year;} );
+//     self.maxDate = d3.max(data, function(d) { return d.year;} ); 
+// };
