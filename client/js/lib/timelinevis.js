@@ -51,7 +51,7 @@ TimeLineVis.prototype.initVis = function () {
             .scale(xRange)          // set the range of the axis
             .orient("bottom")       // have the text lables below axis
             .tickSize(5)            // height of the ticks
-            .tickSubdivide(true),   // display ticks between text labels
+            .tickSubdivide(true);   // display ticks between text labels
             //.tickFormat(d3.time.format("%B"));
             //.ticks(d3.time.years)
         
@@ -101,11 +101,11 @@ TimeLineVis.prototype.initVis = function () {
 //==================================================
 //      Pseudo code for bar chart creation
 //==================================================
-1) read in actorMovies 
-        var minDate = d3.min(actorMovies)
+// 1) read in actorMovies 
+        // var minDate = d3.min(actorMovies)
 
 
-};  // end TimeLineVis.prototype.initVis
+// };  // end TimeLineVis.prototype.initVis
 
 // Keys to use:   decade --> size bars based on number of films
 //                       --> Shade baded on average rating?
