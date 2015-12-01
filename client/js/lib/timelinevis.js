@@ -57,6 +57,7 @@ TimeLineVis.prototype.initVis = function () {
 
 
 
+
     var x = d3.time.scale()
         .domain([new Date(minDate), new Date(maxDate)])
         .range([0, width]);
@@ -155,7 +156,7 @@ TimeLineVis.prototype.initVis = function () {
 
     // 4) when user clicks on a bar, rescale to a new barchart with 'binWidth' number of ticks in x
 
-};  // end TimeLineVis.prototype.initVis
+// };  // end TimeLineVis.prototype.initVis
 
 // Keys to use:   decade --> size bars based on number of films
 //                       --> Shade baded on average rating?

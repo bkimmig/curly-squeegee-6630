@@ -22,7 +22,7 @@ Template.results.rendered = function () {
     $('.navbar').show();
     gv = new GenreVis(d3.selectAll('#genreVis'), Session);
     pcv = new ParallelCoordVis(d3.selectAll('#parallelCoordVis'), Session);
-    tlv = new  TimeLineVis(d3.selectAll('#timelineVis'), Session);
+    // tlv = new  TimeLineVis(d3.selectAll('#timelineVis'), Session);
     //tlv = new  TimelineVis(d3.selectAll('#timelineVis'), Session);
 
 }
