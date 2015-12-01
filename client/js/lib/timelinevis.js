@@ -16,6 +16,7 @@ TimeLineVis = function(_parentElement, _session) {
 
     self.parentElement = _parentElement;
 
+    //Link movie data to timelineVis 'data'
     self.data = nanToZero(
         _session.get('actorMovies'), 
         self.timelineVisKeys
@@ -28,45 +29,83 @@ TimeLineVis = function(_parentElement, _session) {
 
 TimeLineVis.prototype.initVis = function () {
 
+    //copy global data to be visible to this function
     var self = this; 
 
+
+    //define some canvas variables
+    var width = 960;
+    var height = 500;
     var margin = {top: 30, right: 10, bottom: 10, left: 140},
-        width = 960 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+        width = width - margin.left - margin.right,
+        height = height - margin.top - margin.bottom;
+
+    //define x, y variables
+    var x = d3.time.scale()
+
+    //For axes code: http://12devsofxmas.co.uk/2012/01/data-visualisation/
+    var xRange = d3.scale.linear().range ([margin.left, width - margin.right]).domain([0, 300]);
+    var yRange = d3.scale.linear().range ([height - margin.top, margin.bottom]).domain([0, 300]);
+
+    var xAxis = d3.svg.axis()       // generate an axis
+            .scale(xRange)          // set the range of the axis
+            .orient("bottom")       // have the text lables below axis
+            .tickSize(5)            // height of the ticks
+            .tickSubdivide(true),   // display ticks between text labels
+            //.tickFormat(d3.time.format("%B"));
+            //.ticks(d3.time.years)
+        
+    var yAxis = d3.svg.axis()       // generate an axis
+            .scale(yRange)          // set the range of the axis
+            .tickSize(5)            // width of the ticks
+            .orient("left")         // have the text labels on the left hand side
+            .tickSubdivide(true);   // display ticks between text labels
 
     self.dimensions = self.setDimensions(height);
+    
 
-    x = d3.scale.ordinal()
-    y = {};
-
-    var x = d3.time.scale()
-        .domain([new Date(2012, 0, 1), new Date(2012, 11, 31)])
-        .range([0, width]);
-
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom")
-    .ticks(d3.time.years)
-    .tickSize(16, 0)
-    .tickFormat(d3.time.format("%B"));
-
-   var axis = d3.svg.axis().orient("left");
+   //
    var background;
    var foreground;
 
-    self.svg = self.parentElement.select("svg");
-
-    var width = 960,
-        height = 500;
-
-    // filter, aggregate, modify data
-    // self.wrangleData(null);
-
-    // call the update method
-    // self.updateVis();
+    //Add an svg to the timelineVis div in results.html
+    self.svg = self.parentElement.append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")  //add group tag
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-};
+    function update () {
+        var rects = self.svg.selectAll("rect").data(randomData(), function (d) { return d.id; });
+        rects.enter()
+            .insert("svg:rect")
+            .attr("height", function (d) { return xRange (__Number_movies_in_bin__) })
+            .attr("width", 20)
+            .style("fill", "steelblue");
+
+        rects.transition().duration(500).ease("exp-in-out")
+            .attr("height", function (d) { return xRange(__Number_of_films_in_timerange__); })
+            .attr("width", 20);
+        
+
+        rects.exit ()
+            .transition().duration(1000).ease("exp-in-out")
+            .attr("width", 0)
+            .remove ();
+
+        setTimeout (update, 2000)
+    } //end function update
+
+
+//==================================================
+//      Pseudo code for bar chart creation
+//==================================================
+1) read in actorMovies 
+        var minDate = d3.min(actorMovies)
+
+
+};  // end TimeLineVis.prototype.initVis
 
 // Keys to use:   decade --> size bars based on number of films
 //                       --> Shade baded on average rating?
@@ -123,3 +162,10 @@ TimeLineVis.prototype.filterAndAggregate = function (_filter) {
 
     return prio;
 };
+
+TimeLineVis.prototype.getDateRange = function(actorMovies) {
+    var self = this;
+
+    self.minDate = d3.min(data, function(d) { return d.year;} );
+    self.maxDate = d3.max(data, function(d) { return d.year;} ); 
+}
