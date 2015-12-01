@@ -35,34 +35,36 @@ TimeLineVis.prototype.initVis = function () {
 
 
     //define some canvas variables
-    var width = 960;
-    var height = 500;
-    var margin = {top: 30, right: 10, bottom: 10, left: 140},
+    // var width = 960;
+    // var height = 500;
+    var margin = {top: 30, right: 10, bottom: 20, left: 140},
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
 
     //Create canvas
     self.svg = self.parentElement.append("svg")
-                    .attr("width", width +margin.left + margin.right)
-                    .attr("height", height +margin.top + margin.bottom)
-                .append("g")
-                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            .attr("width", width +margin.left + margin.right)
+            .attr("height", height +margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", 
+                "translate(" + margin.left + "," + margin.top + ")");
 
 
     //set X-axis bounds
-    var minDate = d3.min(self.data,function(d){return +d.Year;});
-    var maxDate = d3.max(self.data,function(d){return +d.Year;});
-
+    var minDate = d3.min(self.data, function(d){return d.Year;});
+    var maxDate = d3.max(self.data, function(d){return d.Year;});
+    maxDate = (+maxDate + 1).toString();
     x = d3.time.scale()
         .domain([new Date(minDate), new Date(maxDate)])
         .range([0, width]);
+    // x.domain(d3.extent(self.data, function(d) { return new Date(d.Year; }));
     
     var y = d3.scale.linear()
         .domain([0,10])
         .range([height, 0]);
 
-    var xAxis = d3.svg.axis()
+    xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom")
         .ticks(d3.time.years)
@@ -74,23 +76,36 @@ TimeLineVis.prototype.initVis = function () {
         .orient("left")
         .ticks(10)
 
-        console.log(minDate, maxDate)
-    var rectWidth = 2//2width/self.data.length;
+    var rectWidth = width/(2*self.data.length);
+
+    self.svg.selectAll(".bar")
+          .data(self.data)
+        .enter().append("rect")
+          .attr("class", "bar")
+          .attr("x", function(d) {
+                return x(new Date(d.Released)) 
+          })
+          .attr("width", rectWidth)
+          .attr("y", function(d) { return y(d.imdbRating); })
+          .attr("height", function(d) { return height - y(d.imdbRating); })
+          .style("fill", "steelblue");
+
+    // var rects = self.svg.selectAll("g")
+    //     .data(self.data)
+    //     .enter()
+    //     .append("g")
+    //     .attr("transform", function(d,i){ return "translate(" + i*rectWidth + ", 0)" });
     
-    var rects = self.svg.selectAll("g")
-        .data(self.data)
-        .enter()
-        .append("g")
-        .attr("transform", function(d,i){ return "translate(" + i*rectWidth + ", 0)" });
-    
-    rects.append("rect")
-        .attr("x", function(d) {
-            return x(new Date(d.Released).getFullYear()) 
-        })
-        .attr("y", 0 )
-        .attr("height",function(d){return y(d.imdbRating);})
-        .attr("width", rectWidth)
-        .style("fill", "steelblue");
+    // rects.append("rect")
+    //     .attr("x", function(d) {
+    //         return x(new Date(d.Released).getFullYear()) 
+    //     })
+    //     .attr("y", 0 )
+    //     .attr('date', function(d) {
+    //         return new Date(d.Released).getFullYear()})
+    //     .attr("height",function(d){return y(d.imdbRating);})
+    //     .attr("width", rectWidth)
+    //     .style("fill", "steelblue");
 
     // rects.transition().duration(500).ease("exp-in-out")
     //     .attr("height", function (d) { return xRange(__Number_of_films_in_timerange__); })
@@ -109,8 +124,8 @@ TimeLineVis.prototype.initVis = function () {
         .call(xAxis)
     .append('text')
         .attr("transform", "rotate(0)")
-        .attr("y", 6)
-        .attr("x", width-10)
+        .attr("y", 27)
+        .attr("x", width+2)
         .attr("dx", ".71em")
         .attr("dy", "-1em")        
         .style("text-anchor", "end")
