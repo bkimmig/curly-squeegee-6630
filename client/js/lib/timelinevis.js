@@ -37,7 +37,7 @@ TimeLineVis.prototype.initVis = function () {
     //define some canvas variables
     var width = 960;
     var height = 500;
-    var margin = {top: 30, right: 10, bottom: 10, left: 140},
+    var margin = {top: 30, right: 10, bottom: 20, left: 140},
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
@@ -51,13 +51,14 @@ TimeLineVis.prototype.initVis = function () {
 
 
     //set X-axis bounds
-    var minDate = d3.min(self.data,function(d){return +d.Year;});
-    var maxDate = d3.max(self.data,function(d){return +d.Year;});
-
-    x = d3.time.scale()
+    var minDate = d3.min(self.data,function(d){return d.Year;});
+    var maxDate = d3.max(self.data,function(d){return d.Year;});
+    console.log(minDate, maxDate)
+    var x = d3.time.scale()
         .domain([new Date(minDate), new Date(maxDate)])
         .range([0, width]);
-    
+
+   console.log(new Date(minDate))
     var y = d3.scale.linear()
         .domain([0,10])
         .range([height, 0]);
@@ -65,9 +66,7 @@ TimeLineVis.prototype.initVis = function () {
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom")
-        .ticks(d3.time.years)
-        .tickFormat(d3.time.format("%Y")) //change this for tick lines
-        //.tickValues(dates); // explicitly set the tick values
+        .tickFormat(d3.time.format("%Y"))
 
     var yAxis = d3.svg.axis()
         .scale(y)
@@ -75,13 +74,13 @@ TimeLineVis.prototype.initVis = function () {
         .ticks(10)
 
         console.log(minDate, maxDate)
-    var rectWidth = 2//2width/self.data.length;
+    var rectWidth = 10//2width/self.data.length;
     
     var rects = self.svg.selectAll("g")
         .data(self.data)
         .enter()
         .append("g")
-        .attr("transform", function(d,i){ return "translate(" + i*rectWidth + ", 0)" });
+        .attr("transform", function(d,i){ return "translate(" + -1+ ", 0)" });
     
     rects.append("rect")
         .attr("x", function(d) {
@@ -109,8 +108,8 @@ TimeLineVis.prototype.initVis = function () {
         .call(xAxis)
     .append('text')
         .attr("transform", "rotate(0)")
-        .attr("y", 6)
-        .attr("x", width-10)
+        .attr("y", 27)
+        .attr("x", width+2)
         .attr("dx", ".71em")
         .attr("dy", "-1em")        
         .style("text-anchor", "end")
