@@ -168,4 +168,4 @@ TimeLineVis.prototype.getDateRange = function(actorMovies) {
 
     self.minDate = d3.min(data, function(d) { return d.year;} );
     self.maxDate = d3.max(data, function(d) { return d.year;} ); 
-}
+};
