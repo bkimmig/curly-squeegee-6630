@@ -38,8 +38,8 @@ TimeLineVis.prototype.initVis = function () {
     var width = 960;
     var height = 500;
     var margin = {top: 30, right: 10, bottom: 10, left: 140},
-        width = width - margin.left - margin.right,
-        height = height - margin.top - margin.bottom;
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
 
 
     //Create canvas
@@ -53,10 +53,6 @@ TimeLineVis.prototype.initVis = function () {
     //set X-axis bounds
     var minDate = d3.min(self.data,function(d){return +d.Year;});
     var maxDate = d3.max(self.data,function(d){return +d.Year;});
-    
-
-
-
 
     x = d3.time.scale()
         .domain([new Date(minDate), new Date(maxDate)])
@@ -70,7 +66,7 @@ TimeLineVis.prototype.initVis = function () {
         .scale(x)
         .orient("bottom")
         .ticks(d3.time.years)
-        // .tickFormat(d3.time.format("%Y-%m")) //change this for tick lines
+        .tickFormat(d3.time.format("%Y")) //change this for tick lines
         //.tickValues(dates); // explicitly set the tick values
 
     var yAxis = d3.svg.axis()
@@ -78,18 +74,21 @@ TimeLineVis.prototype.initVis = function () {
         .orient("left")
         .ticks(10)
 
-    var rectWidth = width/self.data.length;
-
-    var rects = self.svg.selectAll("rect")
+        console.log(minDate, maxDate)
+    var rectWidth = 2//2width/self.data.length;
+    
+    var rects = self.svg.selectAll("g")
         .data(self.data)
         .enter()
-        .append("rect");
+        .append("g")
+        .attr("transform", function(d,i){ return "translate(" + i*rectWidth + ", 0)" });
     
-    rects.attr("x", function(d) {
+    rects.append("rect")
+        .attr("x", function(d) {
             return x(new Date(d.Released).getFullYear()) 
         })
-        .attr("y", 0)
-        .attr("height", function(d) {return height - y(d.imdbRating) })
+        .attr("y", 0 )
+        .attr("height",function(d){return y(d.imdbRating);})
         .attr("width", rectWidth)
         .style("fill", "steelblue");
 
