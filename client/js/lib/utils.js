@@ -32,6 +32,11 @@ filterData = function(movieData, keys) {
                 movie[key] = movie[key].slice(0,4);
             }
 
+             if (key === 'Release') {
+                // Format movie release date for plotting on Timeline Vis chart
+                movie[key];
+            }
+
             if (key === 'BoxOffice' && movie[key] !== 0.01) {
                 var boxoffice = movie[key]
                 if (boxoffice.indexOf(';') !== -1) {

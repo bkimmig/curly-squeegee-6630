@@ -8,6 +8,7 @@ TimeLineVis = function(_parentElement, _session) {
 
      self.timelineVisKeys = [
         'Title',
+        'Released',
         'Year',
         'imdbRating',
         'tomatoRating',
@@ -17,7 +18,7 @@ TimeLineVis = function(_parentElement, _session) {
     self.parentElement = _parentElement;
 
     //Link movie data to timelineVis 'data'
-    self.data = nanToZero(
+    self.data = filterData(
         _session.get('actorMovies'), 
         self.timelineVisKeys
     );
@@ -40,70 +41,119 @@ TimeLineVis.prototype.initVis = function () {
         width = width - margin.left - margin.right,
         height = height - margin.top - margin.bottom;
 
-    //define x, y variables
-    var x = d3.time.scale()
 
-    //For axes code: http://12devsofxmas.co.uk/2012/01/data-visualisation/
-    var xRange = d3.scale.linear().range ([margin.left, width - margin.right]).domain([0, 300]);
-    var yRange = d3.scale.linear().range ([height - margin.top, margin.bottom]).domain([0, 300]);
+    //Create canvas
+    self.svg = self.parentElement.append("svg")
+                    .attr("width", width +margin.left + margin.right)
+                    .attr("height", height +margin.top + margin.bottom)
+                .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    var xAxis = d3.svg.axis()       // generate an axis
-            .scale(xRange)          // set the range of the axis
-            .orient("bottom")       // have the text lables below axis
-            .tickSize(5)            // height of the ticks
-            .tickSubdivide(true),   // display ticks between text labels
-            //.tickFormat(d3.time.format("%B"));
-            //.ticks(d3.time.years)
-        
-    var yAxis = d3.svg.axis()       // generate an axis
-            .scale(yRange)          // set the range of the axis
-            .tickSize(5)            // width of the ticks
-            .orient("left")         // have the text labels on the left hand side
-            .tickSubdivide(true);   // display ticks between text labels
 
-    self.dimensions = self.setDimensions(height);
+    //set X-axis bounds
+    var minDate = d3.min(self.data,function(d){return +d.Year;});
+    var maxDate = d3.max(self.data,function(d){return +d.Year;});
     
 
-   //
-   var background;
-   var foreground;
-
-    //Add an svg to the timelineVis div in results.html
-    self.svg = self.parentElement.append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-      .append("g")  //add group tag
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-    function update () {
-        var rects = self.svg.selectAll("rect").data(randomData(), function (d) { return d.id; });
-        rects.enter()
-            .insert("svg:rect")
-            .attr("height", function (d) { return xRange (__Number_movies_in_bin__) })
-            .attr("width", 20)
-            .style("fill", "steelblue");
+    var x = d3.time.scale()
+        .domain([new Date(minDate), new Date(maxDate)])
+        .range([0, width]);
+    
+    var y = d3.scale.linear()
+        .domain([0,10])
+        .range([height, 0]);
 
-        rects.transition().duration(500).ease("exp-in-out")
-            .attr("height", function (d) { return xRange(__Number_of_films_in_timerange__); })
-            .attr("width", 20);
-        
+    var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("bottom")
+        .ticks(d3.time.years)
+        .tickFormat(d3.time.format("%Y-%m")) //change this for tick lines
+        //.tickValues(dates); // explicitly set the tick values
 
-        rects.exit ()
-            .transition().duration(1000).ease("exp-in-out")
-            .attr("width", 0)
-            .remove ();
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left")
+        .ticks(10)
+        .tickFormat([0,1,2,3,4,5,6,7,8,9,10])
 
-        setTimeout (update, 2000)
-    } //end function update
+    var rectWidth = width/self.data.length;
+
+    var rects = self.svg.selectAll("rect")
+        .data(self.data)
+        .enter()
+        .append("rect");
+    
+    rects.attr("x", function(d) {console.log(d.Release); return x(new Date(d.Release)) })
+        .attr("y", 0)
+        .attr("height", function(d) {return y(d.imdbRating) })
+        .attr("width", rectWidth)
+        .style("fill", "steelblue");
+
+    // rects.transition().duration(500).ease("exp-in-out")
+    //     .attr("height", function (d) { return xRange(__Number_of_films_in_timerange__); })
+    //     .attr("width", 20);
+    
+
+    rects.exit ()
+        .transition().duration(1000).ease("exp-in-out")
+        .attr("width", 0)
+        .remove ();
+
+     // Add the X Axis
+    self.svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis)
+    .append('text')
+        .attr("transform", "rotate(0)")
+        .attr("y", 6)
+        .attr("x", width-10)
+        .attr("dx", ".71em")
+        .attr("dy", "-1em")        
+        .style("text-anchor", "end")
+        .text("Date");
+
+    // Add the Y Axis
+    self.svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis)
+    .append('text')
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .text("N Emails");
+        //setTimeout (update, 2000)
 
 
-//==================================================
-//      Pseudo code for bar chart creation
-//==================================================
-1) read in actorMovies 
-        var minDate = d3.min(actorMovies)
+    //==================================================
+    //      Pseudo code for bar chart creation
+    //==================================================
+    // 1) read in actorMovies 
+    //         var startDate = d3.min(actorMovies[i].year)
+    //         var endDate = d3.max(actorMovies[i].year)
+    //         var lowYear = Math.floor(startDate/10)*10;
+    //         var highYear Math.ceil(endDate/10)*10;
 
+    //         var binWidth = 5; //  years per bin
+    //         var nBins = (highYear - lowYear)/binWidth;  // number of rectangles on the graph
+
+    // 2) Define an array of size 'nBins' to record the number of movies are in each bin range
+    //     var nMovies[nbins] = {}
+
+    //     for i = 1; i<=nBins; i++
+    //         for j = 0; j <=actorMovies.length; j++
+    //         if actorMovies[j].year >= (lowYear + (i-1)*binWidth)&& actorMovies[j].year < (lowYear + i*binWidth)
+    //             nMovies[i-1] +=1;
+            
+    // 3) Create a bar chart with ordinal data -- have 'nBins' number of rectangles, each with [scaled] height equal to the number of movies in the
+    //     bin --> 'nMovies[i]' for each i=1,2,3...nBins.
+    //     - rect height based on yScale (nMovies[i])
+    //     - make the spacing between the bars reasonable.  scalable?
+
+    // 4) when user clicks on a bar, rescale to a new barchart with 'binWidth' number of ticks in x
 
 };  // end TimeLineVis.prototype.initVis
 
