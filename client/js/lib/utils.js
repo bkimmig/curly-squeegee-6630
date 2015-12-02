@@ -62,3 +62,16 @@ filterData = function(movieData, keys) {
     return data;
 }
 
+
+
+getUniqueYearsList = function(movieData) {
+    var years = [];
+    for (var i=0; i<movieData.length; i++){
+        var movie = movieData[i];
+        if (years.indexOf(movie.Year) === -1) {
+            years.push(movie.Year);
+        }
+    }
+    return years;
+}
+
