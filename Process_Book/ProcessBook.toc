@@ -1,14 +1,17 @@
-\contentsline {section}{\numberline {1}Background \& Motivation}{2}
-\contentsline {section}{\numberline {2}Data Collection}{3}
-\contentsline {subsection}{\numberline {2.1}Data Processing}{3}
-\contentsline {section}{\numberline {3}Project Evolution}{4}
-\contentsline {subsection}{\numberline {3.1}Landing Page}{4}
-\contentsline {subsection}{\numberline {3.2}Loading Page}{4}
-\contentsline {subsection}{\numberline {3.3}Display\textbackslash Results Page}{4}
-\contentsline {subsection}{\numberline {3.4}Actor Fact Box}{4}
-\contentsline {subsection}{\numberline {3.5}Visualizations}{6}
-\contentsline {subsubsection}{\numberline {3.5.1}Filmography Timeline}{6}
-\contentsline {subsubsection}{\numberline {3.5.2}Genre Visualization}{6}
-\contentsline {subsubsection}{\numberline {3.5.3}Parallel Axis Coordinate Visualization}{6}
-\contentsline {section}{\numberline {4}Project Feedback}{7}
-\contentsline {section}{\numberline {5}Team Evaluation}{9}
+\contentsline {section}{\numberline {1}Editing notes}{3}{section.1}
+\contentsline {section}{\numberline {2}Project Background}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Motivation}{4}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Intended Audience}{4}{subsection.2.2}
+\contentsline {section}{\numberline {3}Data Collection}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Data Processing}{5}{subsection.3.1}
+\contentsline {section}{\numberline {4}Project Evolution}{6}{section.4}
+\contentsline {subsection}{\numberline {4.1}Landing Page}{6}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Loading Page}{6}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Display\textbackslash Results Page}{6}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Actor Fact Box}{6}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Visualizations}{8}{subsection.4.5}
+\contentsline {subsubsection}{\numberline {4.5.1}Filmography Timeline}{8}{subsubsection.4.5.1}
+\contentsline {subsubsection}{\numberline {4.5.2}Genre Visualization}{9}{subsubsection.4.5.2}
+\contentsline {subsubsection}{\numberline {4.5.3}Parallel Axis Coordinate Visualization}{9}{subsubsection.4.5.3}
+\contentsline {section}{\numberline {5}Project Feedback}{10}{section.5}
+\contentsline {section}{\numberline {6}Team Evaluation}{12}{section.6}

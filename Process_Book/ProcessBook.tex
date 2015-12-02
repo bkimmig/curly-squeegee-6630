@@ -161,20 +161,33 @@ Once the filmography has been loaded, we load our results page, which  shows a n
 			\centering
 			\begin{subfigure}[t]{.5\textwidth}
 			  \centering
-			  \includegraphics[width=\linewidth]{images/timeline_crop.png}
+			  \includegraphics[width=\linewidth]{images/timeline_orig.png}
 			  \caption{Original design sketch}
-			  \label{fig:sub1}
+			  \label{fig:timelineA}
 			\end{subfigure}%
 			\begin{subfigure}[t]{.5\textwidth}
 			  \centering
-			 % \includegraphics[width=.7\linewidth]{images/timelineVis.png}
-			  \caption{Current implementation}
-			  \label{fig:sub2}
+			  \includegraphics[width=.7\linewidth]{images/timeline_crop_waits.png}
+			  \caption{First Implementation}
+			  \label{fig:timelineB}
 			\end{subfigure}%
 			\caption{Timeline development}
 			\label{fig:timeline}
 		\end{figure}
 		
+Early in our design phase, we considered using circles on a timeline as a suitable encoding for showing film distribution.  This decision was inspired by the \href{http://mariandoerk.de/edgemaps/demo/#phils;time;;;}{philosophers, poets, and musicians} timeline comparison shown in class. The idea was to visually show the distribution (and density) of an artist's career chronologically and encode information such as film ratings or earnings as the circle radius or fill color.   This decision was later refined after our brainstorming session (Section \ref{sec:Projcet Feedback}). Concerns were raised that actors with frequent and\textbackslash or successful work would create a cluttered timeline visual.  We also recalled thelack of effectiveness with comparing quantitative values when encoded as an area, and decided it would be better to switch to a barchart visual.  This way we could cleanly show movie release dates and have a more direct comparison of ratings or other quantitative data by mapping it to bar height.
+
+As we implemented our barchart visualization, we observed several issues relating to bar sizing, spacing, and overlap.  Consider the filmography of Tom Waits, shown in figure \ref{fig:timelineB} above. We did not initially consider visualizing filmographies in the extreme cases of long acting careers, high film output, or areas of dense activity.  In each case, the sizing and spacing of the bars becomes an issue for readability and visual appeal.  Particularly frustrating, were areas where an actor would have multiple films released within a small time frame.  We tried separating these views by using thinner rectangles, adding stroke width to the bars, or introducing opacity.  We were not happy with any of these solutions and sought a better visualization method.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.7\linewidth]{images/filmographyA_crop.png}
+				  \caption{Replace this with XY plot image}
+\end{figure}
+
+
+ .  Figure \ref{fig:timelineB} is a visualization of Tom Wait's filmography, and we immediate see issues with sizing, spacing, and overlapping.  We realized that actors smaller actors, or those with bit parts can see several releases tightly grouped together, 
+
 
 \subsubsection{Genre Visualization}
 
@@ -218,7 +231,7 @@ Once the filmography has been loaded, we load our results page, which  shows a n
 
 \newpage
 
-\section{Project Feedback}
+\section{Project Feedback} \label{sec:Projcet Feedback}
 
 After we settled on our design and project implementation, we had the opportunity to present a ``sales pitch"  for Curly-Squeegee to another project team to get their feedback.  We met with Phil Cutler, Ariel Herbert-Voss, and Ian Sohl of the "Legion Profiling Visualization" team. They provided the following feedback:
 
