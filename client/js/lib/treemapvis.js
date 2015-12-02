@@ -179,10 +179,10 @@ TreeMapVis.prototype.initVis = function(o, data) {
           .append("title")
             .text(function(d) { return d.key + " (" + formatNumber(d.value) + ")"; });
         
-        children.append("text")
-            .attr("class", "ctext")
-            .text(function(d) { return d.key; })
-            .call(text2);
+        // children.append("text")
+        //     .attr("class", "ctext")
+        //     .text(function(d) { return d.key; })
+        //     .call(text2);
 
         g.append("rect")
             .attr("class", "parent")
