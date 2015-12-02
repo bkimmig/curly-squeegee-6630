@@ -59,8 +59,8 @@ ParallelCoordVis.prototype.initVis = function () {
     self.dimensions = self.setDimensions(height);
 
     // var x = d3.scale.ordinal().rangePoints([0, width], 1);
-    x = d3.scale.ordinal()
-    y = {};
+    var x = d3.scale.ordinal()
+    var y = {};
 
     
     var dragging = {};
