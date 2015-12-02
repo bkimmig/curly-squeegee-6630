@@ -192,13 +192,13 @@ TimeLineVis.prototype.initVis = function () {
         var movie = "movie"//dimensions.map(function(p) { return [d[p]][0]; })
         div.text("Title: " + d.Title)
                 .style("left", (d3.event.pageX - 40) + "px")
-                .style("top", (d3.event.pageY - 35) + "px")
-            .text("Imdb Rating: " + d.imdbRating)
-                .style("left", (d3.event.pageX - 30) + "px")
-                .style("top", (d3.event.pageY - 35) + "px")
-            .text("IMDB Votes: " + d.imdbVotes)
-                .style("left", (d3.event.pageX - 60) + "px")
-                .style("top", (d3.event.pageY - 75) + "px");
+                .style("top", (d3.event.pageY - 35) + "px");
+            // .text("Imdb Rating: " + d.imdbRating)
+            //     .style("left", (d3.event.pageX - 30) + "px")
+            //     .style("top", (d3.event.pageY - 35) + "px")
+            // .text("IMDB Votes: " + d.imdbVotes)
+            //     .style("left", (d3.event.pageX - 60) + "px")
+            //     .style("top", (d3.event.pageY - 75) + "px");
     }
 
     function mouseover() {
