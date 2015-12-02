@@ -33,10 +33,26 @@ TimeLineVis.prototype.initVis = function () {
     //copy global data to be visible to this function
     var self = this; 
 
+
+    //add tool tip for mouseover: https://gist.github.com/mstanaland/6100713
      var div = self.parentElement.append("div")
         .attr("class", "tooltip-tl")
         .style("display", "none");
 
+ 
+
+        // div.append("rect")
+        //   .attr("width", 20)
+        //   .attr("height", 20)
+        //   .attr("fill", "white")
+        //   .style("opacity", 0.5);
+
+        // div.append("text")
+        //   .attr("x", 15)
+        //   .attr("dy", "1.2em")
+        //   .style("text-anchor", "middle")
+        //   .attr("font-size", "12px")
+        //   .attr("font-weight", "bold");
     //define some canvas variables
 
     var margin = {top: 30, right: 10, bottom: 20, left: 140},
@@ -82,7 +98,7 @@ TimeLineVis.prototype.initVis = function () {
 
     var radScale = d3.scale.ordinal()
         .domain([minVotes, maxVotes])
-        .rangeRoundBands([3,10]);
+        .rangeRoundBands([3,15]);
 
     var xAxis = d3.svg.axis()
         .scale(x)
@@ -107,11 +123,9 @@ TimeLineVis.prototype.initVis = function () {
           .attr("r", function(d) { 
                 if(d.imdbVotes==="N/A"){
                     return radScale(minVotes/2);
-                    console.log('N/A')
                 }
                 else{
-                    return radScale(d.imdbVotes)  
-                    console.log('assigning')  
+                    return radScale(d.imdbVotes)    
                 }
             })
           .attr("cy", function(d) { return y(d.imdbRating); })
@@ -176,9 +190,15 @@ TimeLineVis.prototype.initVis = function () {
 
     function mousemove(d) {
         var movie = "movie"//dimensions.map(function(p) { return [d[p]][0]; })
-        div.text(d.Title)
-            .style("left", (d3.event.pageX - 34) + "px")
-            .style("top", (d3.event.pageY - 12) + "px");
+        div.text("Title: " + d.Title)
+                .style("left", (d3.event.pageX - 40) + "px")
+                .style("top", (d3.event.pageY - 35) + "px")
+            .text("Imdb Rating: " + d.imdbRating)
+                .style("left", (d3.event.pageX - 30) + "px")
+                .style("top", (d3.event.pageY - 35) + "px")
+            .text("IMDB Votes: " + d.imdbVotes)
+                .style("left", (d3.event.pageX - 60) + "px")
+                .style("top", (d3.event.pageY - 75) + "px");
     }
 
     function mouseover() {
