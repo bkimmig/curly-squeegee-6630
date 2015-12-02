@@ -15,8 +15,8 @@
   fill: brown;
 }
 .dot {
-    fill: steelblue;
-    stroke: darkgray;
+    fill: beige;
+    stroke: black;
     stroke-width: 2px
 }
 
@@ -25,10 +25,11 @@ div.tooltip-tl {
     text-align: center;     
     /*width: 60px;          */
     /*height: 28px;        */
-    padding: 2px;       
+    padding: 8px;       
     font: 12px sans-serif;    
     background: lightsteelblue; 
-    border: 0px;    
+    opacity: 0.95;
+    border: 2px;    
     border-radius: 8px;     
     pointer-events: none;     
 }
