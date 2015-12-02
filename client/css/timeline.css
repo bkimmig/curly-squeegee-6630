@@ -12,12 +12,13 @@
 } 
 
 .dot:hover {
-  fill: brown;
+  fill: blue;
 }
 .dot {
-    fill: beige;
+    fill: brown;
     stroke: black;
     stroke-width: 2px
+    opacity:    0.4;
 }
 
 div.tooltip-tl { 

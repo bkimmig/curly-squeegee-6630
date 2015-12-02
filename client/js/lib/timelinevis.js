@@ -116,13 +116,13 @@ TimeLineVis.prototype.initVis = function () {
     //var rectWidth = width/(2*self.data.length);
 
     self.svg.selectAll(".dot")
-          .data(self.data)
+            .data(self.data)
         .enter().append("circle")
-          .attr("class", "dot")
-          .attr("cx", function(d) {
+            .attr("class", "dot")
+            .attr("cx", function(d) {
                 return x(new Date(d.Released)) 
-          })
-          .attr("r", function(d) { 
+            })
+            .attr("r", function(d) { 
                 if(d.imdbVotes==="N/A"){
                     return radScale(minVotes/2);
                 }
@@ -130,12 +130,11 @@ TimeLineVis.prototype.initVis = function () {
                     return radScale(d.imdbVotes)    
                 }
             })
-          .attr("cy", function(d) { return y(d.imdbRating); })
-          .style("fill", "steelblue")
-          .style("opacity", 0.8)
-        .on("mouseover", mouseover)
-        .on("mouseout", mouseout)
-        .on("mousemove", mousemove);
+            .attr("cy", function(d) { return y(d.imdbRating); })
+            .classed("dot","true")
+            .on("mouseover", mouseover)
+            .on("mouseout", mouseout)
+            .on("mousemove", mousemove);
 
     // var rects = self.svg.selectAll("g")
     //     .data(self.data)
