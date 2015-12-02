@@ -102,13 +102,15 @@ TimeLineVis.prototype.initVis = function () {
 
     var xAxis = d3.svg.axis()
         .scale(x)
-        .orient("bottom")
-        .tickFormat(d3.time.format("%Y"))
-
+        .orient("bottom")    
+        .tickFormat(d3.time.format("%Y"));
+        
     var yAxis = d3.svg.axis()
         .scale(y)
         .orient("left")
         .ticks(10)
+        .tickSize(-width, 3);
+        //.tickFormat("");
 
 
     //var rectWidth = width/(2*self.data.length);

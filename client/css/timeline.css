@@ -33,3 +33,7 @@ div.tooltip-tl {
     border-radius: 8px;     
     pointer-events: none;     
 }
+
+  .tick line{
+    opacity: 0.2;
+  }
