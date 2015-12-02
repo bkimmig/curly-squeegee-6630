@@ -64,7 +64,7 @@ TimeLineVis.prototype.initVis = function () {
         .domain([0,10])
         .range([height, 0]);
 
-    xAxis = d3.svg.axis()
+    var xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom")
         .ticks(d3.time.years)
@@ -88,7 +88,8 @@ TimeLineVis.prototype.initVis = function () {
           .attr("width", rectWidth)
           .attr("y", function(d) { return y(d.imdbRating); })
           .attr("height", function(d) { return height - y(d.imdbRating); })
-          .style("fill", "steelblue");
+          .style("fill", "steelblue")
+          .style("opacity", 0.8);
 
     // var rects = self.svg.selectAll("g")
     //     .data(self.data)
