@@ -33,10 +33,12 @@ TimeLineVis.prototype.initVis = function () {
     //copy global data to be visible to this function
     var self = this; 
 
+     var div = self.parentElement.append("div")
+        .attr("class", "tooltip-tl")
+        .style("display", "none");
 
     //define some canvas variables
-    // var width = 960;
-    // var height = 500;
+
     var margin = {top: 30, right: 10, bottom: 20, left: 140},
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
@@ -59,37 +61,65 @@ TimeLineVis.prototype.initVis = function () {
         .domain([new Date(minDate), new Date(maxDate)])
         .range([0, width]);
     // x.domain(d3.extent(self.data, function(d) { return new Date(d.Year; }));
-    
+
     var y = d3.scale.linear()
         .domain([0,10])
         .range([height, 0]);
 
+    //Find min and max votes for an actors filmography on IMDB
+    var minVotes = d3.min(self.data, function(d){return d.imdbVotes;});
+
+    var maxVotes = d3.max(self.data, function(d){
+        if(d.imdbVotes==="N/A"){
+            return minVotes/2;
+        }
+        else{
+            return d.imdbVotes;
+        }
+    });
+
+    console.log(minVotes, maxVotes)
+
+    var radScale = d3.scale.ordinal()
+        .domain([minVotes, maxVotes])
+        .rangeRoundBands([3,10]);
+
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom")
-        .ticks(d3.time.years)
-        .tickFormat(d3.time.format("%Y")) //change this for tick lines
-        //.tickValues(dates); // explicitly set the tick values
+        .tickFormat(d3.time.format("%Y"))
 
     var yAxis = d3.svg.axis()
         .scale(y)
         .orient("left")
         .ticks(10)
 
-    var rectWidth = width/(2*self.data.length);
 
-    self.svg.selectAll(".bar")
+    //var rectWidth = width/(2*self.data.length);
+
+    self.svg.selectAll(".dot")
           .data(self.data)
-        .enter().append("rect")
-          .attr("class", "bar")
-          .attr("x", function(d) {
+        .enter().append("circle")
+          .attr("class", "dot")
+          .attr("cx", function(d) {
                 return x(new Date(d.Released)) 
           })
-          .attr("width", rectWidth)
-          .attr("y", function(d) { return y(d.imdbRating); })
-          .attr("height", function(d) { return height - y(d.imdbRating); })
+          .attr("r", function(d) { 
+                if(d.imdbVotes==="N/A"){
+                    return radScale(minVotes/2);
+                    console.log('N/A')
+                }
+                else{
+                    return radScale(d.imdbVotes)  
+                    console.log('assigning')  
+                }
+            })
+          .attr("cy", function(d) { return y(d.imdbRating); })
           .style("fill", "steelblue")
-          .style("opacity", 0.8);
+          .style("opacity", 0.8)
+        .on("mouseover", mouseover)
+        .on("mouseout", mouseout)
+        .on("mousemove", mousemove);
 
     // var rects = self.svg.selectAll("g")
     //     .data(self.data)
@@ -144,6 +174,20 @@ TimeLineVis.prototype.initVis = function () {
         .text("imdb Rating");
         //setTimeout (update, 2000)
 
+    function mousemove(d) {
+        var movie = "movie"//dimensions.map(function(p) { return [d[p]][0]; })
+        div.text(d.Title)
+            .style("left", (d3.event.pageX - 34) + "px")
+            .style("top", (d3.event.pageY - 12) + "px");
+    }
+
+    function mouseover() {
+      div.style("display", "inline");
+    }
+
+    function mouseout() {
+        div.style("display", "none");
+    }
 }
     //==================================================
     //      Pseudo code for bar chart creation
