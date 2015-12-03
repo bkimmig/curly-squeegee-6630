@@ -162,6 +162,9 @@ TimeLineVis.prototype.initVis = function () {
 
 
     function mousemove(d) {
+
+        var self = this;
+
         div .html("<div id=posterID> <a> <img src=" + d.Poster + "width = 100 height=200/> </a> </div>" +
             "<div id=tooltipID><strong>Title: </strong>" + d.Title + "</div>" +
             "<div id=tooltipID><strong>Plot: </strong> " + d.Plot + "</div> " +
@@ -169,8 +172,21 @@ TimeLineVis.prototype.initVis = function () {
             "<strong>Released: </strong>"+ d.Released + "<br/>" +
             "<strong>Rating: </strong>"+ d.imdbRating + "<br/>" +
             "<strong>No. Votes: </strong>"+ d.imdbVotes + "<br/>")
-            .style("left", (d3.event.pageX) + "px")     
-            .style("top", (d3.event.pageY - 68) + "px");    
+            .style("left", function(){
+
+                var xPos = d3.mouse(self.svg)[0];
+
+               if(xPos+250 > 900){
+                    return (xPos - 500) + "px";
+                }
+
+                else{
+                    return xPos+"px"
+                }
+            })   
+            .style("top", (50) + "px");
+                
+                
         //div.text("Title: " + d.Title)
           //      .style("left", (d3.event.pageX - 40) + "px")
             //    .style("top", (d3.event.pageY - 35) + "px");
