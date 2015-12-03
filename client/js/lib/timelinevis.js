@@ -110,7 +110,7 @@ TimeLineVis.prototype.initVis = function () {
         .domain([minVotes, maxVotes])
         .range([3,25]);
 
-        console.log("movine votes: ", self.data[13].imdbVotes)
+        // console.log("movine votes: ", self.data[13].imdbVotes)
     self.svg.selectAll(".dot")
             .data(self.data)
         .enter().append("circle")
