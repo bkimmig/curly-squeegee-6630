@@ -47,7 +47,8 @@ getApiFilmsData = function (actor_name, callback) {
     //console.log(actor.filmographies);
     var filmog = actor[0].filmographies
     for(var i=0; i<filmog.length; i++) {
-        if (filmog[i].section === "Actor") {
+        console.log(filmog[i])
+        if (filmog[i].section === "Actor" || filmog[i].section === "Actress") {
             var getMovies = filmog[i].filmography;
             break;
         }
