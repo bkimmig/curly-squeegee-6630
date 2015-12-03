@@ -23,14 +23,14 @@ TreeMapVis = function(_parentElement, _session) {
 
     self.treemapData = self.initData();
     self.displayData = [];
-    self.initVis({title: "Co-Workers"}, self.treemapData);
+    self.initVis({title: "Co-Actors"}, self.treemapData);
 };
 
 
 TreeMapVis.prototype.initVis = function(o, data) {
     var defaults = {
         margin: {top: 24, right: 0, bottom: 0, left: 0},
-        rootname: "CoActors",
+        rootname: "Co-Actors",
         format: ",d",
         title: "",
         width: 960,
@@ -92,9 +92,9 @@ TreeMapVis.prototype.initVis = function(o, data) {
         .attr("y", 6 - margin.top)
         .attr("dy", ".75em");
 
-    if (opts.title) {
-        $("#chart").prepend("<p class='title'>" + opts.title + "</p>");
-    }
+    // if (opts.title) {
+    //     $("#chart").prepend("<p class='title'>" + opts.title + "</p>");
+    // }
     if (data instanceof Array) {
         root = { key: rname, values: data };
     } else {
@@ -360,7 +360,7 @@ TreeMapVis.prototype.initData = function() {
 
     var i;
     var treemapData = {
-        "key": "coworkers",
+        "key": "Co-Actors",
         "values": []
     }
 
