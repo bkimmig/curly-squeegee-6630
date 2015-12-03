@@ -24,6 +24,7 @@ Template.results.rendered = function () {
     pcv = new ParallelCoordVis(d3.selectAll('#parallelCoordVis'), Session);
     tlv = new TimeLineVis(d3.selectAll('#timelineVis'), Session);
     tmv = new TreeMapVis(d3.selectAll('#treemapVis'), Session);
+    // tmv = new TreeMapVis_(d3.selectAll('#treemapVis'), Session);    
     //tlv = new  TimelineVis(d3.selectAll('#timelineVis'), Session);
 
 }
