@@ -37,7 +37,7 @@ TimeLineVis.prototype.initVis = function () {
     var self = this; 
 
     //add tool tip for mouseover: https://gist.github.com/mstanaland/6100713
-     var div = self.parentElement.append("div")
+    div = self.parentElement.append("div")
         .attr("class", "tooltip-tl")
         .style("display", "none");
 
@@ -69,13 +69,11 @@ TimeLineVis.prototype.initVis = function () {
 
     //Find min and max votes for an actors filmography on IMDB
 
-
-
-    minVotes = d3.min(self.data, function(d) { 
+    var minVotes = d3.min(self.data, function(d) { 
         return d.imdbVotes;
     });
 
-    maxVotes = d3.max(self.data, function(d) { 
+    var maxVotes = d3.max(self.data, function(d) { 
         return d.imdbVotes;
     });
 
@@ -106,11 +104,11 @@ TimeLineVis.prototype.initVis = function () {
         .ticks(10)
         .tickSize(-width, 3);
 
-     radScale = d3.scale.linear()
+    var radScale = d3.scale.linear()
         .domain([minVotes, maxVotes])
         .range([3,25]);
 
-        console.log("movine votes: ", self.data[13].imdbVotes)
+        // console.log("movine votes: ", self.data[13].imdbVotes)
     self.svg.selectAll(".dot")
             .data(self.data)
         .enter().append("circle")
@@ -163,30 +161,25 @@ TimeLineVis.prototype.initVis = function () {
 
     function mousemove(d) {
 
-        var self = this;
-
-        div .html("<div id=posterID> <a> <img src=" + d.Poster + "width = 100 height=200/> </a> </div>" +
+        div.html(
+            "<div id=posterID> <a> <img src=" + d.Poster + 
+            "width=100 height=200/> </a> </div>" +
             "<div id=tooltipID><strong>Title: </strong>" + d.Title + "</div>" +
             "<div id=tooltipID><strong>Plot: </strong> " + d.Plot + "</div> " +
-             "<strong>Director: </strong>" + d.Director + "<br/>" +
+            "<div id=tooltipID> <strong>Director: </strong>" + d.Director + "<br/>" +
             "<strong>Released: </strong>"+ d.Released + "<br/>" +
             "<strong>Rating: </strong>"+ d.imdbRating + "<br/>" +
-            "<strong>No. Votes: </strong>"+ d.imdbVotes + "<br/>")
-            .style("left", function(){
 
-                var xPos = d3.mouse(self.svg)[0];
-
-               if(xPos+250 > 900){
-                    return (xPos - 500) + "px";
+            "<strong>No. Votes: </strong>"+ d.imdbVotes + "<br/> </div>")
+            .style("left", function() {
+                var xPos = d3.event.pageX;
+                if (xPos > width/2) {
+                    return (d3.event.pageX) - 275 + "px";
                 }
-
-                else{
-                    return xPos+"px"
-                }
-            })   
-            .style("top", (50) + "px");
-                
-                
+                return (d3.event.pageX) + "px";
+            })     
+            .style("top", (d3.event.pageY - 68) + "px");    
+        
         //div.text("Title: " + d.Title)
           //      .style("left", (d3.event.pageX - 40) + "px")
             //    .style("top", (d3.event.pageY - 35) + "px");
@@ -202,15 +195,14 @@ TimeLineVis.prototype.initVis = function () {
         // div.transition()        
         //     .duration(500)      
         //     .style("opacity", .9);
-      div.style("display", "inline");
+        div.style("display", "inline");
     }
 
     function mouseout() {
         div.style("display", "none");
     }
 }
-  
-// Probably  won't need these
+
 
 TimeLineVis.prototype.wrangleData = function (_filterFunction) {
     var self = this;

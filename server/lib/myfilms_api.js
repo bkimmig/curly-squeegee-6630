@@ -45,11 +45,20 @@ getApiFilmsData = function (actor_name, callback) {
     }
     
     //console.log(actor.filmographies);
-    var getMovies=actor[0].filmographies[0].filmography;
+    var filmog = actor[0].filmographies
+    for(var i=0; i<filmog.length; i++) {
+        console.log(filmog[i])
+        if (filmog[i].section === "Actor" || filmog[i].section === "Actress") {
+            var getMovies = filmog[i].filmography;
+            break;
+        }
+    }
+
+    // var getMovies=actor[0].filmographies[0].filmography;
     //console.log(getMovies);
     var movies=[];
 
-    for (i=0; i<getMovies.length; i++){
+    for (var i=0; i<getMovies.length; i++){
         var movie = getOmdbFilmData(getMovies[i].IMDBId)
         movies.push(movie);
     }
