@@ -62,7 +62,8 @@ filterData = function(movieData, keys) {
             }
 
         })
-        // only want data if it is a movie
+        
+        // only want data if it is a movie 
         if (movie.Type === 'movie') {
             data.push(movie);
         }
