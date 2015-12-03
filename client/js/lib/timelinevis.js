@@ -35,26 +35,15 @@ TimeLineVis.prototype.initVis = function () {
     //copy global data to be visible to this function
     var self = this; 
 
-    // var tip = d3.tip()
-    //     .data(self.data)
-    //     .attr('class', 'd3-tip')
-    //     .offset([-10, 0])
-    //     .html(function(d) {
-    //         return "<strong>Title:</strong> <span style='color:red'>" + d.Title+ "</span>";
-    //     })
-
     //add tool tip for mouseover: https://gist.github.com/mstanaland/6100713
      var div = self.parentElement.append("div")
         .attr("class", "tooltip-tl")
         .style("display", "none");
 
-
-
     //define some canvas variables
     var margin = {top: 30, right: 10, bottom: 20, left: 140},
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
-
 
     //Create canvas
     self.svg = self.parentElement.append("svg")
@@ -63,7 +52,6 @@ TimeLineVis.prototype.initVis = function () {
             .append("g")
             .attr("transform", 
                 "translate(" + margin.left + "," + margin.top + ")");
-
 
     //set X-axis bounds
     var minDate = d3.min(self.data, function(d){return d.Year;});
@@ -79,23 +67,38 @@ TimeLineVis.prototype.initVis = function () {
         .range([height, 0]);
 
     //Find min and max votes for an actors filmography on IMDB
-    var minVotes = d3.min(self.data, function(d){return d.imdbVotes;});
 
-    var maxVotes = d3.max(self.data, function(d){
-        if(d.imdbVotes==="N/A"){
-            return minVotes/2;
-        }
-        else{
-            return d.imdbVotes;
-        }
-    });
+
+
+    minVotes = d3.min(self.data, function(d) { 
+       if (d.imdbVotes.indexOf(',')) {
+           var votes = parseFloat(d.imdbVotes.replace(',', ''));
+       } else { 
+           votes = d.imdbVotes
+       } 
+       return votes });
+
+    maxVotes = d3.max(self.data, function(d) { 
+       if (d.imdbVotes.indexOf(',')) {
+           var votes = parseFloat(d.imdbVotes.replace(',', ''));
+       } else { 
+           votes = d.imdbVotes
+       } 
+       return votes });
 
     console.log(minVotes, maxVotes)
 
+   
     var radScale = d3.scale.ordinal()
         .domain([minVotes, maxVotes])
         .rangeRoundBands([3,15]);
 
+ console.log(100,radScale(100))
+ console.log(5000,radScale(5000))
+ console.log(50000, radScale(50000))
+ console.log(60000,radScale(60000))
+ console.log(100000, radScale(100000))
+ 
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom")    
@@ -157,7 +160,7 @@ TimeLineVis.prototype.initVis = function () {
         //setTimeout (update, 2000)
 
     function mousemove(d) {
-        div .html("<a> <img src=" + d.Poster + "/> </a> <br/>" +
+        div .html("<a> <img src=" + d.Poster + "width = 100 height=200/> </a> <br/>" +
             "<strong>Title: </strong>" + d.Title + "<br/>" +
             "<strong>Plot: </strong>" + d.Plot + "<br/>" +
              "<strong>Director: </strong>" + d.Director + "<br/>" +
@@ -178,9 +181,9 @@ TimeLineVis.prototype.initVis = function () {
     }
 
     function mouseover() {
-        div.transition()        
-            .duration(500)      
-            .style("opacity", .9);
+        // div.transition()        
+        //     .duration(500)      
+        //     .style("opacity", .9);
       div.style("display", "inline");
     }
 

@@ -24,8 +24,8 @@
 div.tooltip-tl { 
     position: absolute;     
     text-align: left;     
-    /*width: 60px;          */
-    /*height: 28px;        */
+    width: 350px;          
+    height: 375px;        
     padding: 8px;       
     font: 12px sans-serif;    
     background: lavender; 
