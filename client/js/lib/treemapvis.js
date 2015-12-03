@@ -387,8 +387,7 @@ TreeMapVis.prototype.initData = function() {
             var actorIdx = movie.Actors.indexOf(actor) 
             if (actorIdx > -1) {
                 movie['key'] = actor;
-                // console.log(movie.imdbRating)
-                var size = (movie['imdbRating'] !== 0.01) ? movie['imdbRating']: 1;
+                // var size = (movie['imdbRating'] !== 0.01) ? movie['imdbRating']: 1;
                 movie['value'] = 1;
                 coStarred.push(movie);
             }

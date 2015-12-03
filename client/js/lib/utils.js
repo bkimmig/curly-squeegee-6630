@@ -53,6 +53,14 @@ filterData = function(movieData, keys) {
                 movie[key] = boxoffice;
             }
 
+            if(key === 'imdbVotes'){
+                var tmpVotes = movie[key].toString();
+                 //console.log(x, x.indexOf(","))   
+                if(tmpVotes.indexOf(",") > -1){
+                     movie[key] = parseFloat(tmpVotes.replace(',', ''));
+                }
+            }
+
         })
         // only want data if it is a movie
         if (movie.Type === 'movie') {

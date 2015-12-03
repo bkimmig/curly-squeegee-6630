@@ -14,7 +14,8 @@ TimeLineVis = function(_parentElement, _session) {
         'Year',
         'imdbRating',
         'tomatoRating',
-        'tomatoUserRating'
+        'tomatoUserRating',
+        'imdbVotes'
     ]
 
     self.parentElement = _parentElement;
@@ -35,26 +36,15 @@ TimeLineVis.prototype.initVis = function () {
     //copy global data to be visible to this function
     var self = this; 
 
-    // var tip = d3.tip()
-    //     .data(self.data)
-    //     .attr('class', 'd3-tip')
-    //     .offset([-10, 0])
-    //     .html(function(d) {
-    //         return "<strong>Title:</strong> <span style='color:red'>" + d.Title+ "</span>";
-    //     })
-
     //add tool tip for mouseover: https://gist.github.com/mstanaland/6100713
      var div = self.parentElement.append("div")
         .attr("class", "tooltip-tl")
         .style("display", "none");
 
-
-
     //define some canvas variables
     var margin = {top: 30, right: 10, bottom: 20, left: 140},
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
-
 
     //Create canvas
     self.svg = self.parentElement.append("svg")
@@ -63,7 +53,6 @@ TimeLineVis.prototype.initVis = function () {
             .append("g")
             .attr("transform", 
                 "translate(" + margin.left + "," + margin.top + ")");
-
 
     //set X-axis bounds
     var minDate = d3.min(self.data, function(d){return d.Year;});
@@ -79,23 +68,33 @@ TimeLineVis.prototype.initVis = function () {
         .range([height, 0]);
 
     //Find min and max votes for an actors filmography on IMDB
-    var minVotes = d3.min(self.data, function(d){return d.imdbVotes;});
 
-    var maxVotes = d3.max(self.data, function(d){
-        if(d.imdbVotes==="N/A"){
-            return minVotes/2;
-        }
-        else{
-            return d.imdbVotes;
-        }
+
+
+    minVotes = d3.min(self.data, function(d) { 
+        return d.imdbVotes;
     });
 
-    console.log(minVotes, maxVotes)
+    maxVotes = d3.max(self.data, function(d) { 
+        return d.imdbVotes;
+    });
 
-    var radScale = d3.scale.ordinal()
-        .domain([minVotes, maxVotes])
-        .rangeRoundBands([3,15]);
+    console.log("Min Votes: ",minVotes);
+    console.log("Max Votes: ", maxVotes)
 
+   
+ 
+
+    // d3.scale.ordinal()
+    //     .domain([minVotes, maxVotes])
+    //     .rangePoints([3,15]);
+
+ // console.log(100,radScale(100))
+ // console.log(5000,radScale(5000))
+ // console.log(50000, radScale(50000))
+ // console.log(60000,radScale(60000))
+ // console.log(100000, radScale(100000))
+ 
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom")    
@@ -107,6 +106,11 @@ TimeLineVis.prototype.initVis = function () {
         .ticks(10)
         .tickSize(-width, 3);
 
+     radScale = d3.scale.linear()
+        .domain([minVotes, maxVotes])
+        .range([3,25]);
+
+        console.log("movine votes: ", self.data[13].imdbVotes)
     self.svg.selectAll(".dot")
             .data(self.data)
         .enter().append("circle")
@@ -117,9 +121,10 @@ TimeLineVis.prototype.initVis = function () {
             .attr("r", function(d) { 
                 if(d.imdbVotes==="N/A"){
                     return radScale(minVotes/2);
+                    //console.log("not working")
                 }
                 else{
-                    return radScale(d.imdbVotes)    
+                    return radScale(d.imdbVotes); 
                 }
             })
             .attr("cy", function(d) { return y(d.imdbRating); })
@@ -137,8 +142,8 @@ TimeLineVis.prototype.initVis = function () {
         .call(xAxis)
     .append('text')
         .attr("transform", "rotate(0)")
-        .attr("y", 27)
-        .attr("x", width+2)
+        .attr("y", 0)
+        .attr("x", width-10)
         .attr("dx", ".71em")
         .attr("dy", "-1em")        
         .style("text-anchor", "end")
@@ -154,12 +159,12 @@ TimeLineVis.prototype.initVis = function () {
         .attr("dy", ".71em")
         .style("text-anchor", "end")
         .text("imdb Rating");
-        //setTimeout (update, 2000)
+
 
     function mousemove(d) {
-        div .html("<a> <img src=" + d.Poster + "/> </a> <br/>" +
-            "<strong>Title: </strong>" + d.Title + "<br/>" +
-            "<strong>Plot: </strong>" + d.Plot + "<br/>" +
+        div .html("<div id=posterID> <a> <img src=" + d.Poster + "width = 100 height=200/> </a> </div>" +
+            "<div id=tooltipID><strong>Title: </strong>" + d.Title + "</div>" +
+            "<div id=tooltipID><strong>Plot: </strong> " + d.Plot + "</div> " +
              "<strong>Director: </strong>" + d.Director + "<br/>" +
             "<strong>Released: </strong>"+ d.Released + "<br/>" +
             "<strong>Rating: </strong>"+ d.imdbRating + "<br/>" +
@@ -178,9 +183,9 @@ TimeLineVis.prototype.initVis = function () {
     }
 
     function mouseover() {
-        div.transition()        
-            .duration(500)      
-            .style("opacity", .9);
+        // div.transition()        
+        //     .duration(500)      
+        //     .style("opacity", .9);
       div.style("display", "inline");
     }
 
