@@ -35,9 +35,9 @@ div.tooltip-tl {
     pointer-events: none;     
 }
 
-  .tick line{
+.tick line{
     opacity: 0.2;
-  }
+}
 
 .d3-tip {
   line-height: 1;
