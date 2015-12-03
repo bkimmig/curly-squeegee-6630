@@ -21,16 +21,17 @@
     margin-top: 6px;
     margin-bottom: 6px;
 }
-text {
+
+/*text {
   pointer-events: none;
-}
+}*/
 
 .grandparent text {
   font-weight: bold;
 }
 
 rect {
-  fill: none;
+  /*fill: #000;*/
   stroke: #fff;
 }
 

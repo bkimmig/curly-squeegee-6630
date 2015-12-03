@@ -193,17 +193,31 @@ TreeMapVis.prototype.initVis = function(o, data) {
             .attr("dy", ".75em")
 
         t.append("tspan")
-            .text(function(d) { return d.key; });
+            .text(function(d) { 
+                // var initialsList = d.key.split(" ");
+                // var initials = '';
+                // initialsList.forEach(function(i) {
+                //     initials += i[0]
+                //     if (i[1] !== '.') {
+                //         initials += '. '
+                //     }
+                // })
+                // return initials; 
+                return d.key;
+            });
+        
         t.append("tspan")
             .attr("dy", "1.0em")
             .text(function(d) { 
                 return formatNumber(d.value);
             });
+        
         t.append("tspan")
             .attr("dy", "1.0em")
             .text(function(d) { 
-                    return d.Title;
+                return d.Title;
             });
+        
         t.call(text);
 
         g.selectAll("rect")
@@ -373,7 +387,7 @@ TreeMapVis.prototype.initData = function() {
             var actorIdx = movie.Actors.indexOf(actor) 
             if (actorIdx > -1) {
                 movie['key'] = actor;
-                console.log(movie.imdbRating)
+                // console.log(movie.imdbRating)
                 var size = (movie['imdbRating'] !== 0.01) ? movie['imdbRating']: 1;
                 movie['value'] = 1;
                 coStarred.push(movie);
@@ -462,3 +476,6 @@ getUniqueActorList = function(movieData) {
 
 //     return treemapData;
 // }
+
+
+
