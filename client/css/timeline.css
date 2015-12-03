@@ -24,8 +24,8 @@
 div.tooltip-tl { 
     position: absolute;     
     text-align: left;     
-    width: 350px;          
-    height: 375px;        
+    /*width: 350px;*/          
+    /*height: 375px;*/        
     padding: 8px;       
     font: 12px sans-serif;    
     background: lavender; 
@@ -66,4 +66,15 @@ div.tooltip-tl {
   margin: -1px 0 0 0;
   top: 100%;
   left: 0;
+}
+
+#tooltipID {
+  width: 250px;
+  margin:0 auto;
+  text-align: left;
+}
+
+#posterID {
+    display: block
+    margin-left: auto;
 }

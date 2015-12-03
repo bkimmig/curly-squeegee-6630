@@ -14,7 +14,8 @@ TimeLineVis = function(_parentElement, _session) {
         'Year',
         'imdbRating',
         'tomatoRating',
-        'tomatoUserRating'
+        'tomatoUserRating',
+        'imdbVotes'
     ]
 
     self.parentElement = _parentElement;
@@ -71,33 +72,28 @@ TimeLineVis.prototype.initVis = function () {
 
 
     minVotes = d3.min(self.data, function(d) { 
-       if (d.imdbVotes.indexOf(',')) {
-           var votes = parseFloat(d.imdbVotes.replace(',', ''));
-       } else { 
-           votes = d.imdbVotes
-       } 
-       return votes });
+        return d.imdbVotes;
+    });
 
     maxVotes = d3.max(self.data, function(d) { 
-       if (d.imdbVotes.indexOf(',')) {
-           var votes = parseFloat(d.imdbVotes.replace(',', ''));
-       } else { 
-           votes = d.imdbVotes
-       } 
-       return votes });
+        return d.imdbVotes;
+    });
 
-    console.log(minVotes, maxVotes)
+    console.log("Min Votes: ",minVotes);
+    console.log("Max Votes: ", maxVotes)
 
    
-    var radScale = d3.scale.ordinal()
-        .domain([minVotes, maxVotes])
-        .rangeRoundBands([3,15]);
+ 
 
- console.log(100,radScale(100))
- console.log(5000,radScale(5000))
- console.log(50000, radScale(50000))
- console.log(60000,radScale(60000))
- console.log(100000, radScale(100000))
+    // d3.scale.ordinal()
+    //     .domain([minVotes, maxVotes])
+    //     .rangePoints([3,15]);
+
+ // console.log(100,radScale(100))
+ // console.log(5000,radScale(5000))
+ // console.log(50000, radScale(50000))
+ // console.log(60000,radScale(60000))
+ // console.log(100000, radScale(100000))
  
     var xAxis = d3.svg.axis()
         .scale(x)
@@ -110,6 +106,11 @@ TimeLineVis.prototype.initVis = function () {
         .ticks(10)
         .tickSize(-width, 3);
 
+     radScale = d3.scale.linear()
+        .domain([minVotes, maxVotes])
+        .range([3,25]);
+
+        console.log("movine votes: ", self.data[13].imdbVotes)
     self.svg.selectAll(".dot")
             .data(self.data)
         .enter().append("circle")
@@ -120,9 +121,10 @@ TimeLineVis.prototype.initVis = function () {
             .attr("r", function(d) { 
                 if(d.imdbVotes==="N/A"){
                     return radScale(minVotes/2);
+                    //console.log("not working")
                 }
                 else{
-                    return radScale(d.imdbVotes)    
+                    return radScale(d.imdbVotes); 
                 }
             })
             .attr("cy", function(d) { return y(d.imdbRating); })
@@ -140,8 +142,8 @@ TimeLineVis.prototype.initVis = function () {
         .call(xAxis)
     .append('text')
         .attr("transform", "rotate(0)")
-        .attr("y", 27)
-        .attr("x", width+2)
+        .attr("y", 0)
+        .attr("x", width-10)
         .attr("dx", ".71em")
         .attr("dy", "-1em")        
         .style("text-anchor", "end")
@@ -157,12 +159,12 @@ TimeLineVis.prototype.initVis = function () {
         .attr("dy", ".71em")
         .style("text-anchor", "end")
         .text("imdb Rating");
-        //setTimeout (update, 2000)
+
 
     function mousemove(d) {
-        div .html("<a> <img src=" + d.Poster + "width = 100 height=200/> </a> <br/>" +
-            "<strong>Title: </strong>" + d.Title + "<br/>" +
-            "<strong>Plot: </strong>" + d.Plot + "<br/>" +
+        div .html("<div id=posterID> <a> <img src=" + d.Poster + "width = 100 height=200/> </a> </div>" +
+            "<div id=tooltipID><strong>Title: </strong>" + d.Title + "</div>" +
+            "<div id=tooltipID><strong>Plot: </strong> " + d.Plot + "</div> " +
              "<strong>Director: </strong>" + d.Director + "<br/>" +
             "<strong>Released: </strong>"+ d.Released + "<br/>" +
             "<strong>Rating: </strong>"+ d.imdbRating + "<br/>" +
