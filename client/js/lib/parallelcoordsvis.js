@@ -6,8 +6,6 @@
 // http://bl.ocks.org/mbostock/1087001
 
 
-
-
 ParallelCoordVis = function(_parentElement, _session) {
     var self = this;
     self.parallelCoordKeys = [
@@ -52,7 +50,7 @@ ParallelCoordVis.prototype.initVis = function () {
         }
     });
 
-    var margin = {top: 30, right: 10, bottom: 10, left: 120 + textLength},
+    var margin = {top: 30, right: 30, bottom: 10, left: 150 + textLength},
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
@@ -160,7 +158,12 @@ ParallelCoordVis.prototype.initVis = function () {
 
     // Add an axis and title.
     g.append("g")
-        .attr("class", "axis")
+        .attr("class", function(d) {
+            if (d === 'Title') {
+                return 'axis-string';
+            }
+            return "axis";
+        })
         .each(function(d) {
             // d3.select(this).call(axis.scale(y[d]));
             var cdimen = checkDimension(d)
@@ -168,7 +171,8 @@ ParallelCoordVis.prototype.initVis = function () {
             if (cdimen.type === 'string') {
                 d3.select(this).call(axis.scale(
                     cdimen.scale
-                ));
+                    ).tickSize(4)
+                );
             } else {
                 d3.select(this).call(axis.scale(
                     cdimen.scale
@@ -178,6 +182,7 @@ ParallelCoordVis.prototype.initVis = function () {
         })
         .append("text")
         .style("text-anchor", "middle")
+        .attr("id", "pc-axis-label")
         .attr("y", -9)
         .text(function(d) { return d; });
 
@@ -259,11 +264,20 @@ ParallelCoordVis.prototype.initVis = function () {
     }
 
     function mouseover() {
-      div.style("display", "inline");
+        div.style("display", "inline");
+        var line = d3.select(this);
+        line.moveToFront();
+        line
+            .style("stroke", 'black')
+            .style("stroke-width", 4)
     }
 
     function mouseout() {
         div.style("display", "none");
+        var line = d3.select(this);
+        line
+            .style('stroke', 'steelblue')
+            .style("stroke-width", 2)
     }
 
 };
@@ -286,15 +300,6 @@ ParallelCoordVis.prototype.setDimensions = function(height) {
         //     type: "string",
 
         // },
-        {
-            name: "Year",
-            scale: d3.scale.linear(),
-            extent: d3.extent(self.data, function(p) {
-                        return +p['Year'];
-                    }),
-            type: "number",
-            range : [height, 0]
-        },
         {
             name: "imdbRating",
             scale: d3.scale.linear(),
@@ -322,6 +327,15 @@ ParallelCoordVis.prototype.setDimensions = function(height) {
             extent: [0.01, d3.max(self.data, function(p) {
                 return +p['BoxOffice'];
             })],
+            type: "number",
+            range : [height, 0]
+        },
+        {
+            name: "Year",
+            scale: d3.scale.linear(),
+            extent: d3.extent(self.data, function(p) {
+                        return +p['Year'];
+                    }),
             type: "number",
             range : [height, 0]
         },
@@ -378,4 +392,14 @@ ParallelCoordVis.prototype.filterAndAggregate = function (_filter) {
     });
 
     return prio;
+};
+
+
+
+// https://gist.github.com/trtg/3922684
+
+d3.selection.prototype.moveToFront = function() {
+    return this.each(function(){
+        this.parentNode.appendChild(this);
+    });
 };
