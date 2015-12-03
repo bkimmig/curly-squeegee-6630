@@ -173,7 +173,6 @@ TimeLineVis.prototype.initVis = function () {
             .style("left", function() {
                 var xPos = d3.event.pageX;
                 if (xPos > width/2) {
-                    console.log(xPos, div.width)
                     return (d3.event.pageX) - 275 + "px";
                 }
                 return (d3.event.pageX) + "px";
