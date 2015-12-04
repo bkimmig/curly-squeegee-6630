@@ -28,6 +28,19 @@ Session.setDefault('actorData', null);
 Session.setDefault('actorMovies', null);
 
 
+Template.searchApiFilms.rendered = function() {
+    $('#fullpage').fullpage({
+    });
+
+    // $('.navbar').hide();
+    Session.set('actor', "");
+    Session.set('actorSearched', false);
+    Session.set('actorData', null);
+    Session.set('actorMovies', null);
+};
+
+
+
 Template.searchApiFilms.helpers({
     actor: function () {
         return Session.get('actor');

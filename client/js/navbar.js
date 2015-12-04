@@ -16,3 +16,20 @@ Template.navbar.helpers({
     }
 
 });
+
+Template.navbar.events({
+    'click #button': function(event, template){
+        event.preventDefault();
+        var actorImage = $('img')
+        actorImage.src = Session.get('actorData').urlPhoto;
+        console.log($('img'))
+    },
+
+})
+
+
+// Template.navbar.rendered = function(){
+//     var actorImage = $('img')
+//     actorImage.src = Session.get('actorData').urlPhoto;
+//     console.log($('img'))
+// }

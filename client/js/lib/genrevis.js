@@ -28,7 +28,7 @@ GenreVis.prototype.initVis = function () {
     var color = d3.scale.category20();
     
     var extent = d3.extent(self.nodeData, function(d) {
-            console.log(d.count)
+            // console.log(d.count)
             return d.count;
         })
     circleSize = d3.scale.linear()
@@ -72,7 +72,7 @@ GenreVis.prototype.initVis = function () {
         .attr("text-anchor", "middle")
         .text(function(d) {
             if(circleSize(d.count) > extent[1]/2) {
-                console.log(circleSize(d.count), d.genre) 
+                // console.log(circleSize(d.count), d.genre) 
                 return d.genre;
             }
             return "";

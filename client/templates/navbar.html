@@ -1,22 +1,25 @@
 <template name="navbar">
     
-    <header class="navbar" id="header">
+    <!-- <header class="navbar" id="header"> -->
+    <div class="navbar" id='header'>
     <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
         <div class="navbar-header">
             <button type="button" data-toggle="collapse" data-target="#navbar-collapse-01" class="navbar-toggle">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span><span class="icon-bar"></span>
-            </button> <a href="/" class="navbar-brand">Curly Squeegee</a>
+            </button> 
+            <a id='search' href="/" class="navbar-brand">Curly Squeegee</a>
         </div>
         <div id="navbar-collapse-01" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="{{pathFor 'search'}}">Actor Search</a>
+                    <a id='search' href="{{pathFor 'search'}}">Actor Search</a>
                 </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
+
                 {{#if actorData }}
                     <li>
                         <a href="#"> {{ actorData.birthName }} </a>
@@ -36,5 +39,6 @@
         </div>
 
     </nav>
-    </header>
+    </div>
+
 </template>
