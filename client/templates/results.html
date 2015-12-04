@@ -35,86 +35,29 @@
     
     </div>
 
-<!--     <div class='container-fluid'>
-        <div class="bioBox">
-
-            <div class ="photoBox" >
-                    <img class="actorPicture" src="{{ actorPhoto }}">
+    <div id="fullpage">
+        <div id="section0" class="section" data-anchor="firstPage">
+            <h1>{{ actorData.birthName }} Filmography</h1>
+            <div class='container-fluid' id='timelineVis'>
             </div>
-
-            <div class="factBox">
-              
-                     <ul>
-                          <li>Name: {{ actorData.birthName }} </li>
-                          <li>Birthday: {{actorData.dateOfBirth }}</li>
-                          <li>Number of Films: {{nMovies}}</li>
-                          <li> etc: </li>
-                     </ul>
-               
+        </div>
+        <div id="section1" class="section" data-anchor="secondPage">
+            <h1>Parallel Connections</h1>
+            <div class='container-fluid' id='parallelCoordVis'>
             </div>
-
         </div>
-
-        <br/>
-    </div> -->
-
-<div id="fullpage">
-    <div id="section0" class="section" data-anchor="firstPage">
-        <h1>{{ actorData.birthName }} Filmography</h1>
-        <div class='container-fluid' id='timelineVis'>
+        <div id="section2" class="section" data-anchor="thirdPage">
+            <h1>TreeMap of CoActors</h1>
+            <div class='container-fluid' id='chart'>
+            </div>
         </div>
-    </div>
-    <div id="section1" class="section" data-anchor="secondPage">
-        <h1>Parallel Connections</h1>
-        <div class='container-fluid' id='parallelCoordVis'>
+        <div id="section3" class="section" data-anchor="fourthPage">
+            <h1>Genre</h1>
+            <div class='container-fluid' id='genreVis'>
+                <svg class="genre"></svg>
+            </div>
         </div>
     </div>
-    <div id="section2" class="section" data-anchor="thirdPage">
-        <h1>TreeMap of CoActors</h1>
-        <div class='container-fluid' id='chart'>
-        </div>
-    </div>
-    <div id="section3" class="section" data-anchor="fourthPage">
-        <h1>Genre</h1>
-        <div class='container-fluid' id='genreVis'>
-            <svg class="genre"></svg>
-        </div>
-    </div>
-</div>
-
-
-
-
-<!--     <a id="timeline" class="smooth"></a>
-    <div id="page1">
-        <div class='container-fluid' id='timelineVis'>
-            <h2>{{ actorData.birthName }} Filmography </h2>
-        </div>
-    </div>
-
-    <div id="page2">
-        <div class='container-fluid' id='parallelCoordVis'>
-            <h2>Parallel Connections</h2>
-            <a id="parallelcoord" class="smooth"></a>
-        </div>
-    </div>
-
-    <div id="page3">
-        <div class='container-fluid' id='chart'>
-            <h2> TreeMap of CoActors </h2>
-            <a id="treemap" class="smooth"></a>
-        </div>
-    </div>
-    
-    <a id="genre" class="smooth"></a>
-    <div id="page4">
-        <div class='container-fluid' id='genreVis'>
-            <h2> Genre </h2>
-            <svg class="genre"></svg>
-        </div>
-    </div> -->
-
-
 
 <!--     <div class='container-fluid' id='treemapVis'>
         
