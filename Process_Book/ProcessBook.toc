@@ -4,7 +4,7 @@
 \contentsline {subsection}{\numberline {2.2}Intended Audience}{5}{subsection.2.2}
 \contentsline {section}{\numberline {3}Data Collection}{6}{section.3}
 \contentsline {subsection}{\numberline {3.1}Data Processing}{6}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Data Formatting}{6}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.2}Data Formatting}{7}{subsection.3.2}
 \contentsline {subsubsection}{\numberline {3.2.1}Only Visualizing Films}{7}{subsubsection.3.2.1}
 \contentsline {subsubsection}{\numberline {3.2.2}Formatting numbers}{7}{subsubsection.3.2.2}
 \contentsline {section}{\numberline {4}Project Interface}{8}{section.4}
@@ -13,7 +13,7 @@
 \contentsline {section}{\numberline {5}Visualizations}{10}{section.5}
 \contentsline {subsection}{\numberline {5.1}Actor Fact Box -- Depricated}{10}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Filmography Timeline}{10}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Genre Visualization}{13}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.3}Genre Visualization}{12}{subsection.5.3}
 \contentsline {subsection}{\numberline {5.4}Treemap Visualization of co-workers}{13}{subsection.5.4}
 \contentsline {subsection}{\numberline {5.5}Parallel Axis Coordinate Visualization}{14}{subsection.5.5}
 \contentsline {section}{\numberline {6}Site Redesign}{14}{section.6}

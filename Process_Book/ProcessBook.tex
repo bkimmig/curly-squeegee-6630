@@ -49,15 +49,16 @@ Depending on how thourough we want to be (and how much time we have for thorough
 \begin{itemize}
 	\item \href{http://dataviscourse.net/2015/assets/process_books/bansal_cao_hou.pdf}{Real time audio visualization project - Soundscapes}
 	\item \href{http://dataviscourse.net/2015/assets/process_books/walsh_trevino_bett.pdf}{Oh Shit, earthquakes!}
-	\item Compile a bunch of good funny gifs we could use as loading images.  pick from them with a randomizer function.
+
 \end{itemize}
 
-Options include:
+Also:
 \begin{enumerate}
 	\item Explicit analysis on color choices, modes of comparison (length, hue, etc)
 	\item in-depth explanation of our  choice of design principles or encodings \textbackslash visual variables
 	\item Analysis of data
-	\item place a \textbf{'Loading...'} message on loading screen.
+		\item Compile a bunch of good funny gifs we could use as loading images.  pick from them with a randomizer function.
+	
 \end{enumerate}
 }
 
@@ -80,7 +81,7 @@ Options include:
 	\end{itemize}
 	
 \subsection{Intended Audience}
-Curlee Squeege is geared towards the general public and offers something of interest to the casual movie-goer  and film buff, alike.  
+Curlee Squeege is geared towards the general ``internet public", and offers something of interest to the casual movie-goer  and film buff, alike.  
 
 The interface is clean and self-explanatory.  
 Users are presented with a short text prompt describing the purpose of the site, a text query box, and a list of trending actors.This presentation allows them to start using the tool immediately with little explanation.
@@ -89,7 +90,12 @@ We hope that the site design and visualization aesthetics make it a natural and 
 \newpage 
 
 \section{Data Collection}
-	In order to build the database needed to visualize an actor's work, we explored several film-related API's.  After some searching, we found the majority were poorly populated, did not have the data we wanted, or charged for use.  We were able to identify two options which allowed us to proceed: \href{http://api.myapifilms.com/index.do}{My API Films} and \href{http://www.omdbapi.com/}{Open Movie Database}. We have set up a web framework using node.hs and Meteor which uses a RESTful architecture to gather API calls via GET requests. We store all data in a MongoDB database. This dataset is fairly dynamic since we rely on user queries to pull the necessary information from the APIs.
+
+Our original design goals always envisioned this as an interactive web-based tool.  We did not want to rely on a static data, and instead wanted to tap into existing cinema datasets to generate filmography visualizations.  We wanted our tool to be applicable to any actor, from any time for the most flexible and fun experience for the user. 
+
+	In order to build such an actor database we explored several film-related API's.  After some searching, we discovered the majority were poorly populated, did not have the data we wanted, or charged for use.  Luckily, we were able to identify two options which allowed us to proceed: \href{http://api.myapifilms.com/index.do}{My API Films} and \href{http://www.omdbapi.com/}{Open Movie Database}. 
+	
+	Using Node.js and Meteor\textbackslash MongoDV, we implement s a RESTful architecture to gather API calls via GET requests. These returns are formatted in JSON and stored in a MongoDB database. This dataset is fairly dynamic since we rely on user queries to pull the necessary information from the APIs.
 
 	
 	\begin{center}
@@ -98,14 +104,27 @@ We hope that the site design and visualization aesthetics make it a natural and 
 	\end{center}
 	
 \subsection{Data Processing}
-	API requests are returned in JSON format, so there is little clean-up beyond. Returned data is fairly detailed, so we selectively cull certain uncessary fields and aggregate filmography data based on what we want to visualize. We have two data structures in our databases:
+	Minimal data processing was required beyond defining and populating our data structures.  The returned API requests are returned in JSON format, so there is little clean-up beyond string formatting (for names and numerals), and logic for handling missing data.  
 	
+	The raw API calls were fairly detailed, so we selectively culled uncessary fields and aggregated filmography data based on what we want to visualize. These fields included:
+	
+	\begin{center}
+	\begin{tabular}{lll}
+	$\cdot$ Movie Title & $\cdot$ Release Date & $\cdot$ Movie Poster\\
+	$\cdot$ Director  & $\cdot$ Genre & $\cdot$ Co-Stars\\
+	$\cdot$ ImDb Rating & $\cdot$ Rotten Tomato Rating & $\cdot$ Box Office Earnings\\
+	\end{tabular}
+	\end{center}
+	
+	In order to interact with this data, we stored our actor query results in two separate data structures
 	\begin{itemize}
-		\item Actor Table: This stores all the actor information of a selected actor, including the movies they've acted in.
-		\item Movie Table: This contains all of the information for each movie we wish to plot or visualize.
+		\item \textbf{Actor Table}: This stores all the actor information of a selected actor, including the movies they've acted in.
+		\item \textbf{Movie Table}: This contains all of the information for each movie we wish to plot or visualize.
 	\end{itemize}
 
-	The data collection and filtering is probably the most sophisticated portion of this project. With everything stored and readily accessible, we use built-in javascript math functions and agregate parameter counts of our actor data to illustrate actor filmographies.
+	The data collection and filtering was likely the most sophisticated portion of this project. However, once complete, everything was easily accessible for views.  
+	
+	The nature and scope of our visualizations did not require much computation or analysis.  We used built-in javascript math functions and agregate parameter counts of our actor data to quantify and display the values we wanted to show.
 
 \subsection{Data Formatting}
 
@@ -129,16 +148,16 @@ talk about filter and utils functions?
 \newpage 
 
 \section{Project Interface}
+Due to our accelerated development schedule, we were able to move from sketch book to implementation very quickly. We brainstormed multiple views which could help answer the questions raised in section \ref{sec:Motivation} for a variety of actors.  We also sought to encourage user interactivity and re-use.  
 
-Thanks to our accelerated development schedule, we were able to move from sketch book to implementation very quickly. We brainstormed multiple views for this project with the goals of answering the questions raised in section \ref{sec:Motivation} for a variety of actors, as well as encouraging user exploration and re-use.  
+In the interest of time, we  decided on four views:  two main visualizations ( Actor Filmography and a Parallel Axis Chart) and two more easily implemented graphics -- an aggregte genre view, and tree map of common co-stars.
 
-In the interest of time, we ultimately decided on four views:  Two main visualizations ( Actor Filmography and a Parallel Axis Chart)and two more easily implemented graphics -- an aggregte genre view, and tree map of common co-stars.
-
-The following subsections discuss how we approached implementing and styling each interface, and how\textbackslash why it evolved during the life of the project.  
+The following subsections discuss the implementation and styling each interface, and how or why it evolved during the life of the project.  
 
 \subsection{Landing Page}
 
-Our original design goals always envisioned this as an interactive web-based tool.  We did not want to rely on a static dataset, and instead wanted to tap into the large datasets of cinema history to create actor filmographies, applicable to any actor, from any time. for the most flexible and fun experience.   Taking a cue from Google's clean and austere design, we wanted a plain front page with minimal clutter.  
+  Taking a cue from Google's clean and austere design, we wanted a plain front page with minimal clutter.
+  
 	\begin{figure}[h!]
 		\centering
 		\begin{subfigure}[t]{.5\textwidth}
@@ -150,18 +169,26 @@ Our original design goals always envisioned this as an interactive web-based too
 		\begin{subfigure}[t]{.8\textwidth}
 			  \centering
 			  \includegraphics[width=0.75\linewidth]{images/landingPage.png}
-			  \caption{Current implementation}
+			  \caption{First implementation}
 			  \label{fig:sub2}
 		\end{subfigure}%
 		\caption{Landing page development}
 		\label{fig:landingPage}
 	\end{figure}
 
-In implementing this design we added some explanatory text, as well as a list of trending actors which can serve as a starting point for new users.  After reading the site description, the user has the choice to click any one of the provided actors, or input one of their own.
+
+ 
+
+
+We added some explanatory text, realizing a new user would have no idea what they were presented with, and added some navigation bars for ease of moving around the pages. In this first iteration, the user has the choice to enter any actor.
+
+One feature of our use of API calls is that this approach is fairly robust against using alternate names.  Entries such as stage names, nick-names, and misspellings will return the most-similar actor, which is often times the desired result.  
+
+One drawback is that there is currently no disambiguation to select between multiple actors with the same name.  The only choice is to search for a more exact version of the actor's name in the database.
 
 \subsection{Loading Page}
 
-Once the user has made their selection, the node.js framework takes that search query and polls the MyAPIFilms and OMDB API's to collect the necessary actor information.  Fulilling these requests can take some time, so we display a loading gif to indicate that the process is ongoing.
+Once the user has made their selection, the node.js framework takes that search query and polls the MyAPIFilms' and OMDB's databases to collect the necessary actor information.  Fulilling these requests can take some time, so we display a loading gif to indicate that the process is ongoing.
 
 			\begin{figure}[h!]
 				\centering
@@ -169,12 +196,13 @@ Once the user has made their selection, the node.js framework takes that search 
 				\caption{After the user submits a search query, the application waits for the API calls to complete and fetch the actor's filmography. An animated gif can help pass the time.}
 			\end{figure}
 
-Wait times to complete a search request depend on the actor's catalog of work and also on the speed of the user's internet connection.  We ave experienced pauses of 30 seconds to 5 minutes, though typical queiries return within 2 minutes.
+The wait times for each search request depend on the extent of the actor's film catalog as well as the user's internet connection.  In our tests, we have experienced wait times as small as a few seconds to upwards of 5 minutes. Typical queiries return within 1-2 minutes.
 
 \newpage 
 
 \section{Visualizations}
-Once all API calls have completed and the data is saved in our database, we load the `results' page, which is where each visualization is displayed.  The  filmography has been loaded, we load our results page', showcasing our multiple views and actor information.
+When the API calls are complete and the data is saved in our database, we load a ``results page'', which  showcases our multiple views and actor information. 
+
 
 \subsection{Actor Fact Box -- Depricated}
 
@@ -194,7 +222,7 @@ Once all API calls have completed and the data is saved in our database, we load
 			\begin{subfigure}[t]{.5\textwidth}
 				  \centering
 				  \includegraphics[width=.8\linewidth]{images/actorBox.png}
-				  \caption{Current implementation}
+				  \caption{Original implementation}
 				  \label{fig:sub2}
 			\end{subfigure}%
 			\caption{Actor `Fact Box' development}
@@ -203,6 +231,11 @@ Once all API calls have completed and the data is saved in our database, we load
 
 
 \subsection{Filmography Timeline}
+
+
+The most natural way to visualize an actor's career is over a timeline.  We considered using circles on a timeline as a suitable encoding for showing film distribution Early in our design phase.  This decision was inspired by the \href{http://mariandoerk.de/edgemaps/demo/#phils;time;;;}{philosophers, poets, and musicians}  visualization shown in class. 
+
+In our original design, we wanted to chroniologically visualize the distribution (and density) of an artist's career and encode information such as film ratings or movie earnings as the circle radius or fill color.   We refined this decision after our brainstorming session (Section \ref{sec:Projcet Feedback}), where concerns were raised that actors with frequent and\textbackslash or successful work would create a cluttered timeline visual.  We also recalled the ineffectiveness of using areas to encode quantitative values for comparison.  When it came time to code our visualization, we decided to switch to a barchart visual.  This way we could cleanly show movie release dates along an $x$ axis and use clearer comparison of quantitative data by mapping it to bar height.
 
 	\begin{figure}[h!]
 			\centering
@@ -222,9 +255,8 @@ Once all API calls have completed and the data is saved in our database, we load
 			\label{fig:timeline}
 		\end{figure}
 		
-Early in our design phase, we considered using circles on a timeline as a suitable encoding for showing film distribution.  This decision was inspired by the \href{http://mariandoerk.de/edgemaps/demo/#phils;time;;;}{philosophers, poets, and musicians} timeline comparison shown in class. The idea was to visually show the distribution (and density) of an artist's career chronologically and encode information such as film ratings or earnings as the circle radius or fill color.   This decision was later refined after our brainstorming session (Section \ref{sec:Projcet Feedback}). Concerns were raised that actors with frequent and\textbackslash or successful work would create a cluttered timeline visual.  We also recalled thelack of effectiveness with comparing quantitative values when encoded as an area, and decided it would be better to switch to a barchart visual.  This way we could cleanly show movie release dates and have a more direct comparison of ratings or other quantitative data by mapping it to bar height.
-
-As we implemented our barchart visualization, we observed several issues relating to bar sizing, spacing, and overlap.  Consider the filmography of Tom Waits, shown in figure \ref{fig:timelineB}. We did not initially consider visualizing filmographies in the extreme cases of long acting careers, high film output, or areas of dense activity.  In each case, the sizing and spacing of the bars becomes an issue for readability and visual appeal.  Particularly frustrating, were areas where an actor would have multiple films released within a small time frame.  We tried separating these views by using thinner rectangles, adding stroke width to the bars, or introducing opacity.  We were not happy with any of these solutions and sought a better visualization method.
+		
+Despite this revision, we encountered several issues relating to bar sizing, spacing, and overlap.  When designing this visualization, we did not initially consider cases of long acting careers, high film output, or areas of dense activity (Figure \ref{fig:timelineB}). In each of these regimes, bar sizing and spacing becomes an issue for readability and visual appeal.  Particularly frustrating, were positions where an actor would have multiple films released within a small time frame.  We tried distinguishing these views by using thinner rectangles, adding stroke width to the bars, or introducing opacity.  In the end, we were not happy with any of these solutions and sought a better visualization method.
 
 \begin{figure}
 	\centering
@@ -233,13 +265,15 @@ As we implemented our barchart visualization, we observed several issues relatin
 \end{figure}\label{fig:xy}
 
 
-Figure \ref{fig:xy} is a marked improvement over the earlier efforts to illustrate an actor's filmography.  The XY plot naturally lends itself to an ordered ranking  in each dimension, and the user can immediately identify such information as : high and low ranked films, popular films, and any trend in the actor's career over time.  For example, figure \ref{fig:deniro} verifies the slight decline of  Robert DeNiro's film quality.
+After realizing we were most interested in showing two values -- release date and rating, we saw this could be arranged as an ordered pair, and thus most effectively plotted on a cartesian grid.  Figure \ref{fig:xy} is a marked improvement over the earlier efforts to illustrate an actor's filmography.  in addition to spatial placement, we encoded the the popularity of a film as the size of its dot.  Here, popularity is determined by the number of votes it received on it's IMDB page.
 
-\begin{figure}
+The XY plot naturally lends itself to an ordered ranking in each dimension, which can be quickly exploited by users to identify such information as : high and low ranked films, popular films, and any trend in the actor's career over time.  For example, figure \ref{fig:deniro} verifies the slight decline of  Robert DeNiro's film quality.
+
+\begin{figure}\label{fig:deniro}
 	\centering
 	\includegraphics[width=.7\linewidth]{images/Deniro_timeline.png}
 				  \caption{We've seen better times.}
-\end{figure}\label{fig:deniro}
+\end{figure}
 
 
 \subsection{Genre Visualization}
@@ -263,10 +297,14 @@ Figure \ref{fig:xy} is a marked improvement over the earlier efforts to illustra
 	\end{figure}
 
 	
-The GenreVis view was an attempt to answer the question of whether an actor gets typecast, or to visualize the proportion of film genres they appear in.  
+The GenreVis view (figure \ref{fig:genreVis}) was created to answer whether  an actor gets has been typecast, or to visualize the proportion of film genres they appear in.  
 
-Each circle represents a unique film genre (Drama, family, comedy, etc.) which is viewable via mouse-hover text.  Th
+Each circle represents a unique film genre (Drama, family, comedy, etc.) which is viewable via mouse-hover text.  To create this view, we parsed every film genre lable in the actors filmography and added unique labels to an array.  We counted the number of times each label appeared, and sized the circles accordingly.  Films which had multiple or compound genres ('action thrille'r or `romantic comedy' ) would count each descriptor towards the actors genre aggregate.
 
+
+This view has remained fairly stagnant since we added it, in favor of working on other aspects of the project.  
+
+\textbf{TODO: link views.}
 \subsection{Treemap Visualization of co-workers}
 
 
@@ -319,25 +357,20 @@ From the start, the parallel axis coordinate view was what we were most interest
 
 \section{Site Redesign}
 
-Once the views were working and the settings more or less finalized, we decided to work on changing the look of the site.  We wanted to keep the same simplistic look, but benefit from some additional polishing from some pre-packaged CSS and JS styling elements.   
+\begin{figure}\label{fig:blackLandingPage}
+\centering
+\includegraphics[scale=0.3]{images/landingBoxFinal.png}
+\caption{Final version of landing page.}
+\end{figure}
 
-	\begin{figure}[h!]
-		\centering
-		\begin{subfigure}[t]{.5\textwidth}
-			  \centering
-			  %\includegraphics[width=\linewidth]{images/parallel_crop.jpg}
-			  \caption{Main Landing Page}
-			  \label{fig:redesignA}
-		\end{subfigure}%
-		\begin{subfigure}[t]{.8\textwidth}
-			  \centering
-			  %\includegraphics[width=.7\linewidth]{images/parallelAxisCoordVis.png}
-			  \caption{Data page}
-			  \label{fig:redesignB}
-		\end{subfigure}%
-		\caption{Site redesign}
-		\label{fig:SiteRedesign}
-	\end{figure}
+
+Once the views were working and the settings more or less finalized, we decided to work on changing the look of the site.  We wanted to keep the same simplistic look, but benefit from some additional polishing from some pre-packaged CSS and JS styling elements. 
+
+Not every page was affected, but we did alter the landing page (Figure \ref{fig:blackLandingPage}) , and modify the scrolling behavior of the results page.  These changes were purely cosmetic and were employed to give the site a more cohesive and smooth look.
+
+
+
+
 We chose the \textbf{XXXXX} located \href{www.google.com}{here} for it's stripped-down appearance, and then \textbf{This JS stuff} for the smooth strolling site-linking functionality.  Since all of our content is essentially on on page, we wanted a clean way to transition between views.
 
 \section{Connected Views}
