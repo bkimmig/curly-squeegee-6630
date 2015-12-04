@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.8.27)  1 DEC 2015 20:11
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.8.27)  3 DEC 2015 17:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -365,181 +365,189 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 21.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 21.
- (./ProcessBook.toc
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./ProcessBook.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <12> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 3.
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 10.
+)
+\tf@toc=\write4
+\openout4 = `ProcessBook.toc'.
+
+ [2] [3]
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 50.
 
 (/usr/share/texmf/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 10.
- [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
-\tf@toc=\write4
-\openout4 = `ProcessBook.toc'.
-
- [2] [3] [4] [5]
-<images/landingPage_crop.png, id=122, 1048.91875pt x 699.61375pt>
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 50.
+ [4] [5] [6] [7]
+<images/landingPage_crop.png, id=167, 1048.91875pt x 699.61375pt>
 File: images/landingPage_crop.png Graphic file (type png)
 
 <use images/landingPage_crop.png>
-Package pdftex.def Info: images/landingPage_crop.png used on input line 105.
+Package pdftex.def Info: images/landingPage_crop.png used on input line 146.
 (pdftex.def)             Requested size: 195.0pt x 130.05635pt.
 
-<images/landingPage.png, id=123, 587.19376pt x 318.18875pt>
+<images/landingPage.png, id=168, 587.19376pt x 318.18875pt>
 File: images/landingPage.png Graphic file (type png)
 
 <use images/landingPage.png>
-Package pdftex.def Info: images/landingPage.png used on input line 111.
+Package pdftex.def Info: images/landingPage.png used on input line 152.
 (pdftex.def)             Requested size: 234.00089pt x 126.79742pt.
 
-Overfull \hbox (117.00119pt too wide) in paragraph at lines 103--115
+Overfull \hbox (117.00119pt too wide) in paragraph at lines 144--156
  [][][] 
  []
 
-<images/loadingPage.png, id=124, 753.81625pt x 654.445pt>
+[8 <./images/landingPage_crop.png> <./images/landingPage.png>]
+<images/loadingPage.png, id=174, 753.81625pt x 654.445pt>
 File: images/loadingPage.png Graphic file (type png)
 
 <use images/loadingPage.png>
-Package pdftex.def Info: images/loadingPage.png used on input line 124.
+Package pdftex.def Info: images/loadingPage.png used on input line 168.
 (pdftex.def)             Requested size: 226.14662pt x 196.335pt.
+ [9 <./images/loadingPage.png>]
+LaTeX Font Info:    Font shape `OMS/lmr/m/it' in size <12> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 184.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-LaTeX Font Info:    Font shape `OMS/lmr/bx/n' in size <14.4> not available
-(Font)              Font shape `OMS/lmsy/b/n' tried instead on input line 129.
-[6 <./images/landingPage_crop.png> <./images/landingPage.png>]
-<images/actorFactBox_crop.png, id=131, 1112.155pt x 654.445pt>
+<images/actorFactBox_crop.png, id=180, 1112.155pt x 654.445pt>
 File: images/actorFactBox_crop.png Graphic file (type png)
 
 <use images/actorFactBox_crop.png>
-Package pdftex.def Info: images/actorFactBox_crop.png used on input line 140.
+Package pdftex.def Info: images/actorFactBox_crop.png used on input line 190.
 (pdftex.def)             Requested size: 195.0pt x 114.73929pt.
 
-<images/actorBox.png, id=132, 907.39pt x 510.90875pt>
+<images/actorBox.png, id=181, 907.39pt x 510.90875pt>
 File: images/actorBox.png Graphic file (type png)
 
 <use images/actorBox.png>
-Package pdftex.def Info: images/actorBox.png used on input line 146.
+Package pdftex.def Info: images/actorBox.png used on input line 196.
 (pdftex.def)             Requested size: 156.0006pt x 87.8356pt.
- [7 <./images/loadingPage.png> <./images/actorFactBox_crop.png> <./images/actor
-Box.png>]
-<images/timeline_orig.png, id=140, 884.30376pt x 230.8625pt>
+
+<images/timeline_orig.png, id=182, 884.30376pt x 230.8625pt>
 File: images/timeline_orig.png Graphic file (type png)
 
 <use images/timeline_orig.png>
-Package pdftex.def Info: images/timeline_orig.png used on input line 164.
+Package pdftex.def Info: images/timeline_orig.png used on input line 211.
 (pdftex.def)             Requested size: 195.0pt x 50.90614pt.
 
-<images/timeline_crop_waits.png, id=141, 1084.05pt x 621.32124pt>
+<images/timeline_crop_waits.png, id=183, 1084.05pt x 621.32124pt>
 File: images/timeline_crop_waits.png Graphic file (type png)
 
 <use images/timeline_crop_waits.png>
-Package pdftex.def Info: images/timeline_crop_waits.png used on input line 170.
+Package pdftex.def Info: images/timeline_crop_waits.png used on input line 217.
 
 (pdftex.def)             Requested size: 136.4994pt x 78.2338pt.
 
-<images/timelineC_crop_waits.png, id=145, 1095.09125pt x 632.3625pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[10 <./images/actorFactBox_crop.png> <./images/actorBox.png>]
+<images/timelineC_crop_waits.png, id=192, 1094.0875pt x 627.34375pt>
 File: images/timelineC_crop_waits.png Graphic file (type png)
 
 <use images/timelineC_crop_waits.png>
-Package pdftex.def Info: images/timelineC_crop_waits.png used on input line 184
+Package pdftex.def Info: images/timelineC_crop_waits.png used on input line 231
 .
-(pdftex.def)             Requested size: 272.99881pt x 157.64638pt.
- [8 <./images/timeline_orig.png> <./images/timeline_crop_waits.png>]
-<images/Deniro_timeline.png, id=154, 1133.23375pt x 623.32875pt>
+(pdftex.def)             Requested size: 272.99881pt x 156.5388pt.
+
+<images/Deniro_timeline.png, id=195, 1086.0575pt x 623.32875pt>
 File: images/Deniro_timeline.png Graphic file (type png)
 
 <use images/Deniro_timeline.png>
-Package pdftex.def Info: images/Deniro_timeline.png used on input line 193.
-(pdftex.def)             Requested size: 272.99881pt x 150.1536pt.
+Package pdftex.def Info: images/Deniro_timeline.png used on input line 240.
+(pdftex.def)             Requested size: 272.99881pt x 156.6783pt.
 
-<images/genreVis_crop.png, id=155, 974.64125pt x 593.21625pt>
+<images/genreVis_crop.png, id=196, 974.64125pt x 593.21625pt>
 File: images/genreVis_crop.png Graphic file (type png)
 
 <use images/genreVis_crop.png>
-Package pdftex.def Info: images/genreVis_crop.png used on input line 204.
+Package pdftex.def Info: images/genreVis_crop.png used on input line 251.
 (pdftex.def)             Requested size: 195.0pt x 118.6864pt.
 
-<images/genreVis.png, id=156, 758.835pt x 546.04pt>
+<images/genreVis.png, id=197, 758.835pt x 546.04pt>
 File: images/genreVis.png Graphic file (type png)
  <use images/genreVis.png>
-Package pdftex.def Info: images/genreVis.png used on input line 210.
+Package pdftex.def Info: images/genreVis.png used on input line 257.
 (pdftex.def)             Requested size: 218.39987pt x 157.15608pt.
 
-Overfull \hbox (117.00119pt too wide) in paragraph at lines 202--214
+Overfull \hbox (117.00119pt too wide) in paragraph at lines 249--261
  [][][] 
  []
 
+[11 <./images/timeline_orig.png> <./images/timeline_crop_waits.png>] [12 <./ima
+ges/timelineC_crop_waits.png> <./images/Deniro_timeline.png>]
+Overfull \hbox (117.00119pt too wide) in paragraph at lines 277--289
+ [][][] 
+ []
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<images/parallel_crop.jpg, id=157, 1607.00375pt x 904.37875pt>
+[13 <./images/genreVis_crop.png> <./images/genreVis.png>]
+<images/parallel_crop.jpg, id=216, 1607.00375pt x 904.37875pt>
 File: images/parallel_crop.jpg Graphic file (type jpg)
 
 <use images/parallel_crop.jpg>
-Package pdftex.def Info: images/parallel_crop.jpg used on input line 224.
+Package pdftex.def Info: images/parallel_crop.jpg used on input line 304.
 (pdftex.def)             Requested size: 195.0pt x 109.73514pt.
 
-<images/parallelAxisCoordVis.png, id=158, 1097.09875pt x 621.32124pt>
+<images/parallelAxisCoordVis.png, id=217, 1097.09875pt x 621.32124pt>
 File: images/parallelAxisCoordVis.png Graphic file (type png)
 
 <use images/parallelAxisCoordVis.png>
-Package pdftex.def Info: images/parallelAxisCoordVis.png used on input line 230
+Package pdftex.def Info: images/parallelAxisCoordVis.png used on input line 310
 .
 (pdftex.def)             Requested size: 218.39987pt x 123.68373pt.
 
-Overfull \hbox (117.00119pt too wide) in paragraph at lines 222--234
+Overfull \hbox (117.00119pt too wide) in paragraph at lines 302--314
  [][][] 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Overfull \hbox (117.00119pt too wide) in paragraph at lines 326--338
+ [][][] 
+ []
 
-[9 <./images/timelineC_crop_waits.png>] [10 <./images/Deniro_timeline.png> <./i
-mages/genreVis_crop.png> <./images/genreVis.png>] [11 <./images/parallel_crop.j
-pg> <./images/parallelAxisCoordVis.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 267.
- [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 267.
+[14 <./images/parallel_crop.jpg> <./images/parallelAxisCoordVis.png>] [15]
+[16] [17]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 392.
+ [18]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 392.
  (./ProcessBook.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 267.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 267.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 392.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 392.
 Package rerunfilecheck Info: File `ProcessBook.out' has not changed.
-(rerunfilecheck)             Checksum: 2BF522BF7DFC33D1DA066AAF7EAE8C88;1075.
+(rerunfilecheck)             Checksum: 4C6B49DE56F492EC30FF813B97C74BAF;1432.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 267.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 392.
  ) 
 Here is how much of TeX's memory you used:
- 6417 strings out of 493304
- 100350 string characters out of 6139871
- 181526 words of memory out of 5000000
- 9762 multiletter control sequences out of 15000+600000
- 50949 words of font info for 43 fonts, out of 8000000 for 9000
+ 6447 strings out of 493304
+ 100717 string characters out of 6139871
+ 182093 words of memory out of 5000000
+ 9778 multiletter control sequences out of 15000+600000
+ 50648 words of font info for 42 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 36i,8n,38p,1068b,470s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dv
-ips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm/lmbsy10.pfb></usr/
-share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/publ
-ic/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/
-texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/l
-mr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/f
-onts/type1/public/lm/lmsy10.pfb>
-Output written on ProcessBook.pdf (12 pages, 3957424 bytes).
+ 36i,9n,38p,1068b,471s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/en
+c/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}</usr/s
+hare/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/publi
+c/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/
+texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/l
+mr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fo
+nts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.p
+fb>
+Output written on ProcessBook.pdf (18 pages, 3961875 bytes).
 PDF statistics:
- 221 PDF objects out of 1000 (max. 8388607)
- 184 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 500000)
- 202 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 288 PDF objects out of 1000 (max. 8388607)
+ 244 compressed objects within 3 object streams
+ 57 named destinations out of 1000 (max. 500000)
+ 250 words of extra memory for PDF output out of 10000 (max. 10000000)
 

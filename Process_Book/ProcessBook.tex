@@ -23,10 +23,23 @@
 	Curly-Squeegee (CS) is a web-bsaed tool for visualizing and exploring actor filmographies in an interactive way. By enabling users to search for their favorite actors and see their entire body of work displayed a variety of ways, we hope it invites them to explore the different views, select and filter different sub-sets of actor filmography data, and find intersting or surprising hidden trends.
 \end{abstract}
 
+\newpage
+
 \tableofcontents
 
 \newpage
 
+
+\topskip0pt
+\begin{center}
+
+	\vspace*{\fill}
+	\textit{To ourselves $\cdots$ for always being there.}
+	\vspace*{\fill}
+	
+\end{center}
+
+\newpage 
 
 \section{Editing notes}
 
@@ -36,6 +49,7 @@ Depending on how thourough we want to be (and how much time we have for thorough
 \begin{itemize}
 	\item \href{http://dataviscourse.net/2015/assets/process_books/bansal_cao_hou.pdf}{Real time audio visualization project - Soundscapes}
 	\item \href{http://dataviscourse.net/2015/assets/process_books/walsh_trevino_bett.pdf}{Oh Shit, earthquakes!}
+	\item Compile a bunch of good funny gifs we could use as loading images.  pick from them with a randomizer function.
 \end{itemize}
 
 Options include:
@@ -43,6 +57,7 @@ Options include:
 	\item Explicit analysis on color choices, modes of comparison (length, hue, etc)
 	\item in-depth explanation of our  choice of design principles or encodings \textbackslash visual variables
 	\item Analysis of data
+	\item place a \textbf{'Loading...'} message on loading screen.
 \end{enumerate}
 }
 
@@ -50,7 +65,7 @@ Options include:
 
 \section{Project Background}
 
-\subsection{Motivation}
+\subsection{Motivation}\label{sec:Motivation}
 	The idea for this project came from the fact that both developers watch a good amount of movies and enjoyed sites like IMDB and RottenTomatoes, but wanted something that focused on specific actors rather than being movie-centric. CS is their solution to needing to sift through lists and text to appreciate a given actors filmography. In three views, one can see their entire body of work as a timeline, with length and color encodings for film-output and film-quality, respectively, as well as career visualizations showing the breakdown of movie genre over the course of their career and a multi-axis interactive plot to explore an actors output as a function of date ranges, ratings, box office earnings, and directors.
 	
 	CS is meant to provide a new way of viewing actor data, and seeks to facilitiate a fun and interactive web-based solution to questions like:
@@ -65,15 +80,17 @@ Options include:
 	\end{itemize}
 	
 \subsection{Intended Audience}
-Curlee Squeege is geared towards the general public and accessible to the occasional movie-goer to film buffs, alike.  
+Curlee Squeege is geared towards the general public and offers something of interest to the casual movie-goer  and film buff, alike.  
 
-Users are presented with a list of trending actors as well as a search box, so they can start using the tool immediately with little explanation.
+The interface is clean and self-explanatory.  
+Users are presented with a short text prompt describing the purpose of the site, a text query box, and a list of trending actors.This presentation allows them to start using the tool immediately with little explanation.
 
 We hope that the site design and visualization aesthetics make it a natural and easy tool to use.
 \newpage 
 
 \section{Data Collection}
-	This application readily takes advantage of several pre-packaged movie APIs, specifically My API Films and OMdb. We have set up a web framework using node.hs and Meteor which uses a RESTful architecture to gather API calls via GET requests. We store all data in a MongoDB database. This dataset is fairly dynamic since we rely on user queries to pull the necessary information from the APIs.
+	In order to build the database needed to visualize an actor's work, we explored several film-related API's.  After some searching, we found the majority were poorly populated, did not have the data we wanted, or charged for use.  We were able to identify two options which allowed us to proceed: \href{http://api.myapifilms.com/index.do}{My API Films} and \href{http://www.omdbapi.com/}{Open Movie Database}. We have set up a web framework using node.hs and Meteor which uses a RESTful architecture to gather API calls via GET requests. We store all data in a MongoDB database. This dataset is fairly dynamic since we rely on user queries to pull the necessary information from the APIs.
+
 	
 	\begin{center}
 	\color{blue}
@@ -87,17 +104,41 @@ We hope that the site design and visualization aesthetics make it a natural and 
 		\item Actor Table: This stores all the actor information of a selected actor, including the movies they've acted in.
 		\item Movie Table: This contains all of the information for each movie we wish to plot or visualize.
 	\end{itemize}
-	
+
 	The data collection and filtering is probably the most sophisticated portion of this project. With everything stored and readily accessible, we use built-in javascript math functions and agregate parameter counts of our actor data to illustrate actor filmographies.
+
+\subsection{Data Formatting}
+
+talk about filter and utils functions?
+\subsubsection{Only Visualizing Films}
+	
+	\begin{itemize}
+			\item Mention Tom waits case where his most popular work was soundtracks
+			\item Talk about formatting for films which are currently released (and therefore have data/votes).
+	\end{itemize}
+	
+\subsubsection{Formatting numbers}
+	
+	\begin{itemize}
+		\item Remove NA from votes
+		\item removing commas from votes
+		\item formatting years
+	\end{itemize}
+
 
 \newpage 
 
-\section{Project Evolution}
+\section{Project Interface}
 
-This project has had an accelerated development cycle and we quickly settled on a fixed set of views.  Details have not changed significantly from the proposal document, but we will compare and contrast any differences below.
+Thanks to our accelerated development schedule, we were able to move from sketch book to implementation very quickly. We brainstormed multiple views for this project with the goals of answering the questions raised in section \ref{sec:Motivation} for a variety of actors, as well as encouraging user exploration and re-use.  
+
+In the interest of time, we ultimately decided on four views:  Two main visualizations ( Actor Filmography and a Parallel Axis Chart)and two more easily implemented graphics -- an aggregte genre view, and tree map of common co-stars.
+
+The following subsections discuss how we approached implementing and styling each interface, and how\textbackslash why it evolved during the life of the project.  
 
 \subsection{Landing Page}
 
+Our original design goals always envisioned this as an interactive web-based tool.  We did not want to rely on a static dataset, and instead wanted to tap into the large datasets of cinema history to create actor filmographies, applicable to any actor, from any time. for the most flexible and fun experience.   Taking a cue from Google's clean and austere design, we wanted a plain front page with minimal clutter.  
 	\begin{figure}[h!]
 		\centering
 		\begin{subfigure}[t]{.5\textwidth}
@@ -116,22 +157,31 @@ This project has had an accelerated development cycle and we quickly settled on 
 		\label{fig:landingPage}
 	\end{figure}
 
+In implementing this design we added some explanatory text, as well as a list of trending actors which can serve as a starting point for new users.  After reading the site description, the user has the choice to click any one of the provided actors, or input one of their own.
 
 \subsection{Loading Page}
+
+Once the user has made their selection, the node.js framework takes that search query and polls the MyAPIFilms and OMDB API's to collect the necessary actor information.  Fulilling these requests can take some time, so we display a loading gif to indicate that the process is ongoing.
 
 			\begin{figure}[h!]
 				\centering
 				\includegraphics[scale=0.3]{images/loadingPage.png}
-				\caption{Once the user submits a search query, the application waits for the API calls to complete and fetch the actor's filmography.  This can take upwards of 30 seconds}
+				\caption{After the user submits a search query, the application waits for the API calls to complete and fetch the actor's filmography. An animated gif can help pass the time.}
 			\end{figure}
-			While the API calls are made and the film data is saved to the local database, we display a gif to indicate that the files are being loaded.
 
-\subsection{Display\textbackslash Results Page}
-Once the filmography has been loaded, we load our results page, which  shows a number of views and actor information
+Wait times to complete a search request depend on the actor's catalog of work and also on the speed of the user's internet connection.  We ave experienced pauses of 30 seconds to 5 minutes, though typical queiries return within 2 minutes.
 
-\subsection{Actor Fact Box}
+\newpage 
 
-	This data serves as an orientation tool,indicating to the user whether the correct actor was returned.  This is particularly important in cases when searching for actors with common names.  Using the OMDB API data, we are able to display a photograph of the actor, their full name, date of birth, and other derived data from the API call.  We currently display their total number of films.  other useful information would be when they started acting \textbackslash first credited role, years active, and highest or worst rated movie.
+\section{Visualizations}
+Once all API calls have completed and the data is saved in our database, we load the `results' page, which is where each visualization is displayed.  The  filmography has been loaded, we load our results page', showcasing our multiple views and actor information.
+
+\subsection{Actor Fact Box -- Depricated}
+
+\textbf{Note:}  This section was removed from the final release. We decided it did not contribute to the overall presentation and was at odds with the interface style we were hoping to create.  The text remains for  historical analysis.
+
+
+\textit{ (Depreicated)	This data serves as an orientation tool,indicating to the user whether the correct actor was returned.  This is particularly important in cases when searching for actors with common names.  Using the OMDB API data, we are able to display a photograph of the actor, their full name, date of birth, and other derived data from the API call.  We currently display their total number of films.  other useful information would be when they started acting \textbackslash first credited role, years active, and highest or worst rated movie.}
 	
 		\begin{figure}[h!]
 			\centering
@@ -151,11 +201,8 @@ Once the filmography has been loaded, we load our results page, which  shows a n
 			\label{fig:actorFactBox}
 		\end{figure}
 
-\subsection{Visualizations}
 
-	Talk a bit about the different views we chose, and why.  This can be a cut/paste job from certain parts of our proposal.
-
-\subsubsection{Filmography Timeline}
+\subsection{Filmography Timeline}
 
 	\begin{figure}[h!]
 			\centering
@@ -195,7 +242,7 @@ Figure \ref{fig:xy} is a marked improvement over the earlier efforts to illustra
 \end{figure}\label{fig:deniro}
 
 
-\subsubsection{Genre Visualization}
+\subsection{Genre Visualization}
 
 	\begin{figure}[h!]
 		\centering
@@ -215,8 +262,41 @@ Figure \ref{fig:xy} is a marked improvement over the earlier efforts to illustra
 		\label{fig:genreVis}
 	\end{figure}
 
-\subsubsection{Parallel Axis Coordinate Visualization}
 	
+The GenreVis view was an attempt to answer the question of whether an actor gets typecast, or to visualize the proportion of film genres they appear in.  
+
+Each circle represents a unique film genre (Drama, family, comedy, etc.) which is viewable via mouse-hover text.  Th
+
+\subsection{Treemap Visualization of co-workers}
+
+
+The treemap visualization was a last-minute addition to our project.  We did not orginally plan for such a view, but after the ``Visualizing Maps and Trees'' lecture, we saw a way to group co-stars which have appeared in multiple films alongside the queried actor.
+
+	\begin{figure}[h!]
+		\centering
+		\begin{subfigure}[t]{.5\textwidth}
+		  \centering
+		  %\includegraphics[width=\linewidth]{images/genreVis_crop.png}
+		  \caption{Original Implementation}
+		  \label{fig:treemapA}
+		\end{subfigure}%
+		\begin{subfigure}[t]{.8\textwidth}
+		  \centering
+		  %\includegraphics[width=.7\linewidth]{images/genreVis.png}
+		  \caption{Current implementation}
+		  \label{fig:treemapB}
+		\end{subfigure}%
+		\caption{Genre visualization development}
+		\label{fig:Treemap}
+	\end{figure}
+	
+This view was accomplished in a similar way to the GenreVis view.....	
+
+\subsection{Parallel Axis Coordinate Visualization}
+	
+From the start, the parallel axis coordinate view was what we were most interested in implementing for this dataset.  We looked forward to determining the highest grossing Schwarzennegar movie from the 80's, or.... \textbf{More}
+
+
 	\begin{figure}[h!]
 		\centering
 		\begin{subfigure}[t]{.5\textwidth}
@@ -234,6 +314,39 @@ Figure \ref{fig:xy} is a marked improvement over the earlier efforts to illustra
 		\caption{Parallel Axis Coordinate visualization development}
 		\label{fig:parallelAxisCoordVis}
 	\end{figure}
+
+
+
+\section{Site Redesign}
+
+Once the views were working and the settings more or less finalized, we decided to work on changing the look of the site.  We wanted to keep the same simplistic look, but benefit from some additional polishing from some pre-packaged CSS and JS styling elements.   
+
+	\begin{figure}[h!]
+		\centering
+		\begin{subfigure}[t]{.5\textwidth}
+			  \centering
+			  %\includegraphics[width=\linewidth]{images/parallel_crop.jpg}
+			  \caption{Main Landing Page}
+			  \label{fig:redesignA}
+		\end{subfigure}%
+		\begin{subfigure}[t]{.8\textwidth}
+			  \centering
+			  %\includegraphics[width=.7\linewidth]{images/parallelAxisCoordVis.png}
+			  \caption{Data page}
+			  \label{fig:redesignB}
+		\end{subfigure}%
+		\caption{Site redesign}
+		\label{fig:SiteRedesign}
+	\end{figure}
+We chose the \textbf{XXXXX} located \href{www.google.com}{here} for it's stripped-down appearance, and then \textbf{This JS stuff} for the smooth strolling site-linking functionality.  Since all of our content is essentially on on page, we wanted a clean way to transition between views.
+
+\section{Connected Views}
+
+We chose to interconnect the timelineVis and parallel axis coordinates visualizations so any selected movies in one view would be highlighted in another.  This is especially useful when brushing multiple items in the parallel axis coordinate view and seeing the highlighted distribution of films in the timeline graphic.
+
+This is most useful when visualizing the temporal distrobution of films brushed from the parallel axis plot.  We thought this functionality would help uncover any time trends with given film earnings, directors, etc.
+
+The results of these searches are dependent on the actors, of course.
 
 \newpage
 
@@ -259,9 +372,21 @@ After we settled on our design and project implementation, we had the opportunit
 
 \section{Team Evaluation}
 
-\textit{Brian Kimmig}: Brian was responsible for the API calls, data collection, and database wrangling. His experience as a web developer was very helpful for making this portion of the project go very smoothly. Brian also created the project framework, and parallel coordinate view.
+\textit{Brian Kimmig}: Brian was responsible for the API calls, data collection, and database wrangling. His experience as a web developer was very helpful for making this portion of the project proceed smoothly. Brian also created  the genreVis, treep map, and parallel coordinate view.
 
-\textit{Jimmy Moore}: Jimmy was the lead scribe for the group and was responsible for project documentation including the proposal and process book. He also coded the Actor photo and display box features and filmography timeline visualization.
+\textit{Jimmy Moore}: Jimmy contributed code for the Database storage of API calls, and the Actor filmography visualization, along with site design and formatting.  He also was the project scribe and responsible for project documentation.
 
+\newpage
+
+\section{Future Work}
+
+
+Awesome project and we want to keep working.  Lots of stuff we could do
+
+\begin{itemize}
+	\item Add selection/links/buttons to change search query from filmography to director/producer, soundtrack, or other creative capacity.  Additionally, these multiple datapoints could be overlaid on the same graph and separated with color.
+	\item Search for multiple actors and compare their filmographies on the timeline visualization.
+	\item Create a set view to show which movies any $n$ actors have acted in.  Or show a network visualization of the separation of a number of actors.  Use the individual movies as the graph nodes.  Force directed visualization might be best.
+\end{itemize}
 
 \end{document}
