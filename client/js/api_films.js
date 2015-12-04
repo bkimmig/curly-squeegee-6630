@@ -51,7 +51,6 @@ Template.searchApiFilms.helpers({
     actorData: function () {
         return Session.get('actorData');
     }
-
 });
 
 
@@ -82,5 +81,28 @@ Template.searchApiFilms.events({
                 loadingEvent('end');
         });
         // Router.go('/');
+    },
+    
+    'click footer': function(event, template){
+        event.preventDefault();
+
+        var actors = [
+            'Tom Waits',
+            'Seth Rogen',
+            'Justin Timberlake',
+            'Will Smith',
+            'Mark Wahlberg'
+        ];
+        var aLen = actors.length
+        var rand = Math.random();
+        //rand = 0.9999;
+        rand *= aLen; //(5)
+        //rand = 4.9995
+        rand = Math.floor(rand);
+        //rand = 4 - safely within the bounds of your array
+
+        template.find("#actor-name").value = actors[rand] 
+
     }
+
 });
