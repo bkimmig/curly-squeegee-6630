@@ -142,20 +142,24 @@ GenreVis.prototype.initNodeData = function() {
     var genres = {};
     for (i=0; i<self.data.length; i++){
         var movie = self.data[i].Genre;
-        var g = movie.split(',');
-        for (j=0; j<g.length; j++) {
-            var cGenre = g[j];
-            
-            // remove white space up front
-            if (cGenre[0] === " ") {
-                cGenre = cGenre.slice(1);
-            }
+        if (movie) {
+            if (movie.indexOf(',') > -1) {
+                var g = movie.split(',');
+                for (j=0; j<g.length; j++) {
+                    var cGenre = g[j];
+                    
+                    // remove white space up front
+                    if (cGenre[0] === " ") {
+                        cGenre = cGenre.slice(1);
+                    }
 
-            // count the genres
-            if (genres[cGenre]) {
-                genres[cGenre] += 1;
-            } else {
-                genres[cGenre] = 1;
+                    // count the genres
+                    if (genres[cGenre]) {
+                        genres[cGenre] += 1;
+                    } else {
+                        genres[cGenre] = 1;
+                    }
+                }
             }
         }
     }
