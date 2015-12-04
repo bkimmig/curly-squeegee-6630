@@ -7,6 +7,8 @@
 *.log
 *.out
 Process_Book/landingBoxfinal.png.aux
-Process_Book/*
+Process_Book/*.aux
+Process_Book/*.log
+Process_Book/*.out
 
 .env
