@@ -162,8 +162,8 @@ TimeLineVis.prototype.initVis = function () {
     function mousemove(d) {
 
         div.html(
-            "<div id=posterID> <a> <img src=" + posterPicture(d)  + 
-            "width=100 height=200/> </a> </div>" +
+            //"<div id=posterID> <a> <img src=" + posterPicture(d)  + "width=100 height=200/> </a> </div>" +
+            posterPicture(d) +
             "<div id=tooltipID><strong>Title: </strong>" + d.Title + "</div>" +
             "<div id=tooltipID><strong>Plot: </strong> " + d.Plot + "</div> " +
             "<div id=tooltipID> <strong>Director: </strong>" + d.Director + "<br/>" +
@@ -202,13 +202,13 @@ TimeLineVis.prototype.initVis = function () {
         div.style("display", "none");
     }
 
+    //Display Movie poster if one is available.  Otherwise, display default image
     function posterPicture(d){
         if(d.Poster==="N/A"){
-            return "'/img/NotFound.jpg'";
-            console.log()
+            return "<div id=posterID> <a> <img src='/img/NotFound.jpg' width=180 height=80/> </a> </div>";
         }
         else{
-            return d.Poster;
+            return "<div id=posterID> <a> <img src=" + d.Poster  + "width=100 height=200/> </a> </div>";
         }
     } // end posterPicture
 }
