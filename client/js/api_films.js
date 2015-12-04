@@ -142,8 +142,7 @@ Template.searchApiFilms.events({
             'Paul Rudd',
             'Tone Loc',
             'Jeff Goldblum',
-            'Paul Newman',
-
+            'Paul Newman'
         ];
         var aLen = actors.length
         var rand = Math.random();
