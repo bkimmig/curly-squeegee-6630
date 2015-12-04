@@ -140,7 +140,10 @@ Template.searchApiFilms.events({
             'Maya Rudolph',
             'Kristen Wiig',
             'Paul Rudd',
-            'Tone Loc'            
+            'Tone Loc',
+            'Jeff Goldblum',
+            'Paul Newman',
+
         ];
         var aLen = actors.length
         var rand = Math.random();
