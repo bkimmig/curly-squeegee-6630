@@ -1,14 +1,7 @@
-<template name="layout">
-    <div class="container-fluid">
-            <!-- <title>Curly Squeegee</title> -->
-            {{> navbar }}
+<template name="layout">    
+    <div class='container-fluid'>
+        <div class='container-fluid'>
+            {{> yield }}
+        </div>
     </div>
-
-    <div class='container'>
-        <body>
-            <!-- {{> flashMessages}} -->
-            {{> yield}}
-        </body>
-    </div>
-
 </template>

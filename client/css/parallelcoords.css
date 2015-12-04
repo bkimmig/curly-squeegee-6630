@@ -1,0 +1,113 @@
+svg {
+  font: 8px sans-serif;
+}
+
+.background path {
+    fill: none;
+    stroke: #ddd;
+    shape-rendering: crispEdges;
+}
+
+.foreground path {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 2;
+}
+
+.selection {
+    fill: none;
+    stroke: red;
+    stroke-width: 2;
+}
+
+
+.brush .extent {
+    fill-opacity: .3;
+    stroke: #fff;
+    shape-rendering: crispEdges;
+}
+
+.axis line,
+.axis path {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+    cursor: move;
+}
+
+.axis .title {
+  /*font-size: 11px;*/
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.axis.string {
+  /*font-size: 6px;*/
+}
+
+.label {
+  -webkit-transition: fill 125ms linear;
+}
+
+
+div.tooltip-pc { 
+    position: absolute;     
+    text-align: center;     
+    /*width: 60px;          */
+    /*height: 28px;        */
+    padding: 2px;       
+    font: 12px sans-serif;    
+    background: lavender; 
+    border: 0px;    
+    border-radius: 8px;     
+    pointer-events: none;     
+}
+
+
+.axis-string line,
+.axis-string path {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.axis-string text {
+    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+    cursor: move;
+    font-size: 6px;
+}
+
+.axis-string text:hover {
+    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+    cursor: move;
+    font-size: 10px;
+}
+
+.axis-string .title {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#pc-axis-label {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+
+.label {
+  -webkit-transition: fill 125ms linear;
+}
+
+
+
+
+
+
+
+

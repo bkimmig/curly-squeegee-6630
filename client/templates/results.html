@@ -1,56 +1,79 @@
 <template name="results">
+    <!-- <div class="container-fluid"> -->
+            {{> navbar }}
+    <!-- </div> -->
 
+    <div id="fp-nav" class='right' style="color: rgb(0, 0, 0); margin-top: -53.5px;">
 
-    <body>
-     
-        <br/>
-        <hr/>
+        <ul>
+            <li>
+                <i class="fa fa-arrow-up"></i>
+            </li>
+        </ul>
         
+        <ul>
+            <li data-menuanchor="firstPage">
+                <a href="#firstPage"> <span title="Timeline" class='navspan'> </span> </a>
+            </li>
+            <li data-menuanchor="secondPage">
+                <a href="#secondPage"> <span title="Parallel Coords" class='navspan'> </span> </a>
+            </li>
+            <li data-menuanchor="thirdPage">
+                <a href="#thirdPage"> <span title="Treemap" class='navspan'> </span> </a>
+            </li>
+            <li data-menuanchor="fourthPage">
+                <a href="#fourthPage"> <span title="Genres" class='navspan'> </span> </a>
+            </li>
+
+        </ul>
+
+        <ul>
+            <li>
+                <i class="fa fa-arrow-down"></i>
+            </li>
+        </ul>
     
-        <br/>
+    </div>
+
+    <div id="fullpage">
+        <div id="section0" class="section" data-anchor="firstPage">
+            <h1>{{ actorData.name }} - Filmography ({{ nMovies }} Movies)</h1>
+ <!--            <div class='container-fluid'>
+                Here we show an actors time line vs. their IMDB rating and sized by the number of votes IMDB users gave it.
+            </div> -->
+
+            <div style="text-align:center" class='container-fluid' id='timelineVis'>
+            </div>
+        </div>
+        <div id="section1" class="section" data-anchor="secondPage">
+            <h1>Parallel Connections</h1>
+            <div style="text-align:center" class='container-fluid' id='parallelCoordVis'>
+            </div>
+        </div>
+        <div id="section2" class="section" data-anchor="thirdPage">
+            <h1>TreeMap of CoActors</h1>
+            <div class='container-fluid' id='chart'>
+            </div>
+        </div>
+        <div id="section3" class="section" data-anchor="fourthPage">
+            <h1>Genre</h1>
+            <div style="text-align:center" class='container-fluid' id='genreVis'>
+                <svg class="genre"></svg>
+            </div>
+        </div>
+    </div>
+
+<!--     <div class='container-fluid' id='treemapVis'>
         
-        <!-- Photo and bio -->
-        <div width="1000" height="500" id="biography">
-            <div style ="float:left" class="block" >
-                    <img src="img/geom_loading.gif" alt="placeholder" width=200 height=200>
-            </div>
-
-            <div style ="float:right" class="block" >
-                <body>
-                     <ul>
-                          <li>Name:</li>
-                          <li>Birthday:</li>
-                          <li>Number of Films:</li>
-                          <li> etc: </li>
-                     </ul>
-                </body>
-            </div>
-        </div>
-
-        <br/>
-
-        <div>
-            <h2>Filmography</h2>
-            <svg width="1000" height="500" id="timeline">
-                <g id="films"></g>
-                
-            </svg>
-        </div>
-
-        <div >
-                <h2>Genre</h2>
-                <svg width="427" height="500" id="genre"></svg>
-        </div>
-            
-        <div>
-            <h2>Parallel Connections</h2>
-            <svg width="1200" height="500" id="parallel">
-                
-              
-            </svg>
-        </div>
-
-      
-
-    </body>
+        <form>
+            <label>
+                <input type="radio" name="mode" value="size" checked> Size
+            </label>
+            <label>
+                <input type="radio" name="mode" value="count"> Count
+            </label>
+        </form>
+        <h2> TreeMap </h2>
+    
+    </div> -->
 </template>
