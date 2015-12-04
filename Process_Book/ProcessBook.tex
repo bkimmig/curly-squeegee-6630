@@ -34,7 +34,7 @@
 \begin{center}
 
 	\vspace*{\fill}
-	\textit{To ourselves $\cdots$ for always being there.}
+	\textit{To ourselves $\dots$ for always being there.}
 	\vspace*{\fill}
 	
 \end{center}
@@ -56,7 +56,6 @@ Also:
 \begin{enumerate}
 	\item Explicit analysis on color choices, modes of comparison (length, hue, etc)
 	\item in-depth explanation of our  choice of design principles or encodings \textbackslash visual variables
-	\item Analysis of data
 		\item Compile a bunch of good funny gifs we could use as loading images.  pick from them with a randomizer function.
 	
 \end{enumerate}
@@ -81,7 +80,7 @@ Also:
 	\end{itemize}
 	
 \subsection{Intended Audience}
-Curlee Squeege is geared towards the general ``internet public", and offers something of interest to the casual movie-goer  and film buff, alike.  
+Curly Squeege is geared towards the general ``internet public", and offers something of interest to the casual movie-goer  and film buff, alike.  
 
 The interface is clean and self-explanatory.  
 Users are presented with a short text prompt describing the purpose of the site, a text query box, and a list of trending actors.This presentation allows them to start using the tool immediately with little explanation.
@@ -198,10 +197,30 @@ Once the user has made their selection, the node.js framework takes that search 
 
 The wait times for each search request depend on the extent of the actor's film catalog as well as the user's internet connection.  In our tests, we have experienced wait times as small as a few seconds to upwards of 5 minutes. Typical queiries return within 1-2 minutes.
 
+
+\subsection{Results Page}
+
+When the API calls are complete and the data is saved in our database, we load a ``results page'', which  showcases our multiple views and actor information. 
+
+\begin{figure}\label{fig:resultsPage}
+	\centering
+	\includegraphics[width = \textwidth]{images/resultsPage.png}
+	\caption{Results page layout}
+\end{figure}
+
+Anatomy of Figure \ref{fig:resultsPage}:
+\begin{itemize}
+	\item \textbf{Navigation Bar: }  The top of the page displays the actor name, a photo, and links back to the search page
+	\item \textbf{Main Views: } The main views are displayed centered on the screen, with their title text centered above them
+	\item \textbf{View Selector: } On the right hand side of the screen, the user can click the listed dots to jump to the next graphic.  They may also scroll, and when in the vicinity of the visualization, the browser will auto-center the visualization after a short dwell time.
+\end{itemize}
+
 \newpage 
 
 \section{Visualizations}
-When the API calls are complete and the data is saved in our database, we load a ``results page'', which  showcases our multiple views and actor information. 
+
+In this section we go deeper into the visualization choices and design details for each of our chosen views.
+
 
 
 \subsection{Actor Fact Box -- Depricated}
@@ -301,6 +320,12 @@ From the start, the parallel axis coordinate view was what we were most interest
 		\label{fig:parallelAxisCoordVis}
 	\end{figure}
 
+
+Each of these lines support highlight-on-hover and will display a tool-tip with the movie title.
+
+mousing over the movie list on the left will selectively increase the title font size on hover.
+
+Each of the axes are scrubable and will highlight any films in the given selection.
 \newpage 
 
 \subsection{Treemap Visualization of co-workers}
@@ -317,7 +342,7 @@ The treemap visualization was a last-minute addition to our project.  Despite TA
 		\end{subfigure}%
 		\begin{subfigure}[t]{.8\textwidth}
 		  \centering
-		  %\includegraphics[width=.7\linewidth]{images/genreVis.png}
+		  \includegraphics[width=.7\linewidth]{images/treemapZoomWilson.png}
 		  \caption{Common films between Owen and Ben Stiller}
 		  \label{fig:treemapB}
 		\end{subfigure}%
