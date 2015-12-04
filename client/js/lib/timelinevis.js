@@ -162,7 +162,7 @@ TimeLineVis.prototype.initVis = function () {
     function mousemove(d) {
 
         div.html(
-            "<div id=posterID> <a> <img src=" + d.Poster + 
+            "<div id=posterID> <a> <img src=" + posterPicture(d)  + 
             "width=100 height=200/> </a> </div>" +
             "<div id=tooltipID><strong>Title: </strong>" + d.Title + "</div>" +
             "<div id=tooltipID><strong>Plot: </strong> " + d.Plot + "</div> " +
@@ -179,8 +179,8 @@ TimeLineVis.prototype.initVis = function () {
                 return (d3.event.pageX) + "px";
             })     
             .style("top", (d3.event.pageY - 68) + "px");    
-        
-        //div.text("Title: " + d.Title)
+       
+         //div.text("Title: " + d.Title)
           //      .style("left", (d3.event.pageX - 40) + "px")
             //    .style("top", (d3.event.pageY - 35) + "px");
             // .text("Imdb Rating: " + d.imdbRating)
@@ -201,7 +201,18 @@ TimeLineVis.prototype.initVis = function () {
     function mouseout() {
         div.style("display", "none");
     }
+
+    function posterPicture(d){
+        if(d.Poster==="N/A"){
+            return "'/img/NotFound.jpg'";
+            console.log()
+        }
+        else{
+            return d.Poster;
+        }
+    } // end posterPicture
 }
+
 
 
 TimeLineVis.prototype.wrangleData = function (_filterFunction) {
