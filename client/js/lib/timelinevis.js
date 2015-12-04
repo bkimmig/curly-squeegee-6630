@@ -42,7 +42,7 @@ TimeLineVis.prototype.initVis = function () {
         .style("display", "none");
 
     //define some canvas variables
-    var margin = {top: 30, right: 10, bottom: 20, left: 140},
+    var margin = {top: 30, right: 20, bottom: 20, left: 20},
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
