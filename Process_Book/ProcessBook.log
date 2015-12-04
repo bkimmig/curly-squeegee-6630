@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.8.27)  3 DEC 2015 22:43
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.8.27)  4 DEC 2015 14:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -226,6 +226,21 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip43
 )
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+\Gm@cnth=\count101
+\Gm@cntv=\count102
+\c@Gm@tempcnt=\count103
+\Gm@bindingoffset=\dimen116
+\Gm@wd@mp=\dimen117
+\Gm@odd@mp=\dimen118
+\Gm@even@mp=\dimen119
+\Gm@layoutwidth=\dimen120
+\Gm@layoutheight=\dimen121
+\Gm@layouthoffset=\dimen122
+\Gm@layoutvoffset=\dimen123
+\Gm@dimlist=\toks15
+)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
@@ -274,37 +289,37 @@ LaTeX Warning: Label `sub@fig:sub2' multiply defined.
 )
 \openout1 = `ProcessBook.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 25.
  (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count101
-\scratchdimen=\dimen116
+\scratchcounter=\count104
+\scratchdimen=\dimen124
 \scratchbox=\box26
-\nofMPsegments=\count102
-\nofMParguments=\count103
-\everyMPshowfont=\toks15
-\MPscratchCnt=\count104
-\MPscratchDim=\dimen117
-\MPnumerator=\count105
-\makeMPintoPDFobject=\count106
-\everyMPtoPDFconversion=\toks16
+\nofMPsegments=\count105
+\nofMParguments=\count106
+\everyMPshowfont=\toks16
+\MPscratchCnt=\count107
+\MPscratchDim=\dimen125
+\MPnumerator=\count108
+\makeMPintoPDFobject=\count109
+\everyMPtoPDFconversion=\toks17
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -324,7 +339,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box27
-Package hyperref Info: Link coloring OFF on input line 19.
+Package hyperref Info: Link coloring OFF on input line 25.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -332,254 +347,307 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count107
+\c@section@level=\count110
 )
-LaTeX Info: Redefining \ref on input line 19.
-LaTeX Info: Redefining \pageref on input line 19.
-LaTeX Info: Redefining \nameref on input line 19.
+LaTeX Info: Redefining \ref on input line 25.
+LaTeX Info: Redefining \pageref on input line 25.
+LaTeX Info: Redefining \nameref on input line 25.
 
 (./ProcessBook.out) (./ProcessBook.out)
 \@outlinefile=\write3
 \openout3 = `ProcessBook.out'.
 
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 21.
 
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 27.
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 21.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 27.
 
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 21.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 27.
 
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 21.
+(Font)              <14.4> on input line 27.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 21.
+(Font)              <10> on input line 27.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 21.
+(Font)              <7> on input line 27.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./ProcessBook.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 3.
+(Font)              <12> on input line 2.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 3.
+(Font)              <8> on input line 2.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 3.
+(Font)              <6> on input line 2.
 )
 \tf@toc=\write4
 \openout4 = `ProcessBook.toc'.
 
  [2] [3]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 50.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 60.
 
 (/usr/share/texmf/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 50.
- [4] [5] [6] [7]
-<images/landingPage_crop.png, id=172, 1048.91875pt x 699.61375pt>
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 60.
+ [4] [5]
+Overfull \hbox (23.28648pt too wide) in paragraph at lines 121--122
+[]\OT1/lmr/m/n/12 Talk about for-mat-ting for films which are cur-rently re-lea
+sed (and there-fore have data/votes). 
+ []
+
+[6] <images/landingPage_crop.png, id=156, 1048.91875pt x 699.61375pt>
 File: images/landingPage_crop.png Graphic file (type png)
 
 <use images/landingPage_crop.png>
-Package pdftex.def Info: images/landingPage_crop.png used on input line 165.
-(pdftex.def)             Requested size: 195.0pt x 130.05635pt.
+Package pdftex.def Info: images/landingPage_crop.png used on input line 150.
+(pdftex.def)             Requested size: 209.78003pt x 139.92027pt.
 
-<images/landingPage.png, id=173, 587.19376pt x 318.18875pt>
+<images/landingPage.png, id=157, 587.19376pt x 318.18875pt>
 File: images/landingPage.png Graphic file (type png)
 
 <use images/landingPage.png>
-Package pdftex.def Info: images/landingPage.png used on input line 171.
-(pdftex.def)             Requested size: 234.00089pt x 126.79742pt.
+Package pdftex.def Info: images/landingPage.png used on input line 156.
+(pdftex.def)             Requested size: 234.87334pt x 127.27324pt.
 
-Overfull \hbox (117.00119pt too wide) in paragraph at lines 163--175
- [][][] 
- []
-
-[8 <./images/landingPage_crop.png> <./images/landingPage.png>]
-<images/landingBoxFinal.png, id=179, 699.61375pt x 341.275pt>
+<images/landingBoxFinal.png, id=159, 695.59875pt x 385.44pt>
 File: images/landingBoxFinal.png Graphic file (type png)
 
 <use images/landingBoxFinal.png>
-Package pdftex.def Info: images/landingBoxFinal.png used on input line 194.
-(pdftex.def)             Requested size: 209.88574pt x 102.38329pt.
-
-
-Package caption Warning: \label without proper \caption on input line 192.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `blackLandingPage' on page 9 undefined on input line 2
-01.
-
-<images/loadingPage.png, id=183, 577.15625pt x 672.5125pt>
+Package pdftex.def Info: images/landingBoxFinal.png used on input line 179.
+(pdftex.def)             Requested size: 208.68123pt x 115.63289pt.
+ [7 <./images/landingPage_crop.png> <./images/landingPage.png>] <images/loading
+Page.png, id=171, 577.15625pt x 672.5125pt>
 File: images/loadingPage.png Graphic file (type png)
 
 <use images/loadingPage.png>
-Package pdftex.def Info: images/loadingPage.png used on input line 214.
+Package pdftex.def Info: images/loadingPage.png used on input line 199.
 (pdftex.def)             Requested size: 173.14821pt x 201.7553pt.
+ [8 <./images/landingBoxFinal.png> <./images/loadingPage.png>] <images/resultsP
+age.png, id=178, 1576.89125pt x 721.69624pt>
+File: images/resultsPage.png Graphic file (type png)
+
+<use images/resultsPage.png>
+Package pdftex.def Info: images/resultsPage.png used on input line 217.
+(pdftex.def)             Requested size: 469.75502pt x 214.99086pt.
+ [9 <./images/resultsPage.png>]
+LaTeX Font Info:    Font shape `OMS/lmr/m/it' in size <12> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 241.
+
+<images/actorFactBox_crop.png, id=184, 1112.155pt x 654.445pt>
+File: images/actorFactBox_crop.png Graphic file (type png)
+
+<use images/actorFactBox_crop.png>
+Package pdftex.def Info: images/actorFactBox_crop.png used on input line 247.
+(pdftex.def)             Requested size: 234.8775pt x 138.20642pt.
+
+<images/actorBox.png, id=185, 907.39pt x 510.90875pt>
+File: images/actorBox.png Graphic file (type png)
+
+<use images/actorBox.png>
+Package pdftex.def Info: images/actorBox.png used on input line 253.
+(pdftex.def)             Requested size: 187.90271pt x 105.7972pt.
+ [10 <./images/actorFactBox_crop.png> <./images/actorBox.png>] <images/timeline
+_orig.png, id=193, 884.30376pt x 230.8625pt>
+File: images/timeline_orig.png Graphic file (type png)
+
+<use images/timeline_orig.png>
+Package pdftex.def Info: images/timeline_orig.png used on input line 274.
+(pdftex.def)             Requested size: 234.8775pt x 61.31564pt.
+
+<images/timeline_crop_waits.png, id=194, 1084.05pt x 621.32124pt>
+File: images/timeline_crop_waits.png Graphic file (type png)
+
+<use images/timeline_crop_waits.png>
+Package pdftex.def Info: images/timeline_crop_waits.png used on input line 280.
+
+(pdftex.def)             Requested size: 164.41353pt x 94.22754pt.
+
+<images/timelineC_crop_waits.png, id=196, 1586.92876pt x 739.76375pt>
+File: images/timelineC_crop_waits.png Graphic file (type png)
+
+<use images/timelineC_crop_waits.png>
+Package pdftex.def Info: images/timelineC_crop_waits.png used on input line 293
+.
+(pdftex.def)             Requested size: 328.82707pt x 153.278pt.
+
+<images/Deniro_timeline.png, id=199, 1586.92876pt x 728.7225pt>
+File: images/Deniro_timeline.png Graphic file (type png)
+
+<use images/Deniro_timeline.png>
+Package pdftex.def Info: images/Deniro_timeline.png used on input line 304.
+(pdftex.def)             Requested size: 328.82707pt x 150.99026pt.
+ [11 <./images/timeline_orig.png> <./images/timeline_crop_waits.png>] [12 <./im
+ages/timelineC_crop_waits.png> <./images/Deniro_timeline.png>] <images/parallel
+_crop.jpg, id=211, 1607.00375pt x 904.37875pt>
+File: images/parallel_crop.jpg Graphic file (type jpg)
+
+<use images/parallel_crop.jpg>
+Package pdftex.def Info: images/parallel_crop.jpg used on input line 327.
+(pdftex.def)             Requested size: 234.8775pt x 132.17343pt.
+
+<images/parallelAxisCoordVis.png, id=212, 1097.09875pt x 621.32124pt>
+File: images/parallelAxisCoordVis.png Graphic file (type png)
+
+<use images/parallelAxisCoordVis.png>
+Package pdftex.def Info: images/parallelAxisCoordVis.png used on input line 333
+.
+(pdftex.def)             Requested size: 219.41586pt x 124.26204pt.
+
+Overfull \hbox (46.97835pt too wide) in paragraph at lines 325--337
+ [][][] 
+ []
+
+[13 <./images/parallel_crop.jpg> <./images/parallelAxisCoordVis.png>]
+<images/treemapOwenWilson.png, id=219, 1142.2675pt x 588.1975pt>
+File: images/treemapOwenWilson.png Graphic file (type png)
+
+<use images/treemapOwenWilson.png>
+Package pdftex.def Info: images/treemapOwenWilson.png used on input line 353.
+(pdftex.def)             Requested size: 234.8775pt x 120.94026pt.
+
+<images/treemapZoomWilson.png, id=220, 1064.97874pt x 545.03625pt>
+File: images/treemapZoomWilson.png Graphic file (type png)
+
+<use images/treemapZoomWilson.png>
+Package pdftex.def Info: images/treemapZoomWilson.png used on input line 359.
+(pdftex.def)             Requested size: 211.3883pt x 108.18198pt.
+ [14 <./images/treemapOwenWilson.png> <./images/treemapZoomWilson.png>]
+<images/genreVis_crop.png, id=226, 974.64125pt x 593.21625pt>
+File: images/genreVis_crop.png Graphic file (type png)
+
+<use images/genreVis_crop.png>
+Package pdftex.def Info: images/genreVis_crop.png used on input line 376.
+(pdftex.def)             Requested size: 234.8775pt x 142.95412pt.
+
+<images/genreVis.png, id=227, 758.835pt x 546.04pt>
+File: images/genreVis.png Graphic file (type png)
+ <use images/genreVis.png>
+Package pdftex.def Info: images/genreVis.png used on input line 382.
+(pdftex.def)             Requested size: 211.3883pt x 152.10695pt.
+
+<images/HughGrantGenre.png, id=229, 615.29875pt x 553.06625pt>
+File: images/HughGrantGenre.png Graphic file (type png)
+
+<use images/HughGrantGenre.png>
+Package pdftex.def Info: images/HughGrantGenre.png used on input line 400.
+(pdftex.def)             Requested size: 234.8775pt x 211.12097pt.
+
+<images/ArnoldGenreVis.png, id=230, 698.61pt x 482.80376pt>
+File: images/ArnoldGenreVis.png Graphic file (type png)
+
+<use images/ArnoldGenreVis.png>
+Package pdftex.def Info: images/ArnoldGenreVis.png used on input line 406.
+(pdftex.def)             Requested size: 234.8775pt x 162.3241pt.
+ [15 <./images/genreVis_crop.png> <./images/genreVis.png> <./images/HughGrantGe
+nre.png> <./images/ArnoldGenreVis.png>]
+<images/TimelineSelection.png, id=240, 965.6075pt x 557.08125pt>
+File: images/TimelineSelection.png Graphic file (type png)
+
+<use images/TimelineSelection.png>
+Package pdftex.def Info: images/TimelineSelection.png used on input line 432.
+(pdftex.def)             Requested size: 234.8775pt x 135.5043pt.
+
+<images/pacHighlight.png, id=241, 911.405pt x 547.04375pt>
+File: images/pacHighlight.png Graphic file (type png)
+
+<use images/pacHighlight.png>
+Package pdftex.def Info: images/pacHighlight.png used on input line 438.
+(pdftex.def)             Requested size: 281.85587pt x 169.17279pt.
+
+Overfull \hbox (46.97835pt too wide) in paragraph at lines 430--442
+ [][][] 
+ []
+
+<images/pacScrub.png, id=242, 914.41624pt x 553.06625pt>
+File: images/pacScrub.png Graphic file (type png)
+
+<use images/pacScrub.png>
+Package pdftex.def Info: images/pacScrub.png used on input line 451.
+(pdftex.def)             Requested size: 234.8775pt x 142.05537pt.
+
+<images/TimelinePacHighlight.png, id=243, 1005.7575pt x 573.14125pt>
+File: images/TimelinePacHighlight.png Graphic file (type png)
+
+<use images/TimelinePacHighlight.png>
+Package pdftex.def Info: images/TimelinePacHighlight.png used on input line 457
+.
+(pdftex.def)             Requested size: 281.85587pt x 160.61838pt.
+
+Overfull \hbox (46.97835pt too wide) in paragraph at lines 449--461
+ [][][] 
+ []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[9 <./images/landingBoxFinal.png>]
+[16 <./images/TimelineSelection.png> <./images/pacHighlight.png>] [17 <./images
+/pacScrub.png> <./images/TimelinePacHighlight.png>] [18]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 535.
+ [19]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 535.
 
-Package caption Warning: \label without proper \caption on input line 230.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `fig:resultsPage' on page 10 undefined on input line 2
-27.
-
-<images/resultsPage.png, id=190, 1576.89125pt x 721.69624pt>
-File: images/resultsPage.png Graphic file (type png)
-
-<use images/resultsPage.png>
-Package pdftex.def Info: images/resultsPage.png used on input line 232.
-(pdftex.def)             Requested size: 390.0pt x 178.48547pt.
- [10 <./images/loadingPage.png>] [11 <./images/resultsPage.png>]
-LaTeX Font Info:    Font shape `OMS/lmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 256.
- <images/actorFactBox_crop.png, id=201, 1112.155pt x 654.445pt>
-File: images/actorFactBox_crop.png Graphic file (type png)
-
-<use images/actorFactBox_crop.png>
-Package pdftex.def Info: images/actorFactBox_crop.png used on input line 262.
-(pdftex.def)             Requested size: 195.0pt x 114.73929pt.
-
-<images/actorBox.png, id=202, 907.39pt x 510.90875pt>
-File: images/actorBox.png Graphic file (type png)
-
-<use images/actorBox.png>
-Package pdftex.def Info: images/actorBox.png used on input line 268.
-(pdftex.def)             Requested size: 156.0006pt x 87.8356pt.
- [12 <./images/actorFactBox_crop.png> <./images/actorBox.png>] <images/timeline
-_orig.png, id=210, 884.30376pt x 230.8625pt>
-File: images/timeline_orig.png Graphic file (type png)
-
-<use images/timeline_orig.png>
-Package pdftex.def Info: images/timeline_orig.png used on input line 289.
-(pdftex.def)             Requested size: 195.0pt x 50.90614pt.
-
-<images/timeline_crop_waits.png, id=211, 1084.05pt x 621.32124pt>
-File: images/timeline_crop_waits.png Graphic file (type png)
-
-<use images/timeline_crop_waits.png>
-Package pdftex.def Info: images/timeline_crop_waits.png used on input line 295.
-
-(pdftex.def)             Requested size: 136.4994pt x 78.2338pt.
-
-<images/timelineC_crop_waits.png, id=213, 1586.92876pt x 739.76375pt>
-File: images/timelineC_crop_waits.png Graphic file (type png)
-
-<use images/timelineC_crop_waits.png>
-Package pdftex.def Info: images/timelineC_crop_waits.png used on input line 308
-.
-(pdftex.def)             Requested size: 272.99881pt x 127.25946pt.
- [13 <./images/timeline_orig.png> <./images/timeline_crop_waits.png>]
-
-Package caption Warning: \label without proper \caption on input line 317.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `fig:deniro' on page 14 undefined on input line 315.
-
-<images/Deniro_timeline.png, id=222, 1586.92876pt x 728.7225pt>
-File: images/Deniro_timeline.png Graphic file (type png)
-
-<use images/Deniro_timeline.png>
-Package pdftex.def Info: images/Deniro_timeline.png used on input line 319.
-(pdftex.def)             Requested size: 272.99881pt x 125.36006pt.
- [14 <./images/timelineC_crop_waits.png> <./images/Deniro_timeline.png>]
-<images/parallel_crop.jpg, id=229, 1607.00375pt x 904.37875pt>
-File: images/parallel_crop.jpg Graphic file (type jpg)
-
-<use images/parallel_crop.jpg>
-Package pdftex.def Info: images/parallel_crop.jpg used on input line 342.
-(pdftex.def)             Requested size: 195.0pt x 109.73514pt.
-
-<images/parallelAxisCoordVis.png, id=230, 1097.09875pt x 621.32124pt>
-File: images/parallelAxisCoordVis.png Graphic file (type png)
-
-<use images/parallelAxisCoordVis.png>
-Package pdftex.def Info: images/parallelAxisCoordVis.png used on input line 348
-.
-(pdftex.def)             Requested size: 218.39987pt x 123.68373pt.
-
-Overfull \hbox (117.00119pt too wide) in paragraph at lines 340--352
- [][][] 
- []
-
-[15 <./images/parallel_crop.jpg> <./images/parallelAxisCoordVis.png>]
-<images/treemapOwenWilson.png, id=236, 1142.2675pt x 588.1975pt>
-File: images/treemapOwenWilson.png Graphic file (type png)
-
-<use images/treemapOwenWilson.png>
-Package pdftex.def Info: images/treemapOwenWilson.png used on input line 368.
-(pdftex.def)             Requested size: 195.0pt x 100.41408pt.
-
-<images/treemapZoomWilson.png, id=237, 1064.97874pt x 545.03625pt>
-File: images/treemapZoomWilson.png Graphic file (type png)
-
-<use images/treemapZoomWilson.png>
-Package pdftex.def Info: images/treemapZoomWilson.png used on input line 374.
-(pdftex.def)             Requested size: 218.39987pt x 111.76642pt.
-
-Overfull \hbox (117.00119pt too wide) in paragraph at lines 366--378
- [][][] 
- []
-
-[16 <./images/treemapOwenWilson.png> <./images/treemapZoomWilson.png>]
-<images/genreVis_crop.png, id=243, 974.64125pt x 593.21625pt>
-File: images/genreVis_crop.png Graphic file (type png)
-
-<use images/genreVis_crop.png>
-Package pdftex.def Info: images/genreVis_crop.png used on input line 391.
-(pdftex.def)             Requested size: 195.0pt x 118.6864pt.
-
-<images/genreVis.png, id=244, 758.835pt x 546.04pt>
-File: images/genreVis.png Graphic file (type png)
- <use images/genreVis.png>
-Package pdftex.def Info: images/genreVis.png used on input line 397.
-(pdftex.def)             Requested size: 218.39987pt x 157.15608pt.
-
-Overfull \hbox (117.00119pt too wide) in paragraph at lines 389--401
- [][][] 
- []
-
-[17 <./images/genreVis_crop.png> <./images/genreVis.png>] [18] [19] [20]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 485.
-
-[21]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 485.
- (./ProcessBook.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 485.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 485.
+(./ProcessBook.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 535.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 535.
 Package rerunfilecheck Info: File `ProcessBook.out' has not changed.
-(rerunfilecheck)             Checksum: DB30092D62D18989AFDC09C1B33BAC0E;1517.
-
-
-LaTeX Warning: There were undefined references.
+(rerunfilecheck)             Checksum: 0F4F5A045C95B78E0FCA3ED5E20772B1;1468.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 485.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 535.
  ) 
 Here is how much of TeX's memory you used:
- 6474 strings out of 493304
- 101344 string characters out of 6139871
- 182161 words of memory out of 5000000
- 9792 multiletter control sequences out of 15000+600000
+ 6949 strings out of 493304
+ 108718 string characters out of 6139871
+ 194827 words of memory out of 5000000
+ 10261 multiletter control sequences out of 15000+600000
  50648 words of font info for 42 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  36i,9n,38p,819b,472s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -591,10 +659,10 @@ texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/l
 mr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fo
 nts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.p
 fb>
-Output written on ProcessBook.pdf (21 pages, 4151813 bytes).
+Output written on ProcessBook.pdf (19 pages, 4412571 bytes).
 PDF statistics:
- 320 PDF objects out of 1000 (max. 8388607)
- 269 compressed objects within 3 object streams
- 66 named destinations out of 1000 (max. 500000)
- 278 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 315 PDF objects out of 1000 (max. 8388607)
+ 260 compressed objects within 3 object streams
+ 63 named destinations out of 1000 (max. 500000)
+ 300 words of extra memory for PDF output out of 10000 (max. 10000000)
 
