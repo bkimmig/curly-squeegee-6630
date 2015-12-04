@@ -21,5 +21,8 @@ insecure                # Allow all DB writes from clients (for prototyping)
 iron:router
 http
 mizzao:bootstrap-3
-d3
+#d3
 momentjs:moment
+d3js:d3
+lawshe:full-page
+fortawesome:fontawesome
