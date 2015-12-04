@@ -317,7 +317,7 @@ The XY plot naturally lends itself to an ordered ranking in each dimension, whic
 \begin{figure}\label{fig:deniro}
 	\centering
 	\includegraphics[width=.7\linewidth]{images/Deniro_timeline.png}
-				  \caption{We've seen better times.}
+				  \caption{Slump in the 90's.}
 \end{figure}
 
 \newpage 
@@ -415,18 +415,17 @@ Each circle represents a unique film genre (Drama, family, comedy, etc.) which i
 
 
 \section{Connected Views}
+To make this a fully interconnected visualization, we chose to connect views across the four visualizations.  Selecting films in the Filmography or Parallel axes views will highlight the corresponding entry in the other view.  Brushing in parallel axis view will highlight multiple films in the timeline.
 
-We chose to interconnect the timelineVis and parallel axis coordinates visualizations so any selected movies in one view would be highlighted in another.  This is especially useful when brushing multiple items in the parallel axis coordinate view and seeing the highlighted distribution of films in the timeline graphic.
+This is especially useful when applying multiple filters in the parallel axis coordinate view and seeing the highlighted distribution of films in the timeline graphic.
 
-This is most useful when visualizing the temporal distrobution of films brushed from the parallel axis plot.  We thought this functionality would help uncover any time trends with given film earnings, directors, etc.
-
-The results of these searches are dependent on the actors, of course.
+Films brushed from the parallel axis plot.  We thought this functionality would help uncover any time trends with given film earnings, directors, etc.  Of course, any trends will be dependent on the selected actors.
 
 \newpage
 
 \section{Project Feedback} \label{sec:Projcet Feedback}
 
-After we settled on our design and project implementation, we had the opportunity to present a ``sales pitch"  for Curly-Squeegee to another project team to get their feedback.  We met with Phil Cutler, Ariel Herbert-Voss, and Ian Sohl of the "Legion Profiling Visualization" team. They provided the following feedback:
+We had the opportunity to present a Curly-Squeegee to another project team after we settled on our project design.   We pitched our Idea to Phil Cutler, Ariel Herbert-Voss, and Ian Sohl of the "Legion Profiling Visualization" team. They provided the following feedback:
 
 \begin{itemize}
 	\item \textbf{Phil Cutler} (u0764757@utah.edu)
@@ -446,21 +445,41 @@ After we settled on our design and project implementation, we had the opportunit
 
 \section{Team Evaluation}
 
-\textit{Brian Kimmig}: Brian was responsible for the API calls, data collection, and database wrangling. His experience as a web developer was very helpful for making this portion of the project proceed smoothly. Brian also created  the genreVis, treep map, and parallel coordinate view.
+\textit{Brian Kimmig}: Brian was responsible for the managing the preliminary API calls, data collection, and database wrangling. His experience as a web developer was very helpful for making this portion of the project proceed smoothly. Brian also created  the genreVis, treep map, and parallel coordinate view.
 
-\textit{Jimmy Moore}: Jimmy contributed code for the Database storage of API calls, and the Actor filmography visualization, along with site design and formatting.  He also was the project scribe and responsible for project documentation.
+\textit{Jimmy Moore}: Jimmy contributed code for the Database storage of API calls, the actor filmography visualization, and with site formatting.  He also was the project scribe and responsible for proposal and final report documentation.
 
 \newpage
 
 \section{Future Work}
 
 
-Awesome project and we want to keep working.  Lots of stuff we could do
+We both are excited at the direction this project could take with some more time.  There are several areas which work well enough, but which we could see being more user-friendly or thouroughly fleshed out:
 
-\begin{itemize}
-	\item Add selection/links/buttons to change search query from filmography to director/producer, soundtrack, or other creative capacity.  Additionally, these multiple datapoints could be overlaid on the same graph and separated with color.
-	\item Search for multiple actors and compare their filmographies on the timeline visualization.
-	\item Create a set view to show which movies any $n$ actors have acted in.  Or show a network visualization of the separation of a number of actors.  Use the individual movies as the graph nodes.  Force directed visualization might be best.
-\end{itemize}
+
+\begin{enumerate}
+
+	\item Timeline View:
+		\begin{itemize}
+			\item extend search to other roles (Director, etc.) and add a selector to change search query from visualizing filmography to other directorial roles, soundtrack, or other creative capacity.  
+			\item Allow support for searching and overlaying multiple actors. color the points and overlay them to compare the activity and success of multiple people.
+		\end{itemize}
+		
+	\item Parallel Axis View:
+	
+	\item: Treemap view
+		\begin{itemize}
+			\item General cleanup  and exploring other shapes
+		\end{itemize}
+
+	\item genre view
+		\begin{itemize}
+			\item 
+		\end{itemize}
+	\item Additional views
+		\begin{itemize}
+			\item Create a set view to show which movies any $n$ actors have acted in.  Or show a network visualization of the separation of a number of actors.  Use the individual movies as the graph nodes.  Force directed visualization might be best.
+		\end{itemize}
+\end{enumerate}
 
 \end{document}
