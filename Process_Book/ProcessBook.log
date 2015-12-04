@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.8.27)  4 DEC 2015 14:26
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.8.27)  4 DEC 2015 16:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -628,20 +628,20 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [16 <./images/TimelineSelection.png> <./images/pacHighlight.png>] [17 <./images
 /pacScrub.png> <./images/TimelinePacHighlight.png>] [18]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 535.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 537.
  [19]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 535.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 537.
 
 (./ProcessBook.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 535.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 535.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 537.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 537.
 Package rerunfilecheck Info: File `ProcessBook.out' has not changed.
 (rerunfilecheck)             Checksum: 0F4F5A045C95B78E0FCA3ED5E20772B1;1468.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 535.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 537.
  ) 
 Here is how much of TeX's memory you used:
  6949 strings out of 493304
@@ -659,7 +659,7 @@ texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/l
 mr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fo
 nts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.p
 fb>
-Output written on ProcessBook.pdf (19 pages, 4412571 bytes).
+Output written on ProcessBook.pdf (19 pages, 4412627 bytes).
 PDF statistics:
  315 PDF objects out of 1000 (max. 8388607)
  260 compressed objects within 3 object streams
