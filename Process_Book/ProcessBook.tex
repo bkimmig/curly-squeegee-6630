@@ -413,9 +413,50 @@ Each circle represents a unique film genre (Drama, family, comedy, etc.) which i
 \newpage
 
 
-
 \section{Connected Views}
-To make this a fully interconnected visualization, we chose to connect views across the four visualizations.  Selecting films in the Filmography or Parallel axes views will highlight the corresponding entry in the other view.  Brushing in parallel axis view will highlight multiple films in the timeline.
+
+To make the main views more interactive, we used the broadcast model of event handling from homework 4 to connect our filmography and Parallel Axis Coordinates.
+
+
+	\begin{figure}[h!]
+		\centering
+		\begin{subfigure}[t]{.5\textwidth}
+		  \centering
+		  \includegraphics[width=\linewidth]{images/TimelineSelection.png}
+		  \caption{User-selected movie from Will Smith's Filmography}
+		  \label{fig:sub1}
+		\end{subfigure}%
+		\begin{subfigure}[t]{.8\textwidth}
+		  \centering
+		  \includegraphics[width=.7\linewidth]{images/pacHighlight.png}
+		  \caption{Also highlighted in the Parallel Connections View}
+		  \label{fig:sub2}
+		\end{subfigure}%
+		\caption{Event-driven highlighting.  Selections from the Filmography are highlighted in the Parallel Connection view.}
+		\label{fig:filmToParallelHighlight}
+	\end{figure}
+
+
+	\begin{figure}[h!]
+		\centering
+		\begin{subfigure}[t]{.5\textwidth}
+		  \centering
+		  \includegraphics[width=\linewidth]{images/pacScrub.png}
+		  \caption{User-brushed selection from Parallel Connections view.}
+		  \label{fig:sub1}
+		\end{subfigure}%
+		\begin{subfigure}[t]{.8\textwidth}
+		  \centering
+		  \includegraphics[width=.7\linewidth]{images/TimelinePacHighlight.png}
+		  \caption{Also highlighted in the Parallel Connections View}
+		  \label{fig:sub2}
+		\end{subfigure}%
+		\caption{Event-driven highlighting.  Selections from the Filmography are highlighted in the Parallel Connection view.}
+		\label{fig:parallel ToFilmHighlight}
+	\end{figure}
+
+
+ connect views across the four visualizations.  Selecting films in the Filmography or Parallel axes views will highlight the corresponding entry in the other view.  Brushing in parallel axis view will highlight multiple films in the timeline.
 
 This is especially useful when applying multiple filters in the parallel axis coordinate view and seeing the highlighted distribution of films in the timeline graphic.
 

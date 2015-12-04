@@ -19,6 +19,6 @@
 \contentsline {subsection}{\numberline {5.4}Treemap Visualization of co-workers}{16}{subsection.5.4}
 \contentsline {subsection}{\numberline {5.5}Genre Visualization}{17}{subsection.5.5}
 \contentsline {section}{\numberline {6}Connected Views}{18}{section.6}
-\contentsline {section}{\numberline {7}Project Feedback}{19}{section.7}
-\contentsline {section}{\numberline {8}Team Evaluation}{20}{section.8}
-\contentsline {section}{\numberline {9}Future Work}{21}{section.9}
+\contentsline {section}{\numberline {7}Project Feedback}{20}{section.7}
+\contentsline {section}{\numberline {8}Team Evaluation}{21}{section.8}
+\contentsline {section}{\numberline {9}Future Work}{22}{section.9}
