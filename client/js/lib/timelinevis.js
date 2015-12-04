@@ -205,7 +205,7 @@ TimeLineVis.prototype.initVis = function () {
     //Display Movie poster if one is available.  Otherwise, display default image
     function posterPicture(d){
         if(d.Poster==="N/A"){
-            return "<div id=posterID> <a> <img src='/img/NotFound.jpg' width=180 height=80/> </a> </div>";
+            return "<div id=posterID> <a> <img src='/img/NotFound.jpg' width=180 height=101/> </a> </div>";
         }
         else{
             return "<div id=posterID> <a> <img src=" + d.Poster  + "width=100 height=200/> </a> </div>";
