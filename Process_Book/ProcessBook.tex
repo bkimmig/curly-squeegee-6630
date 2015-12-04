@@ -77,6 +77,7 @@ Also:
 		\item What is the best movie they have made? The worst?
 		\item Do they consistently star in well-reviewed films?
 		\item Has their career had a golden period in which they were particularly busy, or appeared in well-reviewed films?
+		\item Do they have any co-stars with which they regularly appear?
 	\end{itemize}
 	
 \subsection{Intended Audience}
@@ -185,6 +186,25 @@ One feature of our use of API calls is that this approach is fairly robust again
 
 One drawback is that there is currently no disambiguation to select between multiple actors with the same name.  The only choice is to search for a more exact version of the actor's name in the database.
 
+\subsubsection{Site Redesign}
+
+
+\begin{figure}\label{blackLandingPage}
+\centering
+\includegraphics[scale=0.3]{images/landingBoxFinal.png}
+\caption{Final version of landing page.}
+\end{figure}
+
+
+Once the views were working and the settings more or less finalized, we decided to work on changing the look of the site.  We wanted to keep the same simplistic look, but benefit from some additional polishing from some pre-packaged CSS and JS styling elements. 
+
+Not every page was affected, but we did alter the landing page (Figure \ref{blackLandingPage}) , and modify the scrolling behavior of the results page.  These changes were purely cosmetic and were employed to give the site a more cohesive and smooth look.
+
+
+
+
+We chose a design template from \href{http://html5up.net/}{HTML5 Up} for its stripped-down appearance, and then JS package (\href{http://alvarotrigo.com/fullPage/}{fullPage.js}) for jump-to-view functionality.  Since all of our content lives on one page, we wanted a clean way to transition between views.
+
 \subsection{Loading Page}
 
 Once the user has made their selection, the node.js framework takes that search query and polls the MyAPIFilms' and OMDB's databases to collect the necessary actor information.  Fulilling these requests can take some time, so we display a loading gif to indicate that the process is ongoing.
@@ -200,7 +220,12 @@ The wait times for each search request depend on the extent of the actor's film 
 
 \subsection{Results Page}
 
-When the API calls are complete and the data is saved in our database, we load a ``results page'', which  showcases our multiple views and actor information. 
+Once the API calls are complete and the data is saved in our database, we load a ``results page'',   showcasing our multiple views and actor information. 
+
+The style of the page is intentionally minimalistic, including a top navigation bar, a small inset photo of the selected actor in the top right, and a Navigation hotlink scroll box on the middle right.
+
+Anatomy of Figure \ref{fig:resultsPage}:
+
 
 \begin{figure}\label{fig:resultsPage}
 	\centering
@@ -208,11 +233,11 @@ When the API calls are complete and the data is saved in our database, we load a
 	\caption{Results page layout}
 \end{figure}
 
-Anatomy of Figure \ref{fig:resultsPage}:
+
 \begin{itemize}
-	\item \textbf{Navigation Bar: }  The top of the page displays the actor name, a photo, and links back to the search page
-	\item \textbf{Main Views: } The main views are displayed centered on the screen, with their title text centered above them
-	\item \textbf{View Selector: } On the right hand side of the screen, the user can click the listed dots to jump to the next graphic.  They may also scroll, and when in the vicinity of the visualization, the browser will auto-center the visualization after a short dwell time.
+	\item \textbf{Navigation Bar:}  The top of the page displays links back to the search page, the actor name, and their photo.
+	\item \textbf{Main Views:} Each visualization is centered and displayed in its own screen space/ The user can scroll down to view each one, or use the view selector on the right side of the screen. 
+	\item \textbf{View Selector:} On the right hand side of the screen, the user can click the stacked dots to jump to any of visualizations.  They may also scroll, and when in the vicinity of the visualization, the browser will auto-center the visualization after a short dwell time.
 \end{itemize}
 
 \newpage 
@@ -292,15 +317,23 @@ The XY plot naturally lends itself to an ordered ranking in each dimension, whic
 \begin{figure}\label{fig:deniro}
 	\centering
 	\includegraphics[width=.7\linewidth]{images/Deniro_timeline.png}
-				  \caption{We've seen better times.}
+				  \caption{Slump in the 90's.}
 \end{figure}
 
 \newpage 
 
 \subsection{Parallel Axis Coordinate Visualization}
 	
-From the start, the parallel axis coordinate view was what we were most interested in implementing for this dataset.  We looked forward to determining the highest grossing Schwarzennegar movie from the 80's, or.... \textbf{More}
+From the start, the parallel axis coordinate view was what we were most interested in implementing for this dataset. With this view, we can brush over multiple axes to highlight movies fitting arbitrary critea the user can impose.  The films which satisfy these filters are highlighted in blue in the parallel axis chart and also in a contrasting color above in the Filmography timeline.
 
+The code for this visualization was borrowed from the Mike Bostock Block, and we modified it to include the following:
+
+\begin{itemize}
+	\item Highlight-on-hover  for each line
+	\item Movie title tool tip on hover for each line.
+	\item Increase movie title font size on mouse-over for films  in the `Title' axis.
+	\item Each axes is scrubable and will highlight any films in the given selection, and those in the filmography.
+\end{itemize}
 
 	\begin{figure}[h!]
 		\centering
@@ -321,17 +354,13 @@ From the start, the parallel axis coordinate view was what we were most interest
 	\end{figure}
 
 
-Each of these lines support highlight-on-hover and will display a tool-tip with the movie title.
-
-mousing over the movie list on the left will selectively increase the title font size on hover.
-
-Each of the axes are scrubable and will highlight any films in the given selection.
 \newpage 
 
 \subsection{Treemap Visualization of co-workers}
 
-The treemap visualization was a last-minute addition to our project.  Despite TA recommendation for such a view, We did not orginally plan to visualize a given actors relationship to other co-stars.  However, after the ``Visualizing Maps and Trees'' lecture, we saw a way to group co-stars which have appeared in multiple films alongside the queried actor.
+The treemap visualization was a last-minute addition to our project, inspired by the ``Visualizing Maps and Trees'' lecture.
 
+In this view we catalog the other costars the queried actor stars alongside and sizes each box according to the number of shared films.
 	\begin{figure}[h!]
 		\centering
 		\begin{subfigure}[t]{.5\textwidth}
@@ -343,15 +372,14 @@ The treemap visualization was a last-minute addition to our project.  Despite TA
 		\begin{subfigure}[t]{.8\textwidth}
 		  \centering
 		  \includegraphics[width=.7\linewidth]{images/treemapZoomWilson.png}
-		  \caption{Common films between Owen and Ben Stiller}
+		  \caption{Common films between Owen Wilson and Ben Stiller}
 		  \label{fig:treemapB}
 		\end{subfigure}%
 		\caption{Tree Map visualization for Owen Wilson's career}
 		\label{fig:Treemap}
 	\end{figure}
-	
-This view was accomplished in a similar way to the GenreVis view.....	
-
+		
+The tree map supports one zoomable level, to drill down and see a list of the movies the two actors share.
 \newpage
 
 \subsection{Genre Visualization}
@@ -377,45 +405,27 @@ This view was accomplished in a similar way to the GenreVis view.....
 	
 The GenreVis view (figure \ref{fig:genreVis}) was created to answer whether  an actor gets has been typecast, or to visualize the proportion of film genres they appear in.  
 
-Each circle represents a unique film genre (Drama, family, comedy, etc.) which is viewable via mouse-hover text.  To create this view, we parsed every film genre lable in the actors filmography and added unique labels to an array.  We counted the number of times each label appeared, and sized the circles accordingly.  Films which had multiple or compound genres ('action thrille'r or `romantic comedy' ) would count each descriptor towards the actors genre aggregate.
+Each circle represents a unique film genre (Drama, family, comedy, etc.) which is viewable via mouse-hover text.  To create this view, we parsed every film genre lable in the actors filmography and added unique labels to an array.  We counted the number of times each label appeared, and sized the circles accordingly.  Films which had multiple or compound genres ('action thriller' or `romantic comedy' ) would count each descriptor towards the actors genre aggregate.
 
-
-This view has remained fairly stagnant since we added it, in favor of working on other aspects of the project.  
 
 \textbf{TODO: link views.}
 
 \newpage
-\section{Site Redesign}
-
-\begin{figure}\label{fig:blackLandingPage}
-\centering
-\includegraphics[scale=0.3]{images/landingBoxFinal.png}
-\caption{Final version of landing page.}
-\end{figure}
 
 
-Once the views were working and the settings more or less finalized, we decided to work on changing the look of the site.  We wanted to keep the same simplistic look, but benefit from some additional polishing from some pre-packaged CSS and JS styling elements. 
-
-Not every page was affected, but we did alter the landing page (Figure \ref{fig:blackLandingPage}) , and modify the scrolling behavior of the results page.  These changes were purely cosmetic and were employed to give the site a more cohesive and smooth look.
-
-
-
-
-We chose the \textbf{XXXXX} located \href{www.google.com}{here} for it's stripped-down appearance, and then \textbf{This JS stuff} for the smooth strolling site-linking functionality.  Since all of our content is essentially on on page, we wanted a clean way to transition between views.
 
 \section{Connected Views}
+To make this a fully interconnected visualization, we chose to connect views across the four visualizations.  Selecting films in the Filmography or Parallel axes views will highlight the corresponding entry in the other view.  Brushing in parallel axis view will highlight multiple films in the timeline.
 
-We chose to interconnect the timelineVis and parallel axis coordinates visualizations so any selected movies in one view would be highlighted in another.  This is especially useful when brushing multiple items in the parallel axis coordinate view and seeing the highlighted distribution of films in the timeline graphic.
+This is especially useful when applying multiple filters in the parallel axis coordinate view and seeing the highlighted distribution of films in the timeline graphic.
 
-This is most useful when visualizing the temporal distrobution of films brushed from the parallel axis plot.  We thought this functionality would help uncover any time trends with given film earnings, directors, etc.
-
-The results of these searches are dependent on the actors, of course.
+Films brushed from the parallel axis plot.  We thought this functionality would help uncover any time trends with given film earnings, directors, etc.  Of course, any trends will be dependent on the selected actors.
 
 \newpage
 
 \section{Project Feedback} \label{sec:Projcet Feedback}
 
-After we settled on our design and project implementation, we had the opportunity to present a ``sales pitch"  for Curly-Squeegee to another project team to get their feedback.  We met with Phil Cutler, Ariel Herbert-Voss, and Ian Sohl of the "Legion Profiling Visualization" team. They provided the following feedback:
+We had the opportunity to present a Curly-Squeegee to another project team after we settled on our project design.   We pitched our Idea to Phil Cutler, Ariel Herbert-Voss, and Ian Sohl of the "Legion Profiling Visualization" team. They provided the following feedback:
 
 \begin{itemize}
 	\item \textbf{Phil Cutler} (u0764757@utah.edu)
@@ -435,21 +445,41 @@ After we settled on our design and project implementation, we had the opportunit
 
 \section{Team Evaluation}
 
-\textit{Brian Kimmig}: Brian was responsible for the API calls, data collection, and database wrangling. His experience as a web developer was very helpful for making this portion of the project proceed smoothly. Brian also created  the genreVis, treep map, and parallel coordinate view.
+\textit{Brian Kimmig}: Brian was responsible for the managing the preliminary API calls, data collection, and database wrangling. His experience as a web developer was very helpful for making this portion of the project proceed smoothly. Brian also created  the genreVis, treep map, and parallel coordinate view.
 
-\textit{Jimmy Moore}: Jimmy contributed code for the Database storage of API calls, and the Actor filmography visualization, along with site design and formatting.  He also was the project scribe and responsible for project documentation.
+\textit{Jimmy Moore}: Jimmy contributed code for the Database storage of API calls, the actor filmography visualization, and with site formatting.  He also was the project scribe and responsible for proposal and final report documentation.
 
 \newpage
 
 \section{Future Work}
 
 
-Awesome project and we want to keep working.  Lots of stuff we could do
+We both are excited at the direction this project could take with some more time.  There are several areas which work well enough, but which we could see being more user-friendly or thouroughly fleshed out:
 
-\begin{itemize}
-	\item Add selection/links/buttons to change search query from filmography to director/producer, soundtrack, or other creative capacity.  Additionally, these multiple datapoints could be overlaid on the same graph and separated with color.
-	\item Search for multiple actors and compare their filmographies on the timeline visualization.
-	\item Create a set view to show which movies any $n$ actors have acted in.  Or show a network visualization of the separation of a number of actors.  Use the individual movies as the graph nodes.  Force directed visualization might be best.
-\end{itemize}
+
+\begin{enumerate}
+
+	\item Timeline View:
+		\begin{itemize}
+			\item extend search to other roles (Director, etc.) and add a selector to change search query from visualizing filmography to other directorial roles, soundtrack, or other creative capacity.  
+			\item Allow support for searching and overlaying multiple actors. color the points and overlay them to compare the activity and success of multiple people.
+		\end{itemize}
+		
+	\item Parallel Axis View:
+	
+	\item: Treemap view
+		\begin{itemize}
+			\item General cleanup  and exploring other shapes
+		\end{itemize}
+
+	\item genre view
+		\begin{itemize}
+			\item 
+		\end{itemize}
+	\item Additional views
+		\begin{itemize}
+			\item Create a set view to show which movies any $n$ actors have acted in.  Or show a network visualization of the separation of a number of actors.  Use the individual movies as the graph nodes.  Force directed visualization might be best.
+		\end{itemize}
+\end{enumerate}
 
 \end{document}
