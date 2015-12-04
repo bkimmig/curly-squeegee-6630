@@ -1,6 +1,7 @@
 
+
 var apiFilmsBaseUrl = "http://www.myapifilms.com/imdb";
-var token = "9e629371-9768-407f-9c55-3006871ca428";
+var token = process.env.API_FILMS_TOKEN;
 
 var apiFilmsBaseNameSetting = (
         "&format=JSON" +
