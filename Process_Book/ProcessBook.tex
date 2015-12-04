@@ -20,7 +20,7 @@
 \maketitle
 
 \begin{abstract}
-	Curly-Squeegee (CS) is a web-bsaed tool for visualizing and exploring actor filmographies in an interactive way. By enabling users to search for their favorite actors and see their entire body of work displayed a variety of ways, we hope it invites them to explore the different views, select and filter different sub-sets of actor filmography data, and find intersting or surprising hidden trends.
+	Curly-Squeegee is a web-bsaed tool for visualizing and exploring actor filmographies in an interactive way. Using different views users can select and filter for a variety of film traits including: rating, box office earnings, genre, and release date.  We hope it enables users to explore their favorite actors and find intersting or surprising trends.
 \end{abstract}
 
 \newpage
@@ -229,6 +229,7 @@ When the API calls are complete and the data is saved in our database, we load a
 			\label{fig:actorFactBox}
 		\end{figure}
 
+\newpage
 
 \subsection{Filmography Timeline}
 
@@ -275,6 +276,58 @@ The XY plot naturally lends itself to an ordered ranking in each dimension, whic
 				  \caption{We've seen better times.}
 \end{figure}
 
+\newpage 
+
+\subsection{Parallel Axis Coordinate Visualization}
+	
+From the start, the parallel axis coordinate view was what we were most interested in implementing for this dataset.  We looked forward to determining the highest grossing Schwarzennegar movie from the 80's, or.... \textbf{More}
+
+
+	\begin{figure}[h!]
+		\centering
+		\begin{subfigure}[t]{.5\textwidth}
+			  \centering
+			  \includegraphics[width=\linewidth]{images/parallel_crop.jpg}
+			  \caption{Original design sketch}
+			  \label{fig:sub1}
+		\end{subfigure}%
+		\begin{subfigure}[t]{.8\textwidth}
+			  \centering
+			  \includegraphics[width=.7\linewidth]{images/parallelAxisCoordVis.png}
+			  \caption{Current implementation}
+			  \label{fig:sub2}
+		\end{subfigure}%
+		\caption{Parallel Axis Coordinate visualization development}
+		\label{fig:parallelAxisCoordVis}
+	\end{figure}
+
+\newpage 
+
+\subsection{Treemap Visualization of co-workers}
+
+The treemap visualization was a last-minute addition to our project.  Despite TA recommendation for such a view, We did not orginally plan to visualize a given actors relationship to other co-stars.  However, after the ``Visualizing Maps and Trees'' lecture, we saw a way to group co-stars which have appeared in multiple films alongside the queried actor.
+
+	\begin{figure}[h!]
+		\centering
+		\begin{subfigure}[t]{.5\textwidth}
+		  \centering
+		  \includegraphics[width=\linewidth]{images/treemapOwenWilson.png}
+		  \caption{Collection of co-stars for Owen Wilson.}
+		  \label{fig:treemapA}
+		\end{subfigure}%
+		\begin{subfigure}[t]{.8\textwidth}
+		  \centering
+		  %\includegraphics[width=.7\linewidth]{images/genreVis.png}
+		  \caption{Common films between Owen and Ben Stiller}
+		  \label{fig:treemapB}
+		\end{subfigure}%
+		\caption{Tree Map visualization for Owen Wilson's career}
+		\label{fig:Treemap}
+	\end{figure}
+	
+This view was accomplished in a similar way to the GenreVis view.....	
+
+\newpage
 
 \subsection{Genre Visualization}
 
@@ -305,56 +358,8 @@ Each circle represents a unique film genre (Drama, family, comedy, etc.) which i
 This view has remained fairly stagnant since we added it, in favor of working on other aspects of the project.  
 
 \textbf{TODO: link views.}
-\subsection{Treemap Visualization of co-workers}
 
-
-The treemap visualization was a last-minute addition to our project.  We did not orginally plan for such a view, but after the ``Visualizing Maps and Trees'' lecture, we saw a way to group co-stars which have appeared in multiple films alongside the queried actor.
-
-	\begin{figure}[h!]
-		\centering
-		\begin{subfigure}[t]{.5\textwidth}
-		  \centering
-		  %\includegraphics[width=\linewidth]{images/genreVis_crop.png}
-		  \caption{Original Implementation}
-		  \label{fig:treemapA}
-		\end{subfigure}%
-		\begin{subfigure}[t]{.8\textwidth}
-		  \centering
-		  %\includegraphics[width=.7\linewidth]{images/genreVis.png}
-		  \caption{Current implementation}
-		  \label{fig:treemapB}
-		\end{subfigure}%
-		\caption{Genre visualization development}
-		\label{fig:Treemap}
-	\end{figure}
-	
-This view was accomplished in a similar way to the GenreVis view.....	
-
-\subsection{Parallel Axis Coordinate Visualization}
-	
-From the start, the parallel axis coordinate view was what we were most interested in implementing for this dataset.  We looked forward to determining the highest grossing Schwarzennegar movie from the 80's, or.... \textbf{More}
-
-
-	\begin{figure}[h!]
-		\centering
-		\begin{subfigure}[t]{.5\textwidth}
-			  \centering
-			  \includegraphics[width=\linewidth]{images/parallel_crop.jpg}
-			  \caption{Original design sketch}
-			  \label{fig:sub1}
-		\end{subfigure}%
-		\begin{subfigure}[t]{.8\textwidth}
-			  \centering
-			  \includegraphics[width=.7\linewidth]{images/parallelAxisCoordVis.png}
-			  \caption{Current implementation}
-			  \label{fig:sub2}
-		\end{subfigure}%
-		\caption{Parallel Axis Coordinate visualization development}
-		\label{fig:parallelAxisCoordVis}
-	\end{figure}
-
-
-
+\newpage
 \section{Site Redesign}
 
 \begin{figure}\label{fig:blackLandingPage}
