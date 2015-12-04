@@ -24,7 +24,7 @@ function startup() {
             var future = new Future();
 
             getApiFilmsData(actor_name, function(error, response) {     
-                Meteor._sleepForMs(2000);
+                // Meteor._sleepForMs(2000);
                 if ( error ) {
                     future.return( error );
                 } else {

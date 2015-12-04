@@ -3,7 +3,7 @@ Router.configure({
 });
 
 Router.route('/', {
-    template: 'welcome'
+    template: 'welcome',
 });
 
 
@@ -28,3 +28,14 @@ Router.route('/loading', {
 /*Router.route('/search', function() {
     this.render('searchApiFilms');
 });*/
+Router.onBeforeAction(function() {
+    if (Session.get('actorSearched')) {
+        // this.render('welcome');
+        this.next();
+    } else {
+      // this.render('home');
+      console.log('actor!!')
+      this.render('welcome')
+      // this.next();
+    }
+});

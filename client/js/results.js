@@ -18,8 +18,6 @@ Template.results.helpers({
 });
 
 
-
-
 Template.results.rendered = function () {
     $('#fullpage').fullpage({
         anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
