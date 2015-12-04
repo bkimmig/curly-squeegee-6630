@@ -4,5 +4,9 @@
 /proposal/Proposal\ Document/design/*
 
 *.aux
+*.log
+*.out
 Process_Book/landingBoxfinal.png.aux
 Process_Book/*
+
+.env
