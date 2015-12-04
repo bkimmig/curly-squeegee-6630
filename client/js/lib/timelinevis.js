@@ -162,13 +162,14 @@ TimeLineVis.prototype.initVis = function () {
     function mousemove(d) {
 
         div.html(
-            "<div id=posterID> <a> <img src=" + d.Poster + 
-            "width=100 height=200/> </a> </div>" +
+            //"<div id=posterID> <a> <img src=" + posterPicture(d)  + "width=100 height=200/> </a> </div>" +
+            posterPicture(d) +
             "<div id=tooltipID><strong>Title: </strong>" + d.Title + "</div>" +
             "<div id=tooltipID><strong>Plot: </strong> " + d.Plot + "</div> " +
             "<div id=tooltipID> <strong>Director: </strong>" + d.Director + "<br/>" +
             "<strong>Released: </strong>"+ d.Released + "<br/>" +
             "<strong>Rating: </strong>"+ d.imdbRating + "<br/>" +
+
             "<strong>No. Votes: </strong>"+ d.imdbVotes + "<br/> </div>")
             .style("left", function() {
                 var xPos = d3.event.pageX;
@@ -178,8 +179,8 @@ TimeLineVis.prototype.initVis = function () {
                 return (d3.event.pageX) + "px";
             })     
             .style("top", (d3.event.pageY - 68) + "px");    
-        
-        //div.text("Title: " + d.Title)
+       
+         //div.text("Title: " + d.Title)
           //      .style("left", (d3.event.pageX - 40) + "px")
             //    .style("top", (d3.event.pageY - 35) + "px");
             // .text("Imdb Rating: " + d.imdbRating)
@@ -200,7 +201,18 @@ TimeLineVis.prototype.initVis = function () {
     function mouseout() {
         div.style("display", "none");
     }
+
+    //Display Movie poster if one is available.  Otherwise, display default image
+    function posterPicture(d){
+        if(d.Poster==="N/A"){
+            return "<div id=posterID> <a> <img src='/img/NotFound.jpg' width=180 height=101/> </a> </div>";
+        }
+        else{
+            return "<div id=posterID> <a> <img src=" + d.Poster  + "width=100 height=200/> </a> </div>";
+        }
+    } // end posterPicture
 }
+
 
 
 TimeLineVis.prototype.wrangleData = function (_filterFunction) {
