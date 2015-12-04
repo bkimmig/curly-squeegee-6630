@@ -1,43 +1,65 @@
-/*.container-fluid{
-	min-width: 800px;
+.genre-text{
+    font-size: 8px;
+    color: black;
+}
+
+
+#vislink {
+    font-size: 10px;
+}
+
+/*#section0{
+    padding-top: -30px;
 }*/
 
+
+h1 {
+    text-align: center;
+}
+
+.navspan {
+    display:block; 
+    background-color: black; 
+    width: 15px;
+    height: 15px;
+}
+
+
 .bioBox{
-	/*width: 100%;*/
-	height: 500px;
+    /*width: 100%;*/
+    height: 500px;
 }
 .photoBox {
-	/*vertical-align: middle;*/
+    /*vertical-align: middle;*/
    width:50%; 
    float: left;
 }
 
 .factBox{
-	position: absolute;
-	padding-right: 20px;
-  	top: 200px;
-  	right: 350px;
-	border: 1px solid red;
-	/*float:right;*/
-	text-align: left;
-	font-weight: bold;
-	font-size: 18pt;
+    position: absolute;
+    padding-right: 20px;
+    top: 200px;
+    right: 350px;
+    border: 1px solid red;
+    /*float:right;*/
+    text-align: left;
+    font-weight: bold;
+    font-size: 18pt;
 }
 
 .actorPicture{
-	display: block;
-	position: absolute;
+    display: block;
+    position: absolute;
     width: 300px;
     height: 400px;
     margin-top: 50px; /* Half the height */
     margin-left: 50px; /* Half the width */
-	padding: 5px;
-	border: 5px solid black;
-	/**//*background-color: gray;*/
+    padding: 5px;
+    border: 5px solid black;
+    /**//*background-color: gray;*/
 }
 
-.timelineVis{
-	width:1000px;
-	height:500px;
-}
-
+/*.timelineVis{
+    width:1000px;
+    height:500px;
+}*/

@@ -71,13 +71,13 @@ div.tooltip-pc {
 .axis-string text {
     text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
     cursor: move;
-    font-size: 4px;
+    font-size: 6px;
 }
 
 .axis-string text:hover {
     text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
     cursor: move;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .axis-string .title {

@@ -15,43 +15,30 @@
                     <a href="{{pathFor 'search'}}">Actor Search</a>
                 </li>
             </ul>
+        
+
+            <ul class="nav navbar-nav navbar-right">
+                {{#if actorData }}
+                    <li>
+                        <a href="#"> {{ actorData.birthName }} </a>
+                    </li>
+
+                    <div class="navbar-header" style='padding-right: 10px;'>
+                        <a class="navbar-brand" href="#"> 
+                            <div class="thumbnail">
+                                <img style="width: 40px; height: 60px;" src="{{ actorPhoto }}">
+                            </div>
+                        </a>
+                    </div>
+
+                {{/if}}
+
+            </ul>
+
+
+
         </div>
+
     </nav>
     </header>
 </template>
-
-
-<!-- in case we want login -->
-<!--             <ul class="nav navbar-nav navbar-right">
-                
-                <li class="dropdown">
-                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                        {{ currentUser.profile.firstName }} {{ currentUser.profile.lastName }}
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="{{pathFor 'account'}}">
-                                Account
-                            </a>
-                        </li>
-                    {{#if isInRole 'admin'}}
-                        <li id="refresh-calendar">
-                            <a href="#">
-                                Refresh Calendar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{pathFor 'users'}}">
-                                Manage Users
-                            </a>
-                        </li>
-                    {{/if}}
-                        <li>
-                            <a href="{{pathFor 'logout'}}">
-                                Log out
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul> -->

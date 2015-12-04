@@ -26,6 +26,14 @@ GenreVis.prototype.initVis = function () {
         height = 500;
 
     var color = d3.scale.category20();
+    
+    var extent = d3.extent(self.nodeData, function(d) {
+            console.log(d.count)
+            return d.count;
+        })
+    circleSize = d3.scale.linear()
+        .domain(extent)
+        .range([10, 40]);
 
     var force = d3.layout.force()
         .charge(10)
@@ -42,17 +50,33 @@ GenreVis.prototype.initVis = function () {
         .nodes(self.nodeData)
         .start();
 
-    var nodes = self.svg.selectAll(".node")
+    var nodeEnter = self.svg.selectAll(".node")
         .data(self.nodeData)
-        .enter().append("circle")
+        .enter()
+
+    var nodeG = nodeEnter.append('g')
+
+    var nodes = nodeG
+        .append("circle")
         .attr("class", "node")
-        .attr("r", function(d) { return d.count })
+        .attr("r", function(d) { return circleSize(d.count) })
         .style("fill", function(d) { return color(d.group); })
         .call(force.drag);
 
     nodes.append("title")
-        .text(function(d) { return d.genre; });
+        .text(function(d) { return d.genre; })
 
+    nodeG.append('text')
+        .attr("x", function(d) {return d.x })
+        .attr("y", function(d) {return d.y })
+        .attr("text-anchor", "middle")
+        .text(function(d) {
+            if(circleSize(d.count) > extent[1]/2) {
+                console.log(circleSize(d.count), d.genre) 
+                return d.genre;
+            }
+            return "";
+    })
     // force.on("tick", function() {
     //     node.attr("cx", function(d) { return d.x; })
     //         .attr("cy", function(d) { return d.y; });
@@ -74,7 +98,7 @@ GenreVis.prototype.initVis = function () {
 
 
     function collide(node) {
-        var r = node.radius + 16,
+        var r = circleSize(node.radius) + 5,
         nx1 = node.x - r,
         nx2 = node.x + r,
         ny1 = node.y - r,
@@ -84,7 +108,7 @@ GenreVis.prototype.initVis = function () {
                 var x = node.x - quad.point.x,
                     y = node.y - quad.point.y,
                     l = Math.sqrt(x * x + y * y),
-                    r = node.radius + quad.point.radius;
+                    r = circleSize(node.radius) + circleSize(quad.point.radius);
                 
                 if (l < r) {
                     l = (l - r) / l * .5;

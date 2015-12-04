@@ -1,6 +1,41 @@
 <template name="results">
+    <div class="container-fluid">
+            {{> navbar }}
+    </div>
 
-    <div class='container-fluid'>
+    <div id="fp-nav" class='right' style="color: rgb(0, 0, 0); margin-top: -53.5px;">
+
+        <ul>
+            <li>
+                <i class="fa fa-arrow-up"></i>
+            </li>
+        </ul>
+        
+        <ul>
+            <li data-menuanchor="firstPage">
+                <a href="#firstPage"> <span title="Timeline" class='navspan'> </span> </a>
+            </li>
+            <li data-menuanchor="secondPage">
+                <a href="#secondPage"> <span title="Parallel Coords" class='navspan'> </span> </a>
+            </li>
+            <li data-menuanchor="thirdPage">
+                <a href="#thirdPage"> <span title="Treemap" class='navspan'> </span> </a>
+            </li>
+            <li data-menuanchor="fourthPage">
+                <a href="#fourthPage"> <span title="Genres" class='navspan'> </span> </a>
+            </li>
+
+        </ul>
+
+        <ul>
+            <li>
+                <i class="fa fa-arrow-down"></i>
+            </li>
+        </ul>
+    
+    </div>
+
+<!--     <div class='container-fluid'>
         <div class="bioBox">
 
             <div class ="photoBox" >
@@ -21,25 +56,64 @@
         </div>
 
         <br/>
-    </div>
-            
+    </div> -->
 
-    <div class='container-fluid' id='timelineVis'>
-        <h2>{{ actorData.birthName }} Filmography </h2>
+<div id="fullpage">
+    <div id="section0" class="section" data-anchor="firstPage">
+        <h1>{{ actorData.birthName }} Filmography</h1>
+        <div class='container-fluid' id='timelineVis'>
+        </div>
+    </div>
+    <div id="section1" class="section" data-anchor="secondPage">
+        <h1>Parallel Connections</h1>
+        <div class='container-fluid' id='parallelCoordVis'>
+        </div>
+    </div>
+    <div id="section2" class="section" data-anchor="thirdPage">
+        <h1>TreeMap of CoActors</h1>
+        <div class='container-fluid' id='chart'>
+        </div>
+    </div>
+    <div id="section3" class="section" data-anchor="fourthPage">
+        <h1>Genre</h1>
+        <div class='container-fluid' id='genreVis'>
+            <svg class="genre"></svg>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--     <a id="timeline" class="smooth"></a>
+    <div id="page1">
+        <div class='container-fluid' id='timelineVis'>
+            <h2>{{ actorData.birthName }} Filmography </h2>
+        </div>
     </div>
 
-    <div class='container-fluid' id='parallelCoordVis'>
-        <h2>Parallel Connections</h2>
+    <div id="page2">
+        <div class='container-fluid' id='parallelCoordVis'>
+            <h2>Parallel Connections</h2>
+            <a id="parallelcoord" class="smooth"></a>
+        </div>
     </div>
 
-    <div class='container-fluid' id='chart'>
-        <h2> TreeMap of CoActors </h2>
+    <div id="page3">
+        <div class='container-fluid' id='chart'>
+            <h2> TreeMap of CoActors </h2>
+            <a id="treemap" class="smooth"></a>
+        </div>
     </div>
-
-    <div class='container-fluid' id='genreVis'>
+    
+    <a id="genre" class="smooth"></a>
+    <div id="page4">
+        <div class='container-fluid' id='genreVis'>
             <h2> Genre </h2>
             <svg class="genre"></svg>
-    </div>
+        </div>
+    </div> -->
+
 
 
 <!--     <div class='container-fluid' id='treemapVis'>
@@ -55,5 +129,4 @@
         <h2> TreeMap </h2>
     
     </div> -->
-
 </template>
