@@ -70,13 +70,13 @@ GenreVis.prototype.initVis = function () {
         .attr("x", function(d) {return d.x })
         .attr("y", function(d) {return d.y })
         .attr("text-anchor", "middle")
-        .text(function(d) {
-            if(circleSize(d.count) > extent[1]/2) {
-                // console.log(circleSize(d.count), d.genre) 
-                return d.genre;
-            }
-            return "";
-    })
+    //     .text(function(d) {
+    //         if(circleSize(d.count) > extent[1]/2) {
+    //             // console.log(circleSize(d.count), d.genre) 
+    //             return d.genre;
+    //         }
+    //         return "";
+    // })
     // force.on("tick", function() {
     //     node.attr("cx", function(d) { return d.x; })
     //         .attr("cy", function(d) { return d.y; });

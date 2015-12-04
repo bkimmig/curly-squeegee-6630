@@ -22,6 +22,7 @@ ParallelCoordVis = function(_parentElement, _session) {
 
     self.parentElement = _parentElement;
 
+    self.selectedData = false;
 
     self.data = filterData(
         _session.get('actorMovies'), 
@@ -37,7 +38,7 @@ ParallelCoordVis.prototype.initVis = function () {
 
     var self = this; 
 
-    var div = self.parentElement.append("div")
+    div = self.parentElement.append("div")
         .attr("class", "tooltip-pc")
         .style("display", "none");
 
@@ -67,7 +68,7 @@ ParallelCoordVis.prototype.initVis = function () {
         // .defined(function(d) { return !isNaN(d[1]); });
     var axis = d3.svg.axis().orient("left");
     var background;
-    var foreground;
+    self.foreground;
 
     self.svg = self.parentElement.append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -282,7 +283,6 @@ ParallelCoordVis.prototype.initVis = function () {
 
 };
 
-
 ParallelCoordVis.prototype.setDimensions = function(height) {
 
     var self = this;
@@ -352,8 +352,11 @@ ParallelCoordVis.prototype.wrangleData = function (_filterFunction) {
 };
 
 
-ParallelCoordVis.prototype.updateVis = function () {
+ParallelCoordVis.prototype.updateVis = function (d) {
     var self = this;
+    self.foreground.data([d]).enter()
+    // self.foreground.exit().remove()
+
 };
 
 

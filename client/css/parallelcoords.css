@@ -14,6 +14,13 @@ svg {
     stroke-width: 2;
 }
 
+.selection {
+    fill: none;
+    stroke: red;
+    stroke-width: 2;
+}
+
+
 .brush .extent {
     fill-opacity: .3;
     stroke: #fff;

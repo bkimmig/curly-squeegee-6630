@@ -3,7 +3,7 @@
 // http://codepen.io/bishopsmove/pen/AlHmc
 
 
-TimeLineVis = function(_parentElement, _session) {
+TimeLineVis = function(_parentElement, _session, _eventHandler) {
 
     //copy global data to be visible to this function
     var self = this;
@@ -15,11 +15,13 @@ TimeLineVis = function(_parentElement, _session) {
         'imdbRating',
         'tomatoRating',
         'tomatoUserRating',
-        'imdbVotes'
+        'imdbVotes',
+        'tomatoUserRating',
+        'BoxOffice'
     ]
 
     self.parentElement = _parentElement;
-
+    self.eventHandler = _eventHandler;
     //Link movie data to timelineVis 'data'
     self.data = filterData(
         _session.get('actorMovies'), 
@@ -76,23 +78,7 @@ TimeLineVis.prototype.initVis = function () {
     var maxVotes = d3.max(self.data, function(d) { 
         return d.imdbVotes;
     });
-
-    console.log("Min Votes: ",minVotes);
-    console.log("Max Votes: ", maxVotes)
-
-   
- 
-
-    // d3.scale.ordinal()
-    //     .domain([minVotes, maxVotes])
-    //     .rangePoints([3,15]);
-
- // console.log(100,radScale(100))
- // console.log(5000,radScale(5000))
- // console.log(50000, radScale(50000))
- // console.log(60000,radScale(60000))
- // console.log(100000, radScale(100000))
- 
+    
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom")    
@@ -108,7 +94,6 @@ TimeLineVis.prototype.initVis = function () {
         .domain([minVotes, maxVotes])
         .range([3,25]);
 
-        // console.log("movine votes: ", self.data[13].imdbVotes)
     self.svg.selectAll(".dot")
             .data(self.data)
         .enter().append("circle")
@@ -129,7 +114,8 @@ TimeLineVis.prototype.initVis = function () {
             .classed("dot","true")
             .on("mouseover", mouseover)
             .on("mouseout", mouseout)
-            .on("mousemove", mousemove);
+            .on("mousemove", mousemove)
+            .on('click', click);
 
     //self.svg.call(tip);
     
@@ -207,6 +193,30 @@ TimeLineVis.prototype.initVis = function () {
 
     function mouseout() {
         div.style("display", "none");
+    }
+
+    function click(d) {
+        
+        evt = d3.select(d3.event.target);
+        
+        if (evt.attr('class') === 'dotselected'){
+            evt.attr("class", "dot");
+            self.eventHandler.selectionChanged([]);
+            return;
+        }
+
+        var circles = d3.select("#timelineVis")
+            .selectAll('circle')
+            .attr("class", "dot");
+
+        if (evt.attr('class') === 'dot'){
+            evt.attr("class", "dotselected");
+        } else {
+            evt.attr("class", "dot");
+        }
+
+        self.eventHandler.selectionChanged(d);
+
     }
 
     //Display Movie poster if one is available.  Otherwise, display default image

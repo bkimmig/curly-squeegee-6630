@@ -65,11 +65,24 @@ Template.results.rendered = function () {
 
     $('.navbar').show();
     
-    gv = new GenreVis(d3.selectAll('#genreVis'), Session);
-    pcv = new ParallelCoordVis(d3.selectAll('#parallelCoordVis'), Session);
-    tlv = new TimeLineVis(d3.selectAll('#timelineVis'), Session);
-    tmv = new TreeMapVis(d3.selectAll('#treemapVis'), Session);
-    // tmv = new TreeMapVis_(d3.selectAll('#treemapVis'), Session);    
-    //tlv = new  TimelineVis(d3.selectAll('#timelineVis'), Session);
+    var eventHandlerTL = d3.dispatch('selectionChanged');
+    var eventHandlerPC = d3.dispatch('selectionChanged');
 
+    gv = new GenreVis(d3.selectAll('#genreVis'), Session);
+    pcv = new ParallelCoordVis_(d3.selectAll('#parallelCoordVis'), Session, eventHandlerPC);
+    tlv = new TimeLineVis_(d3.selectAll('#timelineVis'), Session, eventHandlerTL);
+    tmv = new TreeMapVis(d3.selectAll('#treemapVis'), Session);
+    
+
+    eventHandlerTL.on('selectionChanged.clickInfo', 
+        function(args){
+            // console.log(args)
+            pcv.updateVis(args)
+        });
+
+    eventHandlerPC.on('selectionChanged.brushInfo', 
+        function(args){
+            // console.log(args)
+            tlv.updateVis(args)
+        });
 }

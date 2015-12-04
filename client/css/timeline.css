@@ -11,14 +11,33 @@
     font-size: 11px;
 } 
 
-.dot:hover {
-  fill: orangered;
-}
 .dot {
     fill: brown;
     stroke: black;
     stroke-width: 2px
     opacity: 0.4;
+}
+
+.dotselected {
+    fill: #bfff00;
+    stroke: black;
+    stroke-width: 2px
+    opacity: 0.4;
+}
+
+.dotselectedclick {
+    fill: #CE61FF;
+    stroke: black;
+    stroke-width: 2px
+    opacity: 0.4;
+}
+
+.dot:hover {
+  fill: orangered;
+}
+
+.dotselected:hover {
+  fill: orangered;
 }
 
 div.tooltip-tl { 
