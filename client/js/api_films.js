@@ -83,7 +83,7 @@ Template.searchApiFilms.events({
         // Router.go('/');
     },
     
-    'click footer': function(event, template){
+    'click .icons': function(event, template){
         event.preventDefault();
 
         var actors = [
