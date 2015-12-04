@@ -174,11 +174,18 @@ TimeLineVis.prototype.initVis = function () {
             .style("left", function() {
                 var xPos = d3.event.pageX;
                 if (xPos > width/2) {
-                    return (d3.event.pageX) - 275 + "px";
+                    return (d3.event.pageX) - 305 + "px";
                 }
-                return (d3.event.pageX) + "px";
+                return (d3.event.pageX - 30) + "px";
             })     
-            .style("top", (d3.event.pageY - 68) + "px");    
+            .style("top", function() {
+                var yPos = d3.event.pageY;
+                if (yPos > height - 10) {
+                   return (d3.event.pageY - 300) + "px" 
+
+                }
+                return (d3.event.pageY - 100) + "px"
+            });    
        
          //div.text("Title: " + d.Title)
           //      .style("left", (d3.event.pageX - 40) + "px")
