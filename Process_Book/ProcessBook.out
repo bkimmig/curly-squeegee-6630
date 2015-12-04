@@ -1,24 +1,23 @@
-\BOOKMARK [1][-]{section.1}{Editing notes}{}% 1
-\BOOKMARK [1][-]{section.2}{Project Background}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Motivation}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Intended Audience}{section.2}% 4
-\BOOKMARK [1][-]{section.3}{Data Collection}{}% 5
-\BOOKMARK [2][-]{subsection.3.1}{Data Processing}{section.3}% 6
-\BOOKMARK [2][-]{subsection.3.2}{Data Formatting}{section.3}% 7
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Only Visualizing Films}{subsection.3.2}% 8
-\BOOKMARK [3][-]{subsubsection.3.2.2}{Formatting numbers}{subsection.3.2}% 9
-\BOOKMARK [1][-]{section.4}{Project Interface}{}% 10
-\BOOKMARK [2][-]{subsection.4.1}{Landing Page}{section.4}% 11
-\BOOKMARK [3][-]{subsubsection.4.1.1}{Site Redesign}{subsection.4.1}% 12
-\BOOKMARK [2][-]{subsection.4.2}{Loading Page}{section.4}% 13
-\BOOKMARK [2][-]{subsection.4.3}{Results Page}{section.4}% 14
-\BOOKMARK [1][-]{section.5}{Visualizations}{}% 15
-\BOOKMARK [2][-]{subsection.5.1}{Actor Fact Box \205 Depricated}{section.5}% 16
-\BOOKMARK [2][-]{subsection.5.2}{Filmography Timeline}{section.5}% 17
-\BOOKMARK [2][-]{subsection.5.3}{Parallel Axis Coordinate Visualization}{section.5}% 18
-\BOOKMARK [2][-]{subsection.5.4}{Treemap Visualization of co-workers}{section.5}% 19
-\BOOKMARK [2][-]{subsection.5.5}{Genre Visualization}{section.5}% 20
-\BOOKMARK [1][-]{section.6}{Connected Views}{}% 21
-\BOOKMARK [1][-]{section.7}{Project Feedback}{}% 22
-\BOOKMARK [1][-]{section.8}{Team Evaluation}{}% 23
-\BOOKMARK [1][-]{section.9}{Future Work}{}% 24
+\BOOKMARK [1][-]{section.1}{Project Background}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Motivation}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Intended Audience}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{Data Collection}{}% 4
+\BOOKMARK [2][-]{subsection.2.1}{Data Processing}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.2}{Data Formatting}{section.2}% 6
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Only Visualizing Films}{subsection.2.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Formatting numbers}{subsection.2.2}% 8
+\BOOKMARK [1][-]{section.3}{Project Interface}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{Landing Page}{section.3}% 10
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Site Redesign}{subsection.3.1}% 11
+\BOOKMARK [2][-]{subsection.3.2}{Loading Page}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.3}{Results Page}{section.3}% 13
+\BOOKMARK [1][-]{section.4}{Visualizations}{}% 14
+\BOOKMARK [2][-]{subsection.4.1}{Actor Fact Box \205 Depricated}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.2}{Filmography Timeline}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.3}{Parallel Axis Coordinate Visualization}{section.4}% 17
+\BOOKMARK [2][-]{subsection.4.4}{Treemap Visualization of co-workers}{section.4}% 18
+\BOOKMARK [2][-]{subsection.4.5}{Genre Visualization}{section.4}% 19
+\BOOKMARK [1][-]{section.5}{Connected Views}{}% 20
+\BOOKMARK [1][-]{section.6}{Project Feedback}{}% 21
+\BOOKMARK [1][-]{section.7}{Team Evaluation}{}% 22
+\BOOKMARK [1][-]{section.8}{Future Work}{}% 23

@@ -41,27 +41,6 @@
 
 \newpage 
 
-\section{Editing notes}
-
-{\color{red}
-
-Depending on how thourough we want to be (and how much time we have for thoroughness) we could incorporate any of the talking points from the ``example" documents
-\begin{itemize}
-	\item \href{http://dataviscourse.net/2015/assets/process_books/bansal_cao_hou.pdf}{Real time audio visualization project - Soundscapes}
-	\item \href{http://dataviscourse.net/2015/assets/process_books/walsh_trevino_bett.pdf}{Oh Shit, earthquakes!}
-
-\end{itemize}
-
-Also:
-\begin{enumerate}
-	\item Explicit analysis on color choices, modes of comparison (length, hue, etc)
-	\item in-depth explanation of our  choice of design principles or encodings \textbackslash visual variables
-		\item Compile a bunch of good funny gifs we could use as loading images.  pick from them with a randomizer function.
-	
-\end{enumerate}
-}
-
-\newpage
 
 \section{Project Background}
 
@@ -148,15 +127,15 @@ talk about filter and utils functions?
 \newpage 
 
 \section{Project Interface}
-Due to our accelerated development schedule, we were able to move from sketch book to implementation very quickly. We brainstormed multiple views which could help answer the questions raised in section \ref{sec:Motivation} for a variety of actors.  We also sought to encourage user interactivity and re-use.  
+In building out project interface, we were able to move from sketch book to implementation very quickly due to our accelerated development schedule. We brainstormed multiple views to answer the questions raised in section \ref{sec:Motivation} and sought to encourage user interactivity and re-use by making these views applicable to any actor.  
 
 In the interest of time, we  decided on four views:  two main visualizations ( Actor Filmography and a Parallel Axis Chart) and two more easily implemented graphics -- an aggregte genre view, and tree map of common co-stars.
 
-The following subsections discuss the implementation and styling each interface, and how or why it evolved during the life of the project.  
+We discuss the implementation and styling of each interface in the following sections.
 
 \subsection{Landing Page}
 
-  Taking a cue from Google's clean and austere design, we wanted a plain front page with minimal clutter.
+  Taking a cue from Google's clean and austere design, we wanted a plain front page with minimal clutter:
   
 	\begin{figure}[h!]
 		\centering
@@ -180,19 +159,19 @@ The following subsections discuss the implementation and styling each interface,
  
 
 
-We added some explanatory text, realizing a new user would have no idea what they were presented with, and added some navigation bars for ease of moving around the pages. In this first iteration, the user has the choice to enter any actor.
+We added some explanatory text to inform users of what they are presented with, and include a navigation bar for ease of moving around the pages. In this first iteration, the user must input the actor they want to search for.  In the redesign (figure \ref{blackLandingPage}) we added an option to select from a list of popular actors.
 
-One feature of our use of API calls is that this approach is fairly robust against using alternate names.  Entries such as stage names, nick-names, and misspellings will return the most-similar actor, which is often times the desired result.  
+One serendipitous benefit of using our API calls is that this approach is fairly robust against alternate names and typographical errors.  Searching for actors based on their stage names, nick-names, (or thier misspellings) will return the most-similar actor. Often times the desired result.  
 
 One drawback is that there is currently no disambiguation to select between multiple actors with the same name.  The only choice is to search for a more exact version of the actor's name in the database.
 
 \subsubsection{Site Redesign}
 
 
-\begin{figure}\label{blackLandingPage}
+\begin{figure}
 \centering
 \includegraphics[scale=0.3]{images/landingBoxFinal.png}
-\caption{Final version of landing page.}
+\caption{Final version of landing page.}\label{blackLandingPage}
 \end{figure}
 
 
@@ -227,10 +206,10 @@ The style of the page is intentionally minimalistic, including a top navigation 
 Anatomy of Figure \ref{fig:resultsPage}:
 
 
-\begin{figure}\label{fig:resultsPage}
+\begin{figure}
 	\centering
 	\includegraphics[width = \textwidth]{images/resultsPage.png}
-	\caption{Results page layout}
+	\caption{Results page layout}\label{fig:resultsPage}
 \end{figure}
 
 
@@ -310,14 +289,14 @@ Despite this revision, we encountered several issues relating to bar sizing, spa
 \end{figure}\label{fig:xy}
 
 
-After realizing we were most interested in showing two values -- release date and rating, we saw this could be arranged as an ordered pair, and thus most effectively plotted on a cartesian grid.  Figure \ref{fig:xy} is a marked improvement over the earlier efforts to illustrate an actor's filmography.  in addition to spatial placement, we encoded the the popularity of a film as the size of its dot.  Here, popularity is determined by the number of votes it received on it's IMDB page.
+After realizing we were most interested in showing two values -- release date and rating, we saw this could be arranged as an ordered pair, and thus most effectively plotted on a cartesian grid.  Figure \ref{fig:xy} is a marked improvement over the earlier efforts to illustrate an actor's filmography.  In addition to spatial placement, we encoded the film popularity by its dot size.  Here, popularity is determined by the number of votes it received on its IMDB page.
 
-The XY plot naturally lends itself to an ordered ranking in each dimension, which can be quickly exploited by users to identify such information as : high and low ranked films, popular films, and any trend in the actor's career over time.  For example, figure \ref{fig:deniro} verifies the slight decline of  Robert DeNiro's film quality.
+We feel this view is especially effective as XY plots naturally lend themselves to ordered rankings in each dimension.  This is quickly used to identify information such as : high and low ranked films, popular films, and any trend in the actor's career over time.  For example, figure \ref{fig:deniro} verifies the steady decline of  Robert DeNiro's film quality throughout the 90's.
 
-\begin{figure}\label{fig:deniro}
+\begin{figure}
 	\centering
 	\includegraphics[width=.7\linewidth]{images/Deniro_timeline.png}
-				  \caption{Slump in the 90's.}
+				  \caption{Slump in the 90's.}\label{fig:deniro}
 \end{figure}
 
 \newpage 
@@ -403,24 +382,81 @@ The tree map supports one zoomable level, to drill down and see a list of the mo
 	\end{figure}
 
 	
-The GenreVis view (figure \ref{fig:genreVis}) was created to answer whether  an actor gets has been typecast, or to visualize the proportion of film genres they appear in.  
+The GenreVis view (figure \ref{fig:genreVis}) was created to visualize an actor's breadth of work or whether they are disproportionately cast one type of genre.  
 
-Each circle represents a unique film genre (Drama, family, comedy, etc.) which is viewable via mouse-hover text.  To create this view, we parsed every film genre lable in the actors filmography and added unique labels to an array.  We counted the number of times each label appeared, and sized the circles accordingly.  Films which had multiple or compound genres ('action thriller' or `romantic comedy' ) would count each descriptor towards the actors genre aggregate.
+In this view, each circle represents a unique film genre (Drama, family, comedy, etc.) which is viewable via mouse-hover text.  To create this view, we parsed every film genre lable in the actors filmography and added unique labels to an array.  We counted the number of times each label appeared, and sized the circles accordingly.  Films which had multiple or compound genres ('action thriller' or `romantic comedy' ) would count each descriptor towards the actors genre aggregate.
 
 
-\textbf{TODO: link views.}
+	\begin{figure}[h!]
+		\centering
+		\begin{subfigure}[t]{.5\textwidth}
+		  \centering
+		  \includegraphics[width=\linewidth]{images/HughGrantGenre.png}
+		  \caption{ Hugh Grant}
+		  \label{fig:HughGrantGenre}
+		\end{subfigure}%
+		\begin{subfigure}[t]{.8\textwidth}
+		  \centering
+		  \includegraphics[width=.7\linewidth]{images/ArnoldGenreVis.png}
+		  \caption{Ahnold}
+		  \label{fig:ArnoldGenre}
+		\end{subfigure}%
+		\caption{Genre visualization development}
+		\label{fig:CharacterGenreVis}
+	\end{figure}
+
 
 \newpage
 
 
 
 \section{Connected Views}
-To make this a fully interconnected visualization, we chose to connect views across the four visualizations.  Selecting films in the Filmography or Parallel axes views will highlight the corresponding entry in the other view.  Brushing in parallel axis view will highlight multiple films in the timeline.
+
+To make the main views more interactive, we used the broadcast model of event handling from homework 4 to connect our filmography and Parallel Axis Coordinates. Selecting films in the Filmography or Parallel axes views will highlight the corresponding entry in the other view.  Brushing in parallel axis view will highlight multiple films in the timeline (figures \ref{fig:filmToParallelHighlight}, 
+\ref{fig:parallelToFilmHighlight}).
 
 This is especially useful when applying multiple filters in the parallel axis coordinate view and seeing the highlighted distribution of films in the timeline graphic.
 
-Films brushed from the parallel axis plot.  We thought this functionality would help uncover any time trends with given film earnings, directors, etc.  Of course, any trends will be dependent on the selected actors.
+We thought this functionality would help uncover actor trends.  For instance, the bulk of Will Smith's highest grossing movies all occur in the 90's (figure \ref{fig:ptfhb} )time trends with given film earnings, directors, etc.  Of course, any trends will be dependent on the selected actors.
 
+\begin{figure}[h!]
+		\centering
+		\begin{subfigure}[t]{.5\textwidth}
+		  \centering
+		  \includegraphics[width=\linewidth]{images/TimelineSelection.png}
+		  \caption{User-selected movie from Will Smith's Filmography}
+		  \label{fig:ftpha}
+		\end{subfigure}%
+		\begin{subfigure}[t]{.8\textwidth}
+		  \centering
+		  \includegraphics[width=.7\linewidth]{images/pacHighlight.png}
+		  \caption{Also highlighted in the Parallel Connections View}
+		  \label{fig:ftphb}
+		\end{subfigure}%
+		\caption{Event-driven highlighting.  Selections from the Filmography are highlighted in the Parallel Connection view.}
+		\label{fig:filmToParallelHighlight}
+	\end{figure}
+
+
+	\begin{figure}[h!]
+		\centering
+		\begin{subfigure}[t]{.5\textwidth}
+		  \centering
+		  \includegraphics[width=\linewidth]{images/pacScrub.png}
+		  \caption{User-brushed selection from Parallel Connections view.}
+		  \label{fig:ptfha}
+		\end{subfigure}%
+		\begin{subfigure}[t]{.8\textwidth}
+		  \centering
+		  \includegraphics[width=.7\linewidth]{images/TimelinePacHighlight.png}
+		  \caption{Also highlighted in the Parallel Connections View}
+		  \label{fig:ptfhb}
+		\end{subfigure}%
+		\caption{Event-driven highlighting.  Selections from the Filmography are highlighted in the Parallel Connection view.}
+		\label{fig:parallelToFilmHighlight}
+	\end{figure}
+	
+	
 \newpage
 
 \section{Project Feedback} \label{sec:Projcet Feedback}
@@ -459,22 +495,30 @@ We both are excited at the direction this project could take with some more time
 
 \begin{enumerate}
 
-	\item Timeline View:
+	\item Timeline view:
 		\begin{itemize}
 			\item extend search to other roles (Director, etc.) and add a selector to change search query from visualizing filmography to other directorial roles, soundtrack, or other creative capacity.  
 			\item Allow support for searching and overlaying multiple actors. color the points and overlay them to compare the activity and success of multiple people.
 		\end{itemize}
 		
-	\item Parallel Axis View:
+	\item Parallel axis view
+		\begin{itemize}
+			\item Add different axes to filter against
+			\item Collect additional film data (perhaps from a separate source) to fill in Box office earings numbers which appear to be missing from a majority of the API calls.
+		\end{itemize}
 	
 	\item: Treemap view
 		\begin{itemize}
 			\item General cleanup  and exploring other shapes
+			\item Link view to highlight corresponding films in the Filmography Timeline
 		\end{itemize}
 
-	\item genre view
+	\item Genre view
 		\begin{itemize}
-			\item 
+			\item Create a legend for the various colors
+			\item Explore other methods of displaying this information (Bar charts?)
+			\item Label the dots directly
+			\item Link view to highlight corresponding films in the Filmography Timeline
 		\end{itemize}
 	\item Additional views
 		\begin{itemize}

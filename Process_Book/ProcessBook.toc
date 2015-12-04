@@ -1,24 +1,23 @@
-\contentsline {section}{\numberline {1}Editing notes}{4}{section.1}
-\contentsline {section}{\numberline {2}Project Background}{5}{section.2}
-\contentsline {subsection}{\numberline {2.1}Motivation}{5}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Intended Audience}{5}{subsection.2.2}
-\contentsline {section}{\numberline {3}Data Collection}{6}{section.3}
-\contentsline {subsection}{\numberline {3.1}Data Processing}{6}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Data Formatting}{7}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Only Visualizing Films}{7}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Formatting numbers}{7}{subsubsection.3.2.2}
-\contentsline {section}{\numberline {4}Project Interface}{8}{section.4}
-\contentsline {subsection}{\numberline {4.1}Landing Page}{8}{subsection.4.1}
-\contentsline {subsubsection}{\numberline {4.1.1}Site Redesign}{9}{subsubsection.4.1.1}
-\contentsline {subsection}{\numberline {4.2}Loading Page}{9}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Results Page}{10}{subsection.4.3}
-\contentsline {section}{\numberline {5}Visualizations}{12}{section.5}
-\contentsline {subsection}{\numberline {5.1}Actor Fact Box -- Depricated}{12}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Filmography Timeline}{13}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Parallel Axis Coordinate Visualization}{15}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}Treemap Visualization of co-workers}{16}{subsection.5.4}
-\contentsline {subsection}{\numberline {5.5}Genre Visualization}{17}{subsection.5.5}
-\contentsline {section}{\numberline {6}Connected Views}{18}{section.6}
-\contentsline {section}{\numberline {7}Project Feedback}{19}{section.7}
-\contentsline {section}{\numberline {8}Team Evaluation}{20}{section.8}
-\contentsline {section}{\numberline {9}Future Work}{21}{section.9}
+\contentsline {section}{\numberline {1}Project Background}{4}{section.1}
+\contentsline {subsection}{\numberline {1.1}Motivation}{4}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Intended Audience}{4}{subsection.1.2}
+\contentsline {section}{\numberline {2}Data Collection}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}Data Processing}{5}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Data Formatting}{6}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Only Visualizing Films}{6}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Formatting numbers}{6}{subsubsection.2.2.2}
+\contentsline {section}{\numberline {3}Project Interface}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}Landing Page}{7}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Site Redesign}{8}{subsubsection.3.1.1}
+\contentsline {subsection}{\numberline {3.2}Loading Page}{8}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Results Page}{9}{subsection.3.3}
+\contentsline {section}{\numberline {4}Visualizations}{11}{section.4}
+\contentsline {subsection}{\numberline {4.1}Actor Fact Box -- Depricated}{11}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Filmography Timeline}{12}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Parallel Axis Coordinate Visualization}{14}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Treemap Visualization of co-workers}{15}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Genre Visualization}{16}{subsection.4.5}
+\contentsline {section}{\numberline {5}Connected Views}{17}{section.5}
+\contentsline {section}{\numberline {6}Project Feedback}{18}{section.6}
+\contentsline {section}{\numberline {7}Team Evaluation}{20}{section.7}
+\contentsline {section}{\numberline {8}Future Work}{21}{section.8}
