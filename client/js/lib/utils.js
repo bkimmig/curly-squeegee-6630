@@ -65,7 +65,8 @@ filterData = function(movieData, keys) {
                         var tmpVotes = movie[key].toString();
                          //console.log(x, x.indexOf(","))   
                         if(tmpVotes.indexOf(",") > -1){
-                             movie[key] = parseFloat(tmpVotes.replace(',', ''));
+                             // movie[key] = parseFloat(tmpVotes.replace(',', ''));
+                             movie[key] = parseFloat(tmpVotes.replace(/,/g, ""));                             
                         }
                     }
                 }
