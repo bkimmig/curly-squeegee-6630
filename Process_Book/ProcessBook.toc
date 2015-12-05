@@ -19,5 +19,5 @@
 \contentsline {subsection}{\numberline {4.5}Genre Visualization}{15}{subsection.4.5}
 \contentsline {section}{\numberline {5}Connected Views}{16}{section.5}
 \contentsline {section}{\numberline {6}Project Feedback}{17}{section.6}
-\contentsline {section}{\numberline {7}Team Evaluation}{18}{section.7}
-\contentsline {section}{\numberline {8}Future Work}{19}{section.8}
+\contentsline {section}{\numberline {7}Team Evaluation}{19}{section.7}
+\contentsline {section}{\numberline {8}Future Work}{20}{section.8}

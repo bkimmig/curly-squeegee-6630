@@ -80,13 +80,15 @@ Our original design goals always envisioned this as an interactive web-based too
 
 	In order to build such an actor database we explored several film-related API's.  After some searching, we discovered the majority were poorly populated, did not have the data we wanted, or charged for use.  Luckily, we were able to identify two options which allowed us to proceed: \href{http://api.myapifilms.com/index.do}{My API Films} and \href{http://www.omdbapi.com/}{Open Movie Database}. 
 	
-	Using Node.js and Meteor\textbackslash MongoDV, we implement s a RESTful architecture to gather API calls via GET requests. These returns are formatted in JSON and stored in a MongoDB database. This dataset is fairly dynamic since we rely on user queries to pull the necessary information from the APIs.
+	% Using Node.js and the Meteor web-framework \textbackslash MongoDV, we implement s a RESTful architecture to gather API calls via GET requests. These returns are formatted in JSON and stored in a MongoDB database. This dataset is fairly dynamic since we rely on user queries to pull the necessary information from the APIs.
 
-	
-	\begin{center}
-	\color{blue}
-	\textbf{Do we want to have a breakdown or description of the API call, data retrieval, and database storage? }
-	\end{center}
+	We used Node.js and the Meteor web-framework to set up our website. We use the RESTful framework to make requests to the APIs that have the data (OMDB, My API films). These requests are then stored in a MongoDB database. We created two collections, the first being 'Actors' and the second, 'Movies'. The actors are the related to the movies by the imdbID. Each actor has a list of imdbIDs associated with him/her. We use the IDs to gather their movies. By checking for the imdbID in our DB before making a request to the API we can avoid storing multiples of the same movie.
+
+
+	% \begin{center}
+	% \color{blue}
+	% \textbf{Do we want to have a breakdown or description of the API call, data retrieval, and database storage? }
+	% \end{center}
 	
 \subsection{Data Processing}
 	Minimal data processing was required beyond defining and populating our data structures.  The returned API requests are returned in JSON format, so there is little clean-up beyond string formatting (for names and numerals), and logic for handling missing data.  
@@ -113,27 +115,47 @@ Our original design goals always envisioned this as an interactive web-based too
 
 \subsection{Data Formatting}
 
-talk about filter and utils functions?
+    The data came in JSON format but there were not values for every field we wanted to use. For this we implemented the function 'filterData' in utils.js to remove and format the data. For instance, we needed to convert the box office data to a numerical value. We therefore had to parse a string that looked like the following.
+    
+    \begin{verbatim}
+        $1.1M or $1.1k
+    \end{verbatim}
+
+    We also chose to set fields that were not available to 0, making each data set have the same type, and allowing us to plot them all using the same scale. Below are the major types of data formatting we performed.
+
+    \begin{itemize}
+        \item Remove NA from votes
+        \item removing commas from votes
+        \item formatting years
+    \end{itemize}
+
+
+    Movies that were not yet released were removed from the visualizations because they have no data, besides title/cast, to display.
+
+
 \subsubsection{Only Visualizing Films}
+
+    There is a plethora of data returned to us via the API, for this project we chose to ignore items like television shows, soundtracks and directing. These features could one day be added to Curly Squeegee but for now we found that it was a major task. Therefore we limited the scope of the project to movies.
+
 	
-	\begin{itemize}
-			\item Mention Tom waits case where his most popular work was soundtracks
-			\item Talk about formatting for films which are currently released (and therefore have data/votes).
-	\end{itemize}
+	% \begin{itemize}
+	% 		\item Mention Tom waits case where his most popular work was soundtracks
+	% 		\item Talk about formatting for films which are currently released (and therefore have data/votes).
+	% \end{itemize}
 	
-\subsubsection{Formatting numbers}
+% \subsubsection{Formatting numbers}
 	
-	\begin{itemize}
-		\item Remove NA from votes
-		\item removing commas from votes
-		\item formatting years
-	\end{itemize}
+% 	\begin{itemize}
+% 		\item Remove NA from votes
+% 		\item removing commas from votes
+% 		\item formatting years
+% 	\end{itemize}
 
 
 \newpage 
 
 \section{Project Interface}
-In building out project interface, we were able to move from sketch book to implementation very quickly due to our accelerated development schedule. We brainstormed multiple views to answer the questions raised in section \ref{sec:Motivation} and sought to encourage user interactivity and re-use by making these views applicable to any actor.  
+In building out the project interface, we were able to move from sketch book to implementation very quickly due to our accelerated development schedule. We brainstormed multiple views to answer the questions raised in section \ref{sec:Motivation} and sought to encourage user interactivity and re-use by making these views applicable to any actor.  
 
 In the interest of time, we  decided on four views:  two main visualizations ( Actor Filmography and a Parallel Axis Chart) and two more easily implemented graphics -- an aggregte genre view, and tree map of common co-stars.
 
