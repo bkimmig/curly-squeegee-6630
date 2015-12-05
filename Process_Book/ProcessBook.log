@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  4 DEC 2015 17:05
+=======
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.8.27)  4 DEC 2015 16:03
+>>>>>>> 37280d53328b9b273591d89b673172fdf482da0d
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -678,11 +682,21 @@ Overfull \hbox (46.97835pt too wide) in paragraph at lines 451--463
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+<<<<<<< HEAD
 [16] [17] [18] [19]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 537.
  [20]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 537.
  (./ProcessBook.aux)
+=======
+[16 <./images/TimelineSelection.png> <./images/pacHighlight.png>] [17 <./images
+/pacScrub.png> <./images/TimelinePacHighlight.png>] [18]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 537.
+ [19]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 537.
+
+(./ProcessBook.aux)
+>>>>>>> 37280d53328b9b273591d89b673172fdf482da0d
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 537.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 537.
 Package rerunfilecheck Info: File `ProcessBook.out' has not changed.
@@ -701,6 +715,7 @@ Here is how much of TeX's memory you used:
  50958 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,9n,38p,819b,472s stack positions out of 5000i,500n,10000p,200000b,80000s
+<<<<<<< HEAD
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/loca
 l/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/
 2015/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2015/texmf
@@ -714,6 +729,17 @@ mf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2015/texmf-dist/fo
 nts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
 public/lm/lmtt12.pfb>
 Output written on ProcessBook.pdf (20 pages, 4176387 bytes).
+=======
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
+c/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}</usr/s
+hare/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/publi
+c/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/
+texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/l
+mr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fo
+nts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.p
+fb>
+Output written on ProcessBook.pdf (19 pages, 4412627 bytes).
+>>>>>>> 37280d53328b9b273591d89b673172fdf482da0d
 PDF statistics:
  318 PDF objects out of 1000 (max. 8388607)
  267 compressed objects within 3 object streams
