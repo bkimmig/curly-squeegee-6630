@@ -26,6 +26,16 @@ All visualization code lives in
 
 In the directory above that we specify all of our views.
 
+In particular the views implemented in the site are
+    
+    $ client/js/lib/genrevis.js
+    $ client/js/lib/parallelcorords_.js
+    $ client/js/lib/timelinevis_.js
+    $ client/js/lib/treemapvis.js
+
+While the other files contain different versions of the views that we did not use.
+
+
 ### Data Collection Code
 This code lives in 
     
