@@ -5,7 +5,6 @@
 \contentsline {subsection}{\numberline {2.1}Data Processing}{5}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Data Formatting}{6}{subsection.2.2}
 \contentsline {subsubsection}{\numberline {2.2.1}Only Visualizing Films}{6}{subsubsection.2.2.1}
-\contentsline {subsubsection}{\numberline {2.2.2}Formatting numbers}{6}{subsubsection.2.2.2}
 \contentsline {section}{\numberline {3}Project Interface}{7}{section.3}
 \contentsline {subsection}{\numberline {3.1}Landing Page}{7}{subsection.3.1}
 \contentsline {subsubsection}{\numberline {3.1.1}Site Redesign}{7}{subsubsection.3.1.1}
@@ -19,5 +18,5 @@
 \contentsline {subsection}{\numberline {4.5}Genre Visualization}{15}{subsection.4.5}
 \contentsline {section}{\numberline {5}Connected Views}{16}{section.5}
 \contentsline {section}{\numberline {6}Project Feedback}{17}{section.6}
-\contentsline {section}{\numberline {7}Team Evaluation}{19}{section.7}
-\contentsline {section}{\numberline {8}Future Work}{20}{section.8}
+\contentsline {section}{\numberline {7}Team Evaluation}{18}{section.7}
+\contentsline {section}{\numberline {8}Future Work}{19}{section.8}
