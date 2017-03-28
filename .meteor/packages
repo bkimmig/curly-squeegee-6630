@@ -28,3 +28,4 @@ pauldowman:dotenv
 standard-minifier-css
 standard-minifier-js
 shell-server
+babel-runtime
