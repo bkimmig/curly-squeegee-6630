@@ -65,7 +65,6 @@ Template.searchApiFilms.events({
         Session.set('actor', actor);
 
         loadingEvent('start');
-
         Meteor.call('apiFilmsByName2', actor,
             function(error,result) {
                 if(error) {

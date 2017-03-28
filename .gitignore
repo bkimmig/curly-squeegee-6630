@@ -5,3 +5,5 @@
 
 *.aux
 Process_Book/landingBoxfinal.png.aux
+
+node_modules/*
