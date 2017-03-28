@@ -35,7 +35,7 @@ getApiFilmsData = function (actor_name, callback) {
     var checkActor = Actors.find({lowerActorName: actorNameLower}).fetch();
     if(checkActor.length === 0) {
         var request = Meteor.http.get(url);
-        var names = request.data.names;
+        var names = request.data.data.names
         names[0].lowerActorName = actorNameLower;
         Actors.insert(names);
         
@@ -59,7 +59,7 @@ getApiFilmsData = function (actor_name, callback) {
     var movies=[];
 
     for (var i=0; i<getMovies.length; i++){
-        var movie = getOmdbFilmData(getMovies[i].IMDBId)
+        var movie = getOmdbFilmData(getMovies[i].imdbid)
         movies.push(movie);
     }
     console.log('Done Getting Movies....');
