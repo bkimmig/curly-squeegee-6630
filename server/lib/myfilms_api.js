@@ -32,12 +32,13 @@ getApiFilmsData = function (actor_name, callback) {
         + token
         + apiFilmsBaseNameSetting);
     var actorNameLower = actor_name.split("+").join("").toLowerCase();
-    var checkActor = Actors.find({lowerActorName:actorNameLower}).fetch();
+    console.log(url);
+    // var checkActor = Actors.find({lowerActorName:actorNameLower}).fetch();
+    var checkActor = [];
     console.log(checkActor);
-    if(checkActor.length===0) {
+    if(checkActor.length === 0) {
         var request = Meteor.http.get(url);
-        
-        request.data.lowerActorName=actorNameLower;
+        request.data.lowerActorName = actorNameLower;
         Actors.insert(request.data);
         
         var actor = request.data;
