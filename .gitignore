@@ -12,3 +12,5 @@ Process_Book/*.log
 Process_Book/*.out
 
 .env
+
+node_modules/*
