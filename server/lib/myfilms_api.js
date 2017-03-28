@@ -35,10 +35,9 @@ getApiFilmsData = function (actor_name, callback) {
     
     if(checkActor.length === 0) {
         var request = Meteor.http.get(url);
-        names = request.data.names
-        console.log(names)
-        names.lowerActorName = actorNameLower;
-        // Actors.insert(request);
+        var names = request.data.data.names
+        names[0].lowerActorName = actorNameLower;
+        Actors.insert(names);
         
         // var actor = request.data;
         var actor = names;
@@ -47,6 +46,7 @@ getApiFilmsData = function (actor_name, callback) {
     }
     //console.log(actor.filmographies);
     var filmog = actor[0].filmographies
+    var getMovies = [];
     for(var i=0; i<filmog.length; i++) {
         console.log(filmog[i])
         if (filmog[i].section === "Actor" || filmog[i].section === "Actress") {
@@ -60,7 +60,7 @@ getApiFilmsData = function (actor_name, callback) {
     var movies=[];
 
     for (var i=0; i<getMovies.length; i++){
-        var movie = getOmdbFilmData(getMovies[i].IMDBId)
+        var movie = getOmdbFilmData(getMovies[i].imdbid)
         movies.push(movie);
     }
     console.log('Done Getting Movies....');

@@ -10,6 +10,7 @@ var omdbFilmsBaseNameSetting = (
 getOmdbFilmData = function (film_id) {
     var url = omdbFilmsBaseUrl + "?i=" + film_id + omdbFilmsBaseNameSetting;
 
+    console.log(url);
     // put it in the mongo db
     var checkMovie = Movies.find({imdbID:film_id}).fetch();
 
