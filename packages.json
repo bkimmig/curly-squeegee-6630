@@ -1,0 +1,14 @@
+{
+  "name": "curly-squeegee",
+  "engines": {
+    "node": "6.9.2",
+    "npm": "3.10.9"
+  },
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.20.0",
+    "meteor-node-stubs": "~0.2.0"
+  }
+}
