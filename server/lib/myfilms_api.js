@@ -1,26 +1,26 @@
 
 
-var apiFilmsBaseUrl = "http://www.myapifilms.com/imdb";
+var apiFilmsBaseUrl = "http://www.myapifilms.com/imdb/idIMDB";
 var token = process.env.API_FILMS_TOKEN;
 
 var apiFilmsBaseNameSetting = (
-        "&format=JSON" +
-        "&filmography=1" + 
-        "&limit=1" +
-        "&lang=en-us" +
-        "&exactFilter=0" +
-        "&bornDied=0" +
-        "&starSign=0" +
-        "&uniqueName=0" +
-        "&actorActress=0" +
-        "&actorTrivia=0" +
-        "&actorPhotos=N" +
-        "&actorVideos=N" +
-        "&salary=1" +
-        "&spouses=1" +
-        "&tradeMark=0" +
-        "&personalQuotes=0" +
-        "&starMeter=0"
+        "&format=json" +
+        "&filmography=1" 
+        // "&limit=1" +
+        // "&lang=en-us" +
+        // "&exactFilter=0" +
+        // "&bornDied=0" +
+        // "&starSign=0" +
+        // "&uniqueName=0" +
+        // "&actorActress=0" +
+        // "&actorTrivia=0" +
+        // "&actorPhotos=N" +
+        // "&actorVideos=N" +
+        // "&salary=1" +
+        // "&spouses=1" +
+        // "&tradeMark=0" +
+        // "&personalQuotes=0" +
+        // "&starMeter=0"
 );
 
 getApiFilmsData = function (actor_name, callback) {
@@ -32,16 +32,14 @@ getApiFilmsData = function (actor_name, callback) {
         + token
         + apiFilmsBaseNameSetting);
     var actorNameLower = actor_name.split("+").join("").toLowerCase();
-    console.log(url);
-    // var checkActor = Actors.find({lowerActorName:actorNameLower}).fetch();
-    var checkActor = [];
-    console.log(checkActor);
+    var checkActor = Actors.find({lowerActorName: actorNameLower}).fetch();
     if(checkActor.length === 0) {
         var request = Meteor.http.get(url);
-        request.data.lowerActorName = actorNameLower;
-        Actors.insert(request.data);
+        var names = request.data.names;
+        names[0].lowerActorName = actorNameLower;
+        Actors.insert(names);
         
-        var actor = request.data;
+        var actor = names;
     } else {
             var actor = checkActor[0];
     }
