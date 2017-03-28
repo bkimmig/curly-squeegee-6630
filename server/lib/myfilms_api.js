@@ -59,7 +59,7 @@ getApiFilmsData = function (actor_name, callback) {
     var movies=[];
 
     for (var i=0; i<getMovies.length; i++){
-        var movie = getOmdbFilmData(getMovies[i].imdbid)
+        var movie = getOmdbFilmData(getMovies[i].IMDBId)
         movies.push(movie);
     }
     console.log('Done Getting Movies....');
